@@ -3,21 +3,16 @@
 @section('content')
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
-        <h3><i class="fas fa-list me-2"></i>Daftar Kategori</h3>
+        <h3><i class="fas fa-tags me-2"></i>Categories</h3>
         <a href="{{ route('categories.create') }}" class="btn btn-primary">
-            <i class="fas fa-plus me-1"></i>Tambah Kategori
+            <i class="fas fa-plus me-1"></i>Create New Category
         </a>
     </div>
     <div class="card-body">
-
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
         @if ($categories->isEmpty())
-            <p>Tidak ada kategori tersedia.</p>
+            <div class="alert alert-info">
+                No categories found. Click the "Create New Categories" button to add one.
+            </div>
         @else
             <table class="table table-bordered">
                 <thead>
