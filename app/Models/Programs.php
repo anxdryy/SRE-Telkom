@@ -3,21 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
 class Programs extends Model
 {
-    use HasFactory;
+    use HasUuids;
 
-    protected $fillable = [
-        'title',
-        'desc',
-        'image',
-        'category_id',
-    ];
+    protected $fillable = ['title', 'desc', 'image', 'category_id'];
 
-    public function category()
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(Categories::class);
+        return $this->belongsTo(Category::class);
     }
 }
