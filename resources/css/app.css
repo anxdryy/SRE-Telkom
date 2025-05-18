@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font-redhat {
+    font-family: 'Red Hat Display', sans-serif;
+}
+.font-redhattext {
+    font-family: 'Red Hat Text', sans-serif;
+}
+.font-onest {
+    font-family: 'Onest', sans-serif;
+}

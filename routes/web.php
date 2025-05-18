@@ -6,11 +6,8 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProgramsController;
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
-});
-Route::get('/Home', function () {
-    return view('test');
 });
 
 Route::resource('departments', DepartmentController::class);
@@ -19,7 +16,7 @@ Route::resource('categories', CategoriesController::class);
 Route::resource('programs', ProgramsController::class);
 // resource = create all routes
 
-Route::get('/aboutUs', function () {
+Route::get('/AboutUs', function () {
     return view('aboutus');
 });
 
@@ -27,8 +24,8 @@ Route::get('/Departement', function () {
     return view('departement');
 });
 
-Route::get('/Program', function () {
-    return view('program');
+Route::get('/Activity', function () {
+    return view('activity');
 });
 
 Route::get('/Research', function () {

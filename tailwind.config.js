@@ -12,7 +12,9 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                redhat: ["Red Hat Display", "Merriweather Sans"],
+                redhat: ["Red Hat Display", 'sans-serif'],
+                onest: ["Onest", 'sans-serif'],
+                mw: ["Merriweather", 'sans-serif']
             },
         },
     },

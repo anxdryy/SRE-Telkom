@@ -6,110 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
     <title>SRE Telkom University</title>
 
 </head>
 
+<style>
+    .font-redhat {
+            font-family: 'Red Hat Display', sans-serif;
+        }
+    .font-redhattext {
+            font-family: 'Red Hat Text', sans-serif;
+        }
+    .font-onest {
+            font-family: 'Onest', sans-serif;
+        }
+</style>
+
 <body class="min-h-screen">
-    <!-- Navbar -->
-    <nav class="absolute top-8 left-0 w-full flex justify-between items-center px-12 text-white z-40">
-        <div id="logo" class="flex items-center font-bold ml-8">
-            <img src="images/logo2.png" alt="SRE Logo" class="h-24 mr-2">
-        </div>
+    <div class="relative h-[100vh] bg-cover bg-center" style="background-image: url('images/absbg.png')">
+        @include('partials.othernavbar');
 
-        <!-- Hamburger Button -->
-        <button id="hamburgerButton" class="md:hidden text-black text-2xl focus:outline-none ml-4">
-            <i class="fas fa-bars"></i>
-        </button>
-
-        <!-- Desktop Nav -->
-        <ul id="navbar" class="hidden md:flex text-black space-x-4 lg:space-x-12 text-lg uppercase items-center">
-            <li><a href="/Home" class="hover:text-green-500">Home</a></li>
-            <span class="ml-2 hidden md:inline">|</span>
-            <li><a href="#" class="hover:text-green-500">About Us</a></li>
-            <span class="ml-2 hidden md:inline">|</span>
-            <li class="relative">
-                <button id="desktopDropdownButton" class="hover:text-green-500 uppercase focus:outline-none">Programs</button>
-                <ul id="desktopDropdownMenu" class="hidden absolute bg-white text-black mt-2 w-30 py-2 shadow-lg rounded-lg">
-                    <li><a href="/Program" class="block px-1 py-2 hover:bg-gray-200">Activity</a></li>
-                    <li><a href="/Research" class="block px-1 py-2 hover:bg-gray-200">Research</a></li>
-                    <li><a href="/Competition" class="block px-1 py-2 hover:bg-gray-200">Competition</a></li>
-                </ul>
-            </li>
-
-        </ul>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 bg-white/70  pt-20 px-4 hidden z-40">
-        <ul class="space-y-6 text-2xl">
-            <li><a href="/Home" class="block py-3 border-b border-gray-200 hover:text-green-500">Home</a></li>
-            <li><a href="#" class="block py-3 border-b border-gray-200 hover:text-green-500">About Us</a></li>
-            <li class="relative">
-                <button id="mobileDropdownBtn"
-                    class="block py-3 border-b border-gray-200 w-full text-left hover:text-green-500">Programs <i
-                        class="fas fa-chevron-down float-right mt-1"></i></button>
-                <ul id="mobileDropdown" class="hidden pl-4 space-y-3 mt-2">
-                    <li><a href="/Program" class="block py-2 hover:text-green-500">Activity</a></li>
-                    <li><a href="/Research" class="block py-2 hover:text-green-500">Research</a></li>
-                    <li><a href="/Competition" class="block py-2 hover:text-green-500">Competition</a></li>
-                </ul>
-            </li>
-        </ul>
+        <section class="text-center mt-32 md:mt-32 pt-10">
+            <h2 class="text-gray-600 mt-8 text-2xl">About Us</h2>
+            <h1 class="text-3xl md:text-4xl font-semibold">SRE Telkom University</h1>
+        </section>
     </div>
-
-    <section class="text-center mt-32 md:mt-28 py-10">
-        <h2 class="text-gray-600 text-2xl">About Us</h2>
-        <h1 class="text-3xl md:text-4xl font-semibold">SRE Telkom University</h1>
-    </section>
-
-    <section class="relative flex flex-col md:flex-row justify-center items-center py-10 gap-10">
-    <!-- Elevate -->
-    <div class="flex items-center text-center rotate-0 md:absolute md:left-[222px] md:top-[-40px] md:ml-56 md:rotate-[5.08deg]">
-        <img src="images/Group 59.png" class="w-[120px] h-[120px] md:w-[180px] md:h-[180px]">
-        <p class="font-bold ml-2 text-xl md:ml-4 md:text-2xl md:rotate-[-5.08deg]">Elevate</p>
-    </div>
-
-    <!-- Innovate -->
-    <div class="flex items-center text-center rotate-0 md:scale-100 md:rotate-[-7.26deg] md:absolute md:top-[290px] md:-mt-48 md:-ml-[850px]">
-    <img src="images/lampu.png" class="w-[200px] h-[280px] md:w-[380px] md:h-[350px] max-w-full max-h-full">
-    <p class="font-bold ml-2 mt-20 text-xl md:mt-28 md:text-2xl md:rotate-[7.08deg]">Innovate</p>
-</div>
-
-    <!-- Energize -->
-    <div class="flex items-center text-center rotate-0 md:absolute md:right-[340px] md:-top-[90px] md:mt-36">
-        <p class="font-bold mr-2 text-xl md:mr-4 md:text-2xl">Energize</p>
-        <img src="images/Group 45.png" class="w-[140px] h-[130px] md:w-[240px] md:h-[220px]">
-    </div>
-</section>
-
-
+        
     <!-- About SRE-TelU tetap di bawah -->
-    <section class="relative bg-green-900 text-white text-center p-6 md:p-10 mt-10 md:mt-72 z-10">
-        <h2 class="font-bold text-2xl md:text-3xl">About SRE-TelU</h2>
-        <p class="mt-6 text-lg md:text-3xl text-justify  text-gray-200 max-w-14xl">
+    <section class="relative bg-[#104334] text-white text-center p-3 md:p-10 mt-10 md:mt-72 z-10">
+        <div class="my-16">
+        <h2 class="font-bold font-redhat text-2xl md:text-3xl">About SRE-TelU</h2>
+       <div class="flex justify-center">
+       <p class="font-redhattext mt-6 text-justify justify-center text-2xl md:text-2xl  text-gray-200 max-w-[85%]">
             Founded in 2021, SRE Tel-U SRE Telkom University is one of the student chapters of the Society of Renewable
             Energy, based in Bandung. Our focus extends beyond renewable energy, emphasizing community empowerment and
             environmental sustainability through education, innovation, and collaboration.
         </p>
+       </div>
         <button id="scrollDownButton" class="mt-12">
             <svg class="w-8 h-8 text-white animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
         </button>
+        </div>
     </section>
 
     <section id="vision" class="text-center py-10 px-4 md:px-0">
         <!-- Vision -->
         <div class="text-center">
-            <h2 class="text-[#104334] text-2xl md:text-3xl font-bold flex justify-center items-center">
+            <div class="flex justify-center gap-4">
+            <h2 class="text-[#104334] tracking-wider font-redhat text-2xl md:text-3xl font-black flex justify-center items-center">
                 VISION
-                <span class="inline-block ml-2">
-                    <img src="images/leaf.png" alt="Leaf Icon" class="w-6 h-6">
-                </span>
             </h2>
-            <p class="mt-4 max-w-3xl mx-auto text-gray-700 text-base md:text-lg">
+                    <img src="images/leaf.png" alt="Leaf Icon" class="mt-2 w-6 h-6">
+
+            </div>
+            <p class="mt-4 max-w-[60%] mx-auto font-redhattext text-black font-[40%] text-2xl">
                 SRE Telkom University as a developmental organization that empowers the youth in the field of New
                 Renewable Energy (NRE) through collaborative projects, empowered members, and impactful initiatives to
                 deliver sustainable contributions to society
@@ -117,15 +73,19 @@
         </div>
 
         <!-- Mission -->
-        <h2 class="text-[#104334] text-2xl md:text-3xl font-bold mt-10">MISSION <span class="inline-block ml-2">
-                <img src="images/tree.png" alt="Leaf Icon" class="w-6 h-6">
-            </span>
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-6">
+        <div class="text-center m-12 mb-8">
+            <div class="flex justify-center gap-4">
+            <h2 class="text-[#104334] tracking-wider font-redhat text-2xl md:text-3xl font-black flex justify-center items-center">
+                MISSION
+            </h2>
+                    <img src="images/vector_tree.png" alt="Tree Icon" class="mt-2 w-6 h-6">
+
+            </div>
+            <div class="font-redhattext grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-6 font-[40%]">
             <!-- Box 1 -->
             <div class="border-4 border-[#21735B] rounded-2xl p-4 md:p-6 text-center">
                 <p class="text-gray-700 text-base md:text-lg">
-                    <strong class="text-[#104334] text-lg md:text-xl">Empowering</strong> Youth collaborations, discussions, and
+                    <strong class="text-[#104334] text-xl md:text-xl">Empowering</strong> Youth collaborations, discussions, and
                     improvement to be involved in Renewable Energy Sustainability program.
                 </p>
             </div>
@@ -159,80 +119,82 @@
 
     <section class="text-center py-10 px-4 md:px-0">
         <!-- Garis di atas judul -->
-        <div class="w-[250px] md:w-[500px] border-t-2 border-[#104334] mx-auto mb-2"></div>
+        <div class="w-[250px] md:w-[500px] border-t-4 border-[#104334] mx-auto mb-12"></div>
 
         <!-- Judul -->
-        <h2 class="text-xl md:text-2xl font-semibold">
-            Meet Our <span class="text-green-600 font-bold">Core Team</span>
+        <h2 class="text-2xl md:text-3xl font-bold">
+            Meet Our <span class="text-[#104334] font-bold">Core Team</span>
         </h2>
 
         <!-- Grid Segitiga (2-3-4-5) -->
-        <div class="flex flex-col items-center mt-8 space-y-6">
+        <div class="flex flex-col items-center mt-8 space-y-6 font-redhat">
             <!-- Row 1 (2 orang) -->
-            <div class="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
+            <div class="flex flex-col gap-10 md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
                 <div class="flex flex-col items-center">
                     <img src="images/sre.jpeg"
-                        class="w-48 md:w-60 h-60 md:h-72 rounded-lg shadow-lg object-cover border-4 border-[#21735B]">
-                    <p class="font-semibold mt-2">Fajar Dwitama</p>
-                    <p class="text-sm font-bold text-green-900">President SRE</p>
+                        class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
+                    <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
+                    <p class="text-lg font-bold text-green-900">President SRE</p>
                 </div>
                 <div class="flex flex-col items-center">
                     <img src="images/sre.jpeg"
-                        class="w-48 md:w-60 h-60 md:h-72 rounded-lg shadow-lg object-cover border-4 border-[#21735B]">
-                    <p class="font-semibold mt-2">Fajar Dwitama</p>
-                    <p class="text-sm font-bold text-green-900">President SRE</p>
+                        class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
+                    <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
+                    <p class="text-lg font-bold text-green-900">President SRE</p>
                 </div>
             </div>
 
             <!-- Row 2 (3 orang) -->
-            <div class="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
+            <div class="flex flex-col font-redhat gap-10 md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
                 <div class="flex flex-col items-center">
                     <img src="images/sre.jpeg"
-                        class="w-48 md:w-60 h-60 md:h-72 rounded-lg shadow-lg object-cover border-4 border-[#21735B]">
-                    <p class="font-semibold mt-2">Fajar Dwitama</p>
-                    <p class="text-sm font-bold text-green-900">President SRE</p>
+                        class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
+                    <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
+                    <p class="text-lgfont-bold text-green-900">President SRE</p>
                 </div>
                 <div class="flex flex-col items-center">
                     <img src="images/sre.jpeg"
-                        class="w-48 md:w-60 h-60 md:h-72 rounded-lg shadow-lg object-cover border-4 border-[#21735B]">
-                    <p class="font-semibold mt-2">Fajar Dwitama</p>
-                    <p class="text-sm font-bold text-green-900">President SRE</p>
+                        class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
+                    <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
+                    <p class="text-lg font-bold text-green-900">President SRE</p>
                 </div>
                 <div class="flex flex-col items-center">
                     <img src="images/sre.jpeg"
-                        class="w-48 md:w-60 h-60 md:h-72 rounded-lg shadow-lg object-cover border-4 border-[#21735B]">
-                    <p class="font-semibold mt-2">Fajar Dwitama</p>
-                    <p class="text-sm font-bold text-green-900">President SRE</p>
+                        class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
+                    <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
+                    <p class="text-lg font-bold text-green-900">President SRE</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="flex justify-center items-center bg-green-900 p-6 md:p-10 relative">
-        <!-- Teks Vertikal di Samping (Lebih ke Kiri, di Luar Border) -->
-        <div class="hidden md:block absolute -left-36 top-1/2 -translate-y-1/2 -rotate-90">
-            <p class="text-white text-4xl font-bold tracking-wide">Organizational Structure</p>
-        </div>
+    <section class="flex justify-center items-center mt-8 bg-[#104334] p-6 py-10 md:p-10 relative">
+        <div class="ml-[18%] py-10">
+                <!-- Teks Vertikal di Samping (Lebih ke Kiri, di Luar Border) -->
+            <div class="hidden md:block absolute -left-36 top-1/2 -translate-y-1/2 -rotate-90">
+                <p class="mt-24 text-white text-4xl font-bold font-redhat tracking-wide">Organizational Structure</p>
+            </div>
 
-        <!-- Mobile Title -->
-        <h2 class="md:hidden text-white text-2xl font-bold mb-4 text-center -ml-5">Organizational Structure</h2>
+            <!-- Mobile Title -->
+            <h2 class="md:hidden text-white text-2xl font-bold mb-4 text-center -ml-5">Organizational Structure</h2>
 
-        <!-- Container dengan Border -->
-        <div class="bg-white p-4 md:p-8 rounded-lg w-full md:w-[90%] max-w-6xl relative">
-            <!-- Gambar Struktur Organisasi -->
-            <img src="images/organigram 2.png" alt="Organizational Structure"
-                class="w-auto max-w-full h-auto mx-auto object-contain">
+            <!-- Container dengan Border -->
+            <div class="bg-white p-4 md:p-8 rounded-lg w-full md:w-[90%] max-w-6xl relative">
+                <!-- Gambar Struktur Organisasi -->
+                <img src="images/organigram 2.png" alt="Organizational Structure"
+                    class="w-auto max-w-full h-auto mx-auto object-contain">
+            </div>
         </div>
     </section>
 
-    <section class="flex flex-col md:flex-row items-center justify-between px-6 md:px-10 py-10">
+    <section class="flex flex-col gap-10 md:flex-row items-center justify-between px-6 my-10 md:px-10 py-10">
         <!-- Bagian Kiri (Teks) -->
-        <div class="w-full md:w-1/3 mb-6 md:mb-0">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 flex items-center">
-                Our <span class="text-green-700 ml-2">Departments</span>
+        <div class="w-full ml-10 md:w-1/3 mb-6 md:mb-0">
+            <h2 class="font-redhat text-3xl md:text-3xl font-extrabold text-black flex items-center tracking-widest">
+                Our <span class="text-[#104334] ml-2">Departments</span>
             </h2>
-            <div class="w-16 h-1 bg-gray-500 mt-2"></div>
-            <p class="text-gray-700 mt-4 text-base md:text-lg font-bold">
+            <div class="w-16 h-1 bg-gray-500 mt-2 mr-8"></div>
+            <p class="font-redhattext text-black mt-4 max-w-[85%] text-justify text-base md:text-lg font-semibold">
                 Each of our departments strive to fulfill the needs. Achieving the vission and mission towards our SRE
                 Goals.
             </p>
@@ -258,7 +220,7 @@
     </section>
 
     <div class="relative w-full bg-[#144A3A] text-white min-h-screen bottom-[-20px] p-6 md:p-20 flex flex-col">
-        <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-12 underline text-center">Meet Our Alumnis</h2>
+        <h2 class="text-2xl font-redhat md:text-3xl font-bold mb-6 md:mb-12 text-center">Meet Our Alumnis</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pb-20 md:pb-40 relative">
             <!-- Tombol Navigasi Kiri -->
@@ -310,22 +272,25 @@
         </div>
     </div>
 
-    <!-- Tree Background (Letakkan sebelum Footer) -->
-    <div class="relative w-full">
-        <img src="images/tree2.png" alt="Forest Design" class="absolute bottom-[-130px] left-0 w-full z-10">
-    </div>
-
     <!-- Footer Section -->
-    <footer class="relative bg-[#104334] text-white py-10 md:py-16 px-6 md:px-16 z-10 bottom-[-10px]">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-start relative">
-            <!-- Kiri: Logo dan Deskripsi -->
+    <footer class="relative bg-[#104334] text-white pt-[60px] md:pt-[90px] pb-8 md:pb-16 px-8 md:px-16 z-0 overflow-visible">
+        <!-- Trees overflowing upwards -->
+        <div class="absolute top-0 left-0 w-full h-[120px] md:h-[180px] -translate-y-[50%] md:-translate-y-[60%] z-10">
+            <img 
+                src="images/trees.png" 
+                alt="Forest Design" 
+                class="w-full h-full object-cover"
+            >
+        </div>
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
+            <!-- Left: Logo and Description -->
             <div class="w-full md:w-1/3 mb-8 md:mb-0">
-                <img src="images/logo1.png" alt="SRE Universitas Telkom" class="w-auto h-12 md:h-auto">
-                <p class="mt-2 text-sm text-gray-300">
+                <img src="images/logo1.png" alt="SRE Universitas Telkom" class="w-auto h-16 md:h-auto">
+                <p class="mt-4 text-sm text-gray-300">
                     Society of Renewable Energy is a student organization dedicated to promoting new and renewable
                     energy advancements across Indonesia.
                 </p>
-                <p class="mt-4 md:mt-6 text-gray-400 text-xs">COPYRIGHT © SRE Telkom University 2024</p>
+                <p class="mt-6 text-gray-400 text-xs">COPYRIGHT © SRE Telkom University 2024</p>
             </div>
 
             <!-- Right: Contact & Social Media -->
@@ -346,24 +311,19 @@
                     <h3 class="text-lg font-semibold mb-2 ">Follow Us</h3>
                     <div class="flex grid grid-cols-3 gap-3 ">
                         <a href="https://instagram.com" target="_blank">
-                            <img src="images/instagram.png" alt="Instagram"
-                                class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
+                            <img src="images/instagram.png" alt="Instagram" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                         <a href="https://line.me" target="_blank">
-                            <img src="images/vector.png" alt="Line"
-                                class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
+                            <img src="images/vector.png" alt="Line" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                         <a href="https://youtube.com" target="_blank">
-                            <img src="images/youtube.png" alt="YouTube"
-                                class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
+                            <img src="images/youtube.png" alt="YouTube" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                         <a href="https://linkedin.com" target="_blank">
-                            <img src="images/linkedin.png" alt="LinkedIn"
-                                class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
+                            <img src="images/linkedin.png" alt="LinkedIn" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                         <a href="mailto:example@example.com">
-                            <img src="images/envelope.png" alt="Email"
-                                class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
+                            <img src="images/envelope.png" alt="Email" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                     </div>
                 </div>
@@ -376,55 +336,5 @@
         </div>
     </footer>
 
-    <script>
-         document.getElementById('scrollDownButton').addEventListener('click', function () {
-            document.getElementById('vision').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-
-       // Mobile menu toggle
- const hamburgerBtn = document.getElementById('hamburgerButton');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  if (hamburgerBtn && mobileMenu) {
-    hamburgerBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  }
-
-  // Mobile dropdown toggle
-  const mobileDropdownBtn = document.getElementById('mobileDropdownBtn');
-  const mobileDropdown = document.getElementById('mobileDropdown');
-
-  if (mobileDropdownBtn && mobileDropdown) {
-    mobileDropdownBtn.addEventListener('click', () => {
-      mobileDropdown.classList.toggle('hidden');
-    });
-  }
-
-  // Desktop dropdown toggle
-  const desktopDropdownBtn = document.getElementById('desktopDropdownButton');
-  const desktopDropdownMenu = document.getElementById('desktopDropdownMenu');
-
-  if (desktopDropdownBtn && desktopDropdownMenu) {
-    desktopDropdownBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      desktopDropdownMenu.classList.toggle('hidden');
-    });
-
-    document.addEventListener('click', () => {
-      desktopDropdownMenu.classList.add('hidden');
-    });
-  }
-
-  // Close mobile menu when clicking a link
-  const mobileLinks = document.querySelectorAll('#mobileMenu a');
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-    });
-  });
-    </script>
 </body>
 </html>

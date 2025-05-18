@@ -9,38 +9,21 @@
     <title>SRE Telkom University</title>
 
 </head>
+<style>
+    .font-redhat {
+            font-family: 'Red Hat Display', sans-serif;
+        }
+    .font-redhattext {
+            font-family: 'Red Hat Text', sans-serif;
+        }
+    .font-onest {
+            font-family: 'Onest', sans-serif;
+        }
+</style>
 
 <body class="min-h-screen">
     <!-- Navbar -->
-    <nav class="absolute top-8 left-0 w-full flex justify-between items-center px-12 text-white z-40">
-        <div id="logo" class="flex items-center font-bold ml-8">
-            <img src="images/logo2.png" alt="SRE Logo" class="h-24 mr-2">
-        </div>
-
-        <!-- Hamburger Button -->
-        <button id="hamburgerButton" class="md:hidden text-black text-2xl focus:outline-none ml-4">
-            <i class="fas fa-bars"></i>
-        </button>
-
-        <!-- Desktop Nav -->
-        <ul id="navbar" class="hidden md:flex text-black space-x-4 lg:space-x-12 text-lg uppercase items-center">
-            <li><a href="/Home" class="hover:text-green-500">Home</a></li>
-            <span class="ml-2 hidden md:inline">|</span>
-            <li><a href="/aboutUs" class="hover:text-green-500">About Us</a></li>
-            <span class="ml-2 hidden md:inline">|</span>
-            <li class="relative">
-                <button id="desktopDropdownButton"
-                    class="hover:text-green-500 uppercase focus:outline-none">Programs</button>
-                <ul id="desktopDropdownMenu"
-                    class="hidden absolute bg-white text-black mt-2 w-30 py-2 shadow-lg rounded-lg">
-                    <li><a href="/Program" class="block px-1 py-2 hover:bg-gray-200">Activity</a></li>
-                    <li><a href="/Research" class="block px-1 py-2 hover:bg-gray-200">Research</a></li>
-                    <li><a href="/Competition" class="block px-1 py-2 hover:bg-gray-200">Competition</a></li>
-                </ul>
-            </li>
-
-        </ul>
-    </nav>
+    @include('partials.othernavbar');
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="fixed inset-0 bg-white/70  pt-20 px-4 hidden z-40">
@@ -119,7 +102,7 @@
 
     <!-- Tree Background -->
     <div class="relative w-full h-[200px] md:h-[300px] overflow-hidden">
-        <img src="images/tree2.png" alt="Forest Design"
+        <img src="images/trees.png" alt="Forest Design"
             class="absolute bottom-[-70px] left-0 w-full h-auto min-h-[200px] object-cover z-20 ">
     </div>
 
@@ -227,6 +210,14 @@
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
+        });
+
+          // Close mobile menu when clicking outside (on overlay)
+        mobileMenu.addEventListener('click', (e) => {
+        // Close only if the user clicks directly on the background (not inside the menu)
+        if (e.target === mobileMenu) {
+            mobileMenu.classList.add('hidden');
+        }
         });
     </script>
 
