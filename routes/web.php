@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\MemberController;
-use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProgramsController;
 
 Route::get('/', function () {
@@ -12,7 +12,7 @@ Route::get('/', function () {
 
 Route::resource('departments', DepartmentController::class);
 Route::resource('members', MemberController::class);
-Route::resource('categories', CategoriesController::class);
+Route::resource('categories', CategoryController::class);
 Route::resource('programs', ProgramsController::class);
 // resource = create all routes
 

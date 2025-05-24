@@ -54,6 +54,18 @@
                                 <i class="fas fa-users me-1"></i>Members
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}"
+                               href="{{ route('categories.index') }}">
+                                <i class="fas fa-tags me-1"></i>Categories
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('programs.*') ? 'active' : '' }}"
+                               href="{{ route('programs.index') }}">
+                                <i class="fas fa-folder-open me-1"></i>Programs
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
