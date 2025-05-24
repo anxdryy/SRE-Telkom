@@ -21,16 +21,17 @@
         <div class="bg-gray-200 border-4 border-green-900 rounded-lg p-8 w-[450px] shadow-md mt-32">
             <h2 class="text-center text-gray-800 text-lg font-medium mb-6">Admin Dashboard</h2>
 
-            <form>
+            <form method="POST" action="{{ route('auth.login') }}">
+                @csrf
                 <div class="mb-4">
                     <label class="block text-gray-700 mb-1 font-semibold" for="username">Username</label>
-                    <input type="text" id="username"
+                    <input type="text" id="username" name="username"
                         class="w-full px-4 py-2 rounded-md bg-gray-300 focus:outline-none" />
                 </div>
 
                 <div class="mb-6">
                     <label class="block text-gray-700 mb-1 font-semibold" for="password">Password</label>
-                    <input type="password" id="password"
+                    <input type="password" id="password" name="password"
                         class="w-full px-4 py-2 rounded-md bg-gray-300 focus:outline-none" />
                 </div>
 

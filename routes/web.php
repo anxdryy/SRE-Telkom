@@ -5,16 +5,22 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProgramsController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('departments', DepartmentController::class);
-Route::resource('members', MemberController::class);
-Route::resource('categories', CategoryController::class);
-Route::resource('programs', ProgramsController::class);
-// resource = create all routes
+Route::get('/admin', [AuthController::class, 'showLogin'])->name('auth.showLogin');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+Route::middleware(['login.auth'])->group(function () {
+    Route::resource('departments', DepartmentController::class);
+    Route::resource('members', MemberController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('programs', ProgramsController::class);
+});
 
 Route::get('/AboutUs', function () {
     return view('aboutus');
@@ -38,10 +44,6 @@ Route::get('/Competition', function () {
 
 Route::get('/News', function () {
     return view('news');
-});
-
-Route::get('/admin', function () {
-    return view('admin.loginAdmin');
 });
 
 Route::get('/admin1', function () {
