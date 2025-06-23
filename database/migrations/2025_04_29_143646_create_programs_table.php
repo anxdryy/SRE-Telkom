@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('title');
-            $table->text('desc');
+            $table->text('description');
             $table->string('image')->nullable();
             $table->foreignId('category_id');
             $table->timestamps();

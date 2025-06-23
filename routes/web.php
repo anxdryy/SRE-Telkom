@@ -5,6 +5,7 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProgramsController;
+use App\Http\Controllers\WorkController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AboutUsController;
 
@@ -21,6 +22,7 @@ Route::middleware(['login.auth'])->group(function () {
     Route::resource('members', MemberController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('programs', ProgramsController::class);
+    Route::resource('works', WorkController::class);
 });
 
 Route::get('/AboutUs', function () {

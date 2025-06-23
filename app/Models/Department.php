@@ -10,11 +10,16 @@ class Department extends Model
 {
     use HasUuids;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'description', 'image'];
 
     // Relationship
     public function members(): HasMany
     {
         return $this->hasMany(Member::class);
+    }
+
+    public function works(): HasMany
+    {
+        return $this->hasMany(Work::class);
     }
 }

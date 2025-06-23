@@ -3,15 +3,15 @@
 @section('content')
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
-        <h3><i class="fas fa-building me-2"></i>Departments</h3>
-        <a href="{{ route('departments.create') }}" class="btn btn-primary">
-            <i class="fas fa-plus me-1"></i>Create New Department
+        <h3><i class="fas fa-suitcase me-2"></i>Works</h3>
+        <a href="{{ route('works.create') }}" class="btn btn-primary">
+            <i class="fas fa-plus me-1"></i>Create New Works
         </a>
     </div>
     <div class="card-body">
-        @if($departments->isEmpty())
+        @if($works->isEmpty())
             <div class="alert alert-info">
-                No departments found. Click the "Create New Department" button to add one.
+                No works found. Click the "Create New Work" button to add one.
             </div>
         @else
             <div class="table-responsive">
@@ -21,41 +21,41 @@
                             <th>No</th>
                             <th>Image</th>
                             <th>Name</th>
-                            <th>Members Count</th>
-                            <th>Works Count</th>
+                            <th>Description</th>
+                            <th>Department</th>
                             <th>Created At</th>
                             <th>Updated At</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($departments as $department)
+                        @foreach($works as $work)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
-                                <img src="{{ Storage::url($department->image) }}" alt="{{ $department->name }}" class="rounded member-image">
+                                <img src="{{ Storage::url($work->image) }}" alt="{{ $work->name }}" class="rounded member-image">
                             </td>
-                            <td>{{ $department->name }}</td>
+                            <td>{{ $work->name }}</td>
+                            <td>{{ $work->description }}</td>
                             <td>
-                                <span class="badge bg-info">{{ $department->members_count }}</span>
+                                <a href="{{ route('departments.show', $work->department) }}">
+                                    {{ $work->department->name }}
+                                </a>
                             </td>
-                            <td>
-                                <span class="badge bg-info">{{ $department->works_count }}</span>
-                            </td>
-                            <td>{{ $department->created_at->format('Y-m-d H:i') }}</td>
-                            <td>{{ $department->updated_at->format('Y-m-d H:i') }}</td>
+                            <td>{{ $work->created_at->format('Y-m-d H:i') }}</td>
+                            <td>{{ $work->updated_at->format('Y-m-d H:i') }}</td>
                             <td>
                                 <div class="btn-group">
-                                    <a href="{{ route('departments.show', $department) }}" class="btn btn-sm btn-info btn-action">
+                                    <a href="{{ route('works.show', $work) }}" class="btn btn-sm btn-info btn-action">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('departments.edit', $department) }}" class="btn btn-sm btn-warning btn-action">
+                                    <a href="{{ route('works.edit', $work) }}" class="btn btn-sm btn-warning btn-action">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <form action="{{ route('departments.destroy', $department) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this department?');">
+                                    <form action="{{ route('works.destroy', $work) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this work?');">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger btn-action" {{ $department->members_count > 0 ? 'disabled' : '' }}>
+                                        <button type="submit" class="btn btn-sm btn-danger btn-action">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>
@@ -67,7 +67,7 @@
                 </table>
             </div>
             <div class="d-flex justify-content-center mt-3">
-                {{ $departments->links() }}
+                {{ $works->links() }}
             </div>
         @endif
     </div>

@@ -66,6 +66,12 @@
                                 <i class="fas fa-folder-open me-1"></i>Programs
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('works.*') ? 'active' : '' }}"
+                               href="{{ route('works.index') }}">
+                                <i class="fas fa-suitcase me-1"></i>Works
+                            </a>
+                        </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
