@@ -72,6 +72,12 @@
                                 <i class="fas fa-suitcase me-1"></i>Works
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('alumni.*') ? 'active' : '' }}"
+                               href="{{ route('alumni.index') }}">
+                                <i class="fa-solid fa-users"></i> Alumni
+                            </a>
+                        </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">

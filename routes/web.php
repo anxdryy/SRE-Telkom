@@ -8,6 +8,7 @@ use App\Http\Controllers\ProgramsController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\AlumniController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,6 +24,7 @@ Route::middleware(['login.auth'])->group(function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('programs', ProgramsController::class);
     Route::resource('works', WorkController::class);
+    Route::resource('alumni', AlumniController::class)->parameters(['alumni' => 'alumni']);
 });
 
 Route::get('/AboutUs', function () {
