@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Core Team - SRE Universitas Telkom</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SRE Telkom University</title>
 </head>
-<body class="font-sans antialiased text-gray-800">
+
+<body class="min-h-screen">
+
+    {{-- Include shared navbar --}}
+     @include('partials.othernavbar');
 
     <!-- Hero Section -->
     <section class="relative bg-cover bg-center text-white h-[400px] flex items-center justify-center" style="background-image: url('{{ asset('images/core-team-bg.jpg') }}');">

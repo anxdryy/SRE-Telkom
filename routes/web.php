@@ -6,6 +6,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProgramsController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AboutUsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -49,3 +50,9 @@ Route::get('/News', function () {
 Route::get('/admin1', function () {
     return view('admin.crudAdmin');
 });
+
+//Departments
+Route::get('/departments/{department}', [DepartmentController::class, 'show'])->name('departments.show');
+
+//About Us
+Route::get('/aboutus', [AboutUsController::class, 'index'])->name('aboutus');
