@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <style>
+        <style>
         /* Font Classes */
         .font-redhat {
             font-family: 'Red Hat Display', sans-serif;
@@ -25,8 +25,160 @@
         .social-icons {
             margin-left: 10px;
         }
+
+        /* Icon Container Styles */
+        .icon-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .icon-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.6));
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .icon-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 1;
+            left: 1;
+            width: 120%;
+            height: 114%;
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .icon-container:hover .overlay {
+            opacity: 1;
+            border-radius: 24px;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            #dropdownMenu {
+                position: static;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.1);
+                box-shadow: none;
+                border: none;
+                margin-top: 10px;
+                backdrop-filter: blur(5px);
+            }
+
+            #dropdownMenu a {
+                color: white;
+                padding: 12px 16px;
+                display: block;
+                transition: background-color 0.3s;
+            }
+
+            #dropdownMenu a:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+    
+
+            #typingText {
+                font-size: 4rem;
+                left: 52%;
+            }
+
+            #joinUsContainer {
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 30px;
+            }
+
+            .flex.gap-28 {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .border-4.border-\[#08332A\] {
+                flex-direction: column;
+                padding: 20px;
+                width: 100%;
+            }
+
+            .border-4.border-\[#08332A\]>span {
+                display: none;
+            }
+
+            .flex.justify-between.items-start {
+                flex-direction: column;
+            }
+
+            .w-1\/3,
+            .w-2\/6 {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .text-right {
+                text-align: center;
+            }
+
+            .text-6xl {
+                font-size: 3rem;
+            }
+
+            .text-4xl {
+                font-size: 2rem;
+            }
+
+            .text-3xl {
+                font-size: 1.5rem;
+            }
+
+            .text-2xl {
+                font-size: 1.25rem;
+            }
+
+            .p-20 {
+                padding: 2rem;
+            }
+
+            .px-36 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .py-6 {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            .px-8 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .py-4 {
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+        }
     </style>
-</head>
 
 <body class="min-h-screen">
     <!-- Hero Section -->
