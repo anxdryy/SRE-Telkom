@@ -10,7 +10,7 @@
 </head>
 
 <body class="min-h-screen">
-
+ 
     {{-- Include shared navbar --}}
      @include('partials.othernavbar');
 
