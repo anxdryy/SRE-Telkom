@@ -87,7 +87,7 @@
         </div>
     </section>
 
-    <section class="flex flex-col gap-10 md:flex-row items-center justify-between px-6 my-10 md:px-10 py-10">
+     <section class="flex flex-col gap-10 md:flex-row items-center justify-between px-6 my-10 md:px-10 py-10">
         <!-- Bagian Kiri (Teks) -->
         <div class="w-full ml-10 md:w-1/3 mb-6 md:mb-0">
             <h2 class="font-redhat text-3xl md:text-3xl font-extrabold text-black flex items-center tracking-widest">
@@ -102,20 +102,34 @@
 
         <!-- Bagian Kanan (Ikon Departemen) -->
         <div class="w-full md:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            <img src="images/CoreNew.png" alt="Core"
+            <a href="/Departement">
+                <img src="images/CoreNew.png" alt="Core"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            <img src="images/EVENT.png" alt="Event"
+            </a>
+            <a href="/Departement">
+                <img src="images/EVENT.png" alt="Event"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            <img src="images/IT.png"
+            </a>
+            <a href="/Department">
+                <img src="images/IT.png"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            <img src="images/MULMED.png" alt="Multimedia"
+            </a>
+            <a href="/Departement">
+                <img src="images/MULMED.png" alt="Multimedia"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            <img src="images/PR.png" alt="Public Relation"
+            </a>
+            <a href="/Departement">
+                <img src="images/PR.png" alt="Public Relation"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            <img src="images/ACAD.png" alt="Academics"
+            </a>
+            <a href="/Departement">
+                <img src="images/ACAD.png" alt="Academics"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            <img src="images/RND.png" alt="Research & Development"
+            </a>
+            <a href="/Departement">
+                <img src="images/RND.png" alt="Research & Development"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
+            </a>
         </div>
     </section>
 

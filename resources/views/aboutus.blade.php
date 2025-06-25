@@ -150,13 +150,13 @@
             <!-- Row 1 (2 orang) -->
             <div class="flex flex-col gap-10 md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
                 <div class="flex flex-col items-center">
-                    <img src="images/sre.jpeg"
+                    <img src="images/coreperson.png"
                         class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
                     <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
                     <p class="text-lg font-bold text-green-900">President SRE</p>
                 </div>
                 <div class="flex flex-col items-center">
-                    <img src="images/sre.jpeg"
+                    <img src="images/coreperson.png"
                         class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
                     <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
                     <p class="text-lg font-bold text-green-900">President SRE</p>
@@ -166,19 +166,19 @@
             <!-- Row 2 (3 orang) -->
             <div class="flex flex-col font-redhat gap-10 md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
                 <div class="flex flex-col items-center">
-                    <img src="images/sre.jpeg"
+                    <img src="images/coreperson.png"
                         class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
                     <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
                     <p class="text-lgfont-bold text-green-900">President SRE</p>
                 </div>
                 <div class="flex flex-col items-center">
-                    <img src="images/sre.jpeg"
+                    <img src="images/coreperson.png"
                         class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
                     <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
                     <p class="text-lg font-bold text-green-900">President SRE</p>
                 </div>
                 <div class="flex flex-col items-center">
-                    <img src="images/sre.jpeg"
+                    <img src="images/coreperson.png"
                         class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
                     <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
                     <p class="text-lg font-bold text-green-900">President SRE</p>
@@ -221,20 +221,34 @@
 
         <!-- Bagian Kanan (Ikon Departemen) -->
         <div class="w-full md:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            <img src="images/CoreNew.png" alt="Core"
+            <a href="/Departement">
+                <img src="images/CoreNew.png" alt="Core"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            <img src="images/EVENT.png" alt="Event"
+            </a>
+            <a href="/Departement">
+                <img src="images/EVENT.png" alt="Event"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            <img src="images/IT.png"
+            </a>
+            <a href="/Department">
+                <img src="images/IT.png"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            <img src="images/MULMED.png" alt="Multimedia"
+            </a>
+            <a href="/Departement">
+                <img src="images/MULMED.png" alt="Multimedia"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            <img src="images/PR.png" alt="Public Relation"
+            </a>
+            <a href="/Departement">
+                <img src="images/PR.png" alt="Public Relation"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            <img src="images/ACAD.png" alt="Academics"
+            </a>
+            <a href="/Departement">
+                <img src="images/ACAD.png" alt="Academics"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            <img src="images/RND.png" alt="Research & Development"
+            </a>
+            <a href="/Departement">
+                <img src="images/RND.png" alt="Research & Development"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
+            </a>
         </div>
     </section>
 
