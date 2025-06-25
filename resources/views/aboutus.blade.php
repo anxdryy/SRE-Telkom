@@ -42,9 +42,9 @@
     </div>
 
     <!-- Innovate -->
-    <div class="flex items-center text-center rotate-0 lg:scale-100 lg:rotate-[-7.26deg] lg:absolute lg:top-[290px] lg:-mt-48 xl:-ml-[850px] lg:-ml-[550px]">
-    <img src="images/lampu.png" class="w-[200px] h-[280px] lg:w-[380px] lg:h-[350px] max-w-full max-h-full">
-    <p class="font-bold ml-2 mt-20 text-xl lg:mt-28 lg:text-2xl lg:rotate-[7.08deg]">Innovate</p>
+<div class="flex items-center justify-center text-center lg:scale-100 lg:rotate-[-7.26deg] lg:absolute lg:top-[290px] lg:-mt-48 xl:-ml-[850px] lg:-ml-[550px]">
+    <img src="images/lampu.png" class="w-[150px] h-[180px] lg:w-[380px] lg:h-[350px] object-contain">
+    <p class="font-bold ml-4 text-xl lg:ml-2 lg:mt-28 lg:text-2xl lg:rotate-[7.08deg]">Innovate</p>
 </div>
 
     <!-- Energize -->
