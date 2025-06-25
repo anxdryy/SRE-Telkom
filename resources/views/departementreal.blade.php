@@ -9,33 +9,21 @@
     <title>SRE Telkom University</title>
 </head>
 
-<style>
-    .font-redhat {
-            font-family: 'Red Hat Display', sans-serif;
-        }
-    .font-redhattext {
-            font-family: 'Red Hat Text', sans-serif;
-        }
-    .font-onest {
-            font-family: 'Onest', sans-serif;
-        }
-</style>
-
 <body class="min-h-screen">
  
     {{-- Include shared navbar --}}
-     @include('partials.navbar')
+     @include('partials.othernavbar');
 
     <!-- Hero Section -->
-    <section class="relative bg-cover bg-center text-white h-[550px] flex items-center justify-center" style="background-image: url('{{ asset('images/corebg.jpg') }}');">
+    <section class="relative bg-cover bg-center text-white h-[400px] flex items-center justify-center" style="background-image: url('{{ asset('images/core-team-bg.jpg') }}');">
         <div class="absolute inset-0 bg-black opacity-30"></div>
-        <div class="relative z-10 text-center px-4 mt-32">
+        <div class="relative z-10 text-center px-4">
             <h1 class="text-4xl font-bold mb-2">Core Team</h1>
             <p class="max-w-2xl mx-auto">
                 A core team is a small, dedicated group responsible for organizational thinking and decision-making, support for coordination, interdepartmental alignment, and project coordination. They prioritize delivery to ensure smooth operations and alignment with overall goals.
             </p>
             <div class="mt-6">
-                <img src="{{ asset('images/coreNEW.png') }}" alt="Core Badge" class="mb-10 mx-auto w-24">
+                <img src="{{ asset('images/core-badge.png') }}" alt="Core Badge" class="mx-auto w-24">
             </div>
         </div>
     </section>
@@ -46,9 +34,7 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 px-6 md:px-20">
             @for ($i = 0; $i < 8; $i++)
                 <div class="flex flex-col items-center">
-                    <div class="w-32 h-32 bg-gray-400 rounded-full mb-2">
-                        <img src="images/coreperson.png" class="w-full h-32 bg-gray-400 rounded-full mb-2" alt="">
-                    </div>
+                    <div class="w-24 h-24 bg-gray-400 rounded-full mb-2"></div>
                     <p>Sabrina</p>
                     <p class="text-sm text-gray-300">Division</p>
                 </div>
@@ -62,7 +48,7 @@
         <div class="grid md:grid-cols-3 gap-6">
             <!-- Card 1 -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="{{ asset('images/biking.jpg') }}" alt="Bicycle Program" class="w-full h-64 object-cover">
+                <img src="{{ asset('images/bicycle.jpg') }}" alt="Bicycle Program" class="w-full h-32 object-cover">
                 <div class="p-4">
                     <h3 class="font-semibold">Bicycle Program</h3>
                     <p class="text-sm">Weekly rides across town, promoting sustainable transportation.</p>
@@ -70,7 +56,7 @@
             </div>
             <!-- Card 2 -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="{{ asset('images/camping.jpg') }}" alt="Camping Trip" class="w-full h-64 object-cover">
+                <img src="{{ asset('images/camping.jpg') }}" alt="Camping Trip" class="w-full h-32 object-cover">
                 <div class="p-4">
                     <h3 class="font-semibold">Camping Trip</h3>
                     <p class="text-sm">Going to learn valuable things in the wild!</p>
@@ -78,7 +64,7 @@
             </div>
             <!-- Card 3 -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="{{ asset('images/hiking.jpg') }}" alt="The Hikers" class="w-full h-64 object-cover">
+                <img src="{{ asset('images/hiking.jpg') }}" alt="The Hikers" class="w-full h-32 object-cover">
                 <div class="p-4">
                     <h3 class="font-semibold">The 'Hikers'</h3>
                     <p class="text-sm">Hiking & happiness go hand-in-hand.</p>

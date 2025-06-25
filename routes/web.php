@@ -60,3 +60,5 @@ Route::get('/departments/{department}', [DepartmentController::class, 'show'])->
 
 //About Us
 Route::get('/aboutus', [AboutUsController::class, 'index'])->name('aboutus');
+Route::get('/departments/{department}', [DepartmentController::class, 'show'])->name('departments.show');
+

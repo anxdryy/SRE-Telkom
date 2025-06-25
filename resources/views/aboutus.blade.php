@@ -26,15 +26,34 @@
 </style>
 
 <body class="min-h-screen">
-    <div class="relative h-[100vh] bg-cover bg-center" style="background-image: url('images/absbg.png')">
-        @include('partials.othernavbar');
 
-        <section class="text-center mt-32 md:mt-32 pt-10">
-            <h2 class="text-gray-600 mt-8 text-2xl">About Us</h2>
-            <h1 class="text-3xl md:text-4xl font-semibold">SRE Telkom University</h1>
-        </section>
+        @include('partials.othernavbar')
+
+         <section class="text-center mt-32 md:mt-28 py-10">
+        <h2 class="text-gray-600 text-2xl">About Us</h2>
+        <h1 class="text-3xl md:text-4xl font-semibold">SRE Telkom University</h1>
+    </section>
+
+    <section class="relative flex flex-col lg:flex-row justify-center items-center py-10 gap-10">
+    <!-- Elevate -->
+    <div class="flex items-center text-center rotate-0 lg:absolute lg:left-[222px] lg:top-[-40px] lg:ml-56 lg:rotate-[5.08deg]">
+        <img src="images/Group 59.png" class="w-[120px] h-[120px] lg:w-[180px] lg:h-[180px]">
+        <p class="font-bold ml-2 text-xl lg:ml-4 lg:text-2xl lg:rotate-[-5.08deg]">Elevate</p>
     </div>
-        
+
+    <!-- Innovate -->
+    <div class="flex items-center text-center rotate-0 lg:scale-100 lg:rotate-[-7.26deg] lg:absolute lg:top-[290px] lg:-mt-48 xl:-ml-[850px] lg:-ml-[550px]">
+    <img src="images/lampu.png" class="w-[200px] h-[280px] lg:w-[380px] lg:h-[350px] max-w-full max-h-full">
+    <p class="font-bold ml-2 mt-20 text-xl lg:mt-28 lg:text-2xl lg:rotate-[7.08deg]">Innovate</p>
+</div>
+
+    <!-- Energize -->
+    <div class="flex items-center text-center rotate-0 lg:absolute md:right-[10px] xl:right-[340px] right-0 md:-top-[90px] lg:mt-36">
+        <p class="font-bold mr-2 text-xl lg:mr-4 lg:text-2xl">Energize</p>
+        <img src="images/Group 45.png" class="w-[140px] h-[130px] lg:w-[240px] lg:h-[220px]">
+    </div>
+</section>
+
     <!-- About SRE-TelU tetap di bawah -->
     <section class="relative bg-[#104334] text-white text-center p-3 md:p-10 mt-10 md:mt-72 z-10">
         <div class="my-16">
@@ -276,9 +295,9 @@
     <footer class="relative bg-[#104334] text-white pt-[60px] md:pt-[90px] pb-8 md:pb-16 px-8 md:px-16 z-0 overflow-visible">
         <!-- Trees overflowing upwards -->
         <div class="absolute top-0 left-0 w-full h-[120px] md:h-[180px] -translate-y-[50%] md:-translate-y-[60%] z-10">
-            <img 
-                src="images/trees.png" 
-                alt="Forest Design" 
+            <img
+                src="images/trees.png"
+                alt="Forest Design"
                 class="w-full h-full object-cover"
             >
         </div>
