@@ -14,8 +14,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', [AuthController::class, 'showLogin'])->name('auth.showLogin');
-Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+Route::middleware(['guest'])->group(function () {
+    Route::get('/admin', [AuthController::class, 'showLogin'])->name('auth.showLogin');
+    Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+});
+
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 Route::middleware(['login.auth'])->group(function () {
@@ -62,3 +65,6 @@ Route::get('/departments/{department}', [DepartmentController::class, 'show'])->
 Route::get('/aboutus', [AboutUsController::class, 'index'])->name('aboutus');
 Route::get('/departments/{department}', [DepartmentController::class, 'show'])->name('departments.show');
 
+Route::get('/session-check', function () {
+    return session()->all();
+});
