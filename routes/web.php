@@ -59,11 +59,8 @@ Route::get('/admin1', function () {
 });
 
 //Departments
-Route::get('/departments/{department}', [DepartmentController::class, 'show'])->name('departments.show');
+Route::get('/Departement', [DepartmentController::class, 'detail']);
 
-//About Us
-Route::get('/aboutus', [AboutUsController::class, 'index'])->name('aboutus');
-Route::get('/departments/{department}', [DepartmentController::class, 'show'])->name('departments.show');
 
 Route::get('/session-check', function () {
     return session()->all();
