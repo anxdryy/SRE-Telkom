@@ -38,8 +38,16 @@ Route::get('/Departement', function () {
     return view('departement');
 });
 
+use App\Models\Programs;
+
 Route::get('/Activity', function () {
-    return view('activity');
+    $programs = Programs::with('category')
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'Activity');
+        })
+        ->get();
+
+    return view('activity', compact('programs'));
 });
 
 Route::get('/Research', function () {
@@ -65,3 +73,7 @@ Route::get('/Departement', [DepartmentController::class, 'detail']);
 Route::get('/session-check', function () {
     return session()->all();
 });
+
+//News
+Route::get('/programs/{program}', [ProgramsController::class, 'show'])->name('programs.show');
+

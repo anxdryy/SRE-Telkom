@@ -40,9 +40,9 @@ class ProgramsController extends Controller{
             ->with('success', 'Program created successfully.');
     }
 
-    public function show(Programs $program): View{
+    public function show(Programs $program): View {
         $program->load('category');
-        return view('programs.show', compact('program'));
+        return view('news', compact('program')); // ✅ Use the news template
     }
 
     public function edit(Programs $program): View{
@@ -88,4 +88,17 @@ class ProgramsController extends Controller{
         return redirect()->route('programs.index')
             ->with('success', 'Program deleted successfully.');
     }
+
+    public function activity(): \Illuminate\View\View
+    {
+        $category = \App\Models\Category::where('name', 'Activity')->first();
+
+        $programs = $category ? $category->programs()->latest()->get() : collect();
+
+        return view('activity', compact('programs'));
+    }
+
+
 }
+
+

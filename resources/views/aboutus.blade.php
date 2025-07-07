@@ -229,7 +229,7 @@
                 <img src="images/EVENT.png" alt="Event"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
             </a>
-            <a href="/Departement?id=1">
+            <a href="/Departement?id=9f43a043-8beb-45be-b64f-0c4643b5bceb">
                 <img src="images/IT.png"
                 class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
             </a>

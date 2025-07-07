@@ -10,7 +10,7 @@
         }
 </style>
     <div class="relative w-full">
-        <img src="images/trees.png" alt="Forest Design" class="absolute bottom-[-130px] left-0 w-full z-10">
+        <img src="{{ asset('images/trees.png') }}" alt="Forest Design" class="absolute bottom-[-130px] left-0 w-full z-10">
     </div>
 
 <footer class="relative bg-[#104334] text-white py-10 md:py-16 px-6 md:px-16 z-10 bottom-[-10px]">
@@ -43,23 +43,23 @@
                     <h3 class="text-lg font-semibold mb-2 ">Follow Us</h3>
                     <div class="flex grid grid-cols-3 gap-3 ">
                         <a href="https://instagram.com" target="_blank">
-                            <img src="images/instagram.png" alt="Instagram"
+                            <img src="{{ asset('images/instagram.png') }}" alt="Instagram"
                                 class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                         <a href="https://line.me" target="_blank">
-                            <img src="images/vector.png" alt="Line"
+                            <img src="{{ asset('images/vector.png') }}"alt="Line"
                                 class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                         <a href="https://youtube.com" target="_blank">
-                            <img src="images/youtube.png" alt="YouTube"
+                            <img src="{{ asset('images/youtube.png') }}" alt="YouTube"
                                 class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                         <a href="https://linkedin.com" target="_blank">
-                            <img src="images/linkedin.png" alt="LinkedIn"
+                            <img src="{{ asset('images/linkedin.png') }}" alt="LinkedIn"
                                 class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                         <a href="mailto:example@example.com">
-                            <img src="images/envelope.png" alt="Email"
+                            <img src="{{ asset('images/envelope.png') }}" alt="Email"
                                 class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                     </div>

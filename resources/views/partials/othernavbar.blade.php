@@ -14,7 +14,7 @@
 <!-- NAVIGATION -->
 <nav class="absolute top-8 left-0 w-full flex justify-between items-center md:px-12 text-white px-4 z-50">
     <div id="logo" class="flex items-center font-bold opacity-0 transform -translate-x-20 transition-all duration-1000">
-        <img src="images/logo2.png" alt="SRE Logo" class="h-20 md:h-20 mr-2">
+        <img src="{{ asset('images/logo2.png') }}" alt="SRE Logo" class="h-20 md:h-20 mr-2">
     </div>
 
     <!-- Hamburger Menu Button -->  
