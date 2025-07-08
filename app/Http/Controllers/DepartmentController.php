@@ -112,5 +112,19 @@ class DepartmentController extends Controller
         return view('departement', compact('department'));
     }
 
+    public function aboutUs(): View {
+        $departments = Department::all();
+        return view('aboutus', compact('departments'));
+    }
 
+    public function showDetail($id): View
+    {
+        $department = Department::with(['members', 'works'])->find($id);
+
+        if (!$department) {
+            abort(404, 'Department not found');
+        }
+
+        return view('departement', compact('department'));
+    }
 }

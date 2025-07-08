@@ -221,34 +221,12 @@
 
         <!-- Bagian Kanan (Ikon Departemen) -->
         <div class="w-full md:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            <a href="/Departement">
-                <img src="images/CoreNew.png" alt="Core"
-                class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            </a>
-            <a href="/Departement">
-                <img src="images/EVENT.png" alt="Event"
-                class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            </a>
-            <a href="/Departement?id=9f43a043-8beb-45be-b64f-0c4643b5bceb">
-                <img src="images/IT.png"
-                class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            </a>
-            <a href="/Departement">
-                <img src="images/MULMED.png" alt="Multimedia"
-                class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            </a>
-            <a href="/Departement">
-                <img src="images/PR.png" alt="Public Relation"
-                class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            </a>
-            <a href="/Departement">
-                <img src="images/ACAD.png" alt="Academics"
-                class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            </a>
-            <a href="/Departement">
-                <img src="images/RND.png" alt="Research & Development"
-                class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
-            </a>
+            @foreach ($departments as $dept)
+                <a href="{{ route('departments.showDetail', ['id' => $dept->id]) }}">
+                    <img src="{{ asset('storage/' . $dept->image) }}" alt="{{ $dept['alt'] }}"
+                        class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
+                </a>
+            @endforeach
         </div>
     </section>
 

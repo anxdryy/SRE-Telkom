@@ -30,9 +30,7 @@ Route::middleware(['login.auth'])->group(function () {
     Route::resource('alumni', AlumniController::class)->parameters(['alumni' => 'alumni']);
 });
 
-Route::get('/AboutUs', function () {
-    return view('aboutus');
-});
+Route::get('/AboutUs', [DepartmentController::class, 'aboutUs'])->name('aboutUs');
 
 Route::get('/Departement', function () {
     return view('departement');
@@ -69,6 +67,7 @@ Route::get('/admin1', function () {
 //Departments
 Route::get('/Departement', [DepartmentController::class, 'detail']);
 
+Route::get('/departement/{id}/detail', [DepartmentController::class, 'showDetail'])->name('departments.showDetail');
 
 Route::get('/session-check', function () {
     return session()->all();
