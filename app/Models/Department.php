@@ -10,7 +10,7 @@ class Department extends Model
 {
     use HasUuids;
 
-    protected $fillable = ['name', 'description', 'image'];
+    protected $fillable = ['name', 'description', 'image', 'slug'];
 
     // Relationship
     public function members(): HasMany

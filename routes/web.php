@@ -67,7 +67,7 @@ Route::get('/admin1', function () {
 //Departments
 Route::get('/Departement', [DepartmentController::class, 'detail']);
 
-Route::get('/departement/{id}/detail', [DepartmentController::class, 'showDetail'])->name('departments.showDetail');
+Route::get('/departement/{slug}/detail', [DepartmentController::class, 'showDetail'])->name('departments.showDetail');
 
 Route::get('/session-check', function () {
     return session()->all();

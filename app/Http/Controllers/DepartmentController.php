@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class DepartmentController extends Controller
 {
@@ -28,6 +29,8 @@ class DepartmentController extends Controller
             'description' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        $validated['slug'] = Str::slug($validated['name']);
 
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('departments', 'public');
@@ -58,6 +61,8 @@ class DepartmentController extends Controller
             'description' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        $validated['slug'] = Str::slug($validated['name']);
 
         if ($request->hasFile('image')) {
             if ($department->image && Storage::disk('public')->exists($department->image)) {
@@ -117,9 +122,9 @@ class DepartmentController extends Controller
         return view('aboutus', compact('departments'));
     }
 
-    public function showDetail($id): View
+    public function showDetail($slug): View
     {
-        $department = Department::with(['members', 'works'])->find($id);
+        $department = Department::with(['members', 'works'])->where('slug', $slug)->first();
 
         if (!$department) {
             abort(404, 'Department not found');
