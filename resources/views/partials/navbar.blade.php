@@ -14,10 +14,10 @@
 <!-- NAVIGATION -->
 <nav class="absolute top-8 left-0 w-full flex justify-between items-center md:px-12 text-white px-4 z-50">
     <div id="logo" class="flex items-center font-bold opacity-0 transform -translate-x-20 transition-all duration-1000">
-        <img src="images/logo1.png" alt="SRE Logo" class="h-20 md:h-20 mr-2">
+        <img src="{{ asset('images/logo1.png') }}" alt="SRE Logo" class="h-20 md:h-20 mr-2">
     </div>
 
-    <!-- Hamburger Menu Button -->  
+    <!-- Hamburger Menu Button -->
     <button id="hamburgerButton" type="button" class="md:hidden text-3xl text-white focus:outline-none z-50">
         <i class="fas fa-bars"></i>
     </button>
@@ -48,12 +48,12 @@
         <li><a href="/" class="block py-3 border-b border-gray-200 hover:text-green-500">Home</a></li>
         <li><a href="/AboutUs" class="block py-3 border-b border-gray-200 hover:text-green-500">About Us</a></li>
         <li class="relative">
-            <button 
-                id="mobileDropdownBtn" 
+            <button
+                id="mobileDropdownBtn"
                 type="button"
                 class="uppercase py-3 w-full border-b border-gray-200 text-left hover:text-green-500 flex justify-between items-center"
             >
-                Programs 
+                Programs
                 <i id="mobileDropdownIcon" class="fas fa-chevron-down ml-2 transition-transform duration-300 ease-in-out"></i>
             </button>
             <ul id="mobileDropdown" class="hidden pl-4 space-y-3 mt-2 border-l-2 border-green-500">

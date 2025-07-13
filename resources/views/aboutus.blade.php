@@ -23,6 +23,9 @@
     .font-onest {
             font-family: 'Onest', sans-serif;
         }
+         body {
+            font-family: 'Red Hat Display', sans-serif;
+        }
 </style>
 
 <body class="min-h-screen">
@@ -112,7 +115,7 @@
             <!-- Box 2 -->
             <div class="border-4 border-[#21735B] rounded-2xl p-4 md:p-6 text-center">
                 <p class="text-gray-700 text-base md:text-lg">
-                    <strong class="text-[#104334] text-lg md:text-xl">Networking</strong> through cohesion stakeholders
+                    <strong class="text-[#104334] text-lg md:text-xl">Networking</strong> Through cohesion stakeholders
                     opportunities to provide insights into trends, challenges, and innovations in the industry.
                 </p>
             </div>
@@ -120,7 +123,7 @@
             <!-- Box 3 -->
             <div class="border-4 border-[#21735B] rounded-2xl p-4 md:p-6 text-center">
                 <p class="text-gray-700 text-base md:text-lg">
-                    <strong class="text-[#104334] text-lg md:text-xl">Establishing</strong> professional work environment while
+                    <strong class="text-[#104334] text-lg md:text-xl">Establishing</strong> Professional work environment while
                     fostering a sense of unity within the organization, in order to achieve shared goals and success.
                 </p>
             </div>
@@ -128,7 +131,7 @@
             <!-- Box 4 -->
             <div class="border-4 border-[#21735B] rounded-2xl p-4 md:p-6 text-center">
                 <p class="text-gray-700 text-base md:text-lg">
-                    <strong class="text-[#104334] text-lg md:text-xl">Elevating</strong> impact among youth awareness to support
+                    <strong class="text-[#104334] text-lg md:text-xl">Elevating</strong> Impact among youth awareness to support
                     the advancement of the renewable energy sector in Indonesia through educational campaigns and
                     movement.
                 </p>

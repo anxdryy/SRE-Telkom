@@ -22,6 +22,10 @@
             font-family: "Merriweather Sans", sans-serif;
         }
 
+         body {
+            font-family: 'Red Hat Display', sans-serif;
+        }
+
         .social-icons {
             margin-left: 10px;
         }
@@ -95,7 +99,7 @@
                 background-color: rgba(255, 255, 255, 0.2);
             }
 
-    
+
 
             #typingText {
                 font-size: 4rem;
@@ -201,10 +205,10 @@
     <!-- Main Content Section -->
     <div class="relative py-18 double-bg">
         <div class="flex items-center justify-center relative max-w-9xl mx-auto px-4 md:px-6">
-            
+
             <!-- Content Container -->
             <div class="bg-white bg-opacity-90 backdrop-blur-md rounded-xl shadow-lg p-6 md:p-14 w-full flex flex-col md:flex-row justify-center items-center md:space-x-10 space-y-6 md:space-y-0 filter drop-shadow-lg">
-            
+
                 <!-- Image Section -->
                 <div class="relative w-full md:w-1/3">
                     <div class="absolute -top-2 -left-2 right-2 bottom-2 bg-[#144A3A] rounded-3xl"></div>
@@ -223,8 +227,8 @@
                     <!-- Buttons -->
                     <div class="flex flex-col items-center mt-4 space-y-4">
                     <!-- Read More Button -->
-                    <button 
-                        onclick="window.location.href='/AboutUs';" 
+                    <button
+                        onclick="window.location.href='/AboutUs';"
                         class="bg-[#0F936D] text-white px-3 py-3 mb-12 md:px-4 md:py-3 rounded-2xl hover:bg-green-600 transition w-full max-w-[50%] md:max-w-[45%] text-center">
                         Read More
                     </button>
@@ -237,7 +241,7 @@
                     </button>
                     </div>
                 </div>
-            
+
             </div>
         </div>
     </div>
@@ -258,7 +262,7 @@
         <!-- Title -->
         <div class="w-full flex justify-center">
             <div class="w-full md:w-[900px] text-center">
-                <h2 class="text-4xl font-bold mb-2 mt-10 md:mt-20 underline font-redhat">meet our team!</h2>
+                <h2 class="text-4xl font-bold mb-2 mt-10 md:mt-20 underline font-redhat">Meet Our Team!</h2>
             </div>
         </div>
 
@@ -303,17 +307,17 @@
             <div class="border-4 border-[#08332A] rounded-2xl px-4 py-4 md:px-36 md:py-6 flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 lg:space-x-16 shadow-md">
                 <div class="text-center">
                     <p class="text-2xl md:text-4xl font-extrabold font-redhat">100+</p>
-                    <p class="text-md md:text-2xl font-medium font-redhat">members</p>
+                    <p class="text-md md:text-2xl font-medium font-redhat">Members</p>
                 </div>
                 <span class="hidden md:inline ml-2 text-4xl flex items-center">|</span>
                 <div class="text-center">
                     <p class="text-2xl md:text-4xl font-extrabold font-redhat">10+</p>
-                    <p class="text-md md:text-2xl font-medium font-redhat">divisions</p>
+                    <p class="text-md md:text-2xl font-medium font-redhat">Divisions</p>
                 </div>
                 <span class="hidden md:inline ml-2 text-4xl flex items-center">|</span>
                 <div class="text-center">
                     <p class="text-2xl md:text-4xl font-extrabold font-redhat">8+</p>
-                    <p class="text-md md:text-2xl font-medium font-redhat">projects</p>
+                    <p class="text-md md:text-2xl font-medium font-redhat">Projects</p>
                 </div>
                 <button onclick="window.location.href='/AboutUs';" class="bg-[#1D614D] text-white px-8 py-2 md:px-36 md:py-4 rounded-xl text-lg md:text-2xl font-semibold hover:bg-green-900 transition-transform duration-500 ease-out transform hover:scale-105 font-redhat mt-4 md:mt-0">
                     Read More
@@ -324,7 +328,7 @@
 
     <!-- Activities Section -->
     <div class="relative w-full bg-[#144A3A] text-white min-h-screen bottom-[-100px] rounded-t-[50px] md:rounded-t-[40px] p-8 md:p-20 flex flex-col py-10">
-        <h2 class="text-xl md:text-3xl font-bold mb-8 md:mb-12 underline text-left font-redhat">here's what we do,</h2>
+        <h2 class="text-xl md:text-3xl font-bold mb-8 md:mb-12 underline text-left font-redhat">Here's What We Do,</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pb-20 md:pb-40">
             <!-- Card 1 -->
@@ -371,9 +375,9 @@
 
     <!-- Tree Background -->
     <div class="relative w-full h-[120px] md:h-[180px] overflow-hidden -mb-[60px] md:-mb-[90px] z-10">
-        <img 
-            src="images/trees.png" 
-            alt="Forest Design" 
+        <img
+            src="images/trees.png"
+            alt="Forest Design"
             class="absolute top-0 left-0 w-full h-full object-cover"
         >
     </div>

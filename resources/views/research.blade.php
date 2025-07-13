@@ -11,52 +11,9 @@
 </head>
 
 <body class="min-h-screen">
-    <!-- Navbar -->
-    <nav class="absolute top-8 left-0 w-full flex justify-between items-center px-12 text-white z-40">
-        <div id="logo" class="flex items-center font-bold ml-8">
-            <img src="images/logo2.png" alt="SRE Logo" class="h-24 mr-2">
-        </div>
+       {{-- Include shared navbar --}}
+    @include('partials.othernavbar')
 
-        <!-- Hamburger Button -->
-        <button id="hamburgerButton" class="lg:hidden text-black text-2xl focus:outline-none ml-4">
-            <i class="fas fa-bars"></i>
-        </button>
-
-        <!-- Desktop Nav -->
-        <ul id="navbar" class="hidden lg:flex text-black space-x-4 lg:space-x-12 text-lg uppercase items-center">
-            <li><a href="/" class="hover:text-green-500">Home</a></li>
-            <span class="ml-2 hidden md:inline">|</span>
-            <li><a href="/aboutUs" class="hover:text-green-500">About Us</a></li>
-            <span class="ml-2 hidden md:inline">|</span>
-            <li class="relative">
-                <button id="desktopDropdownButton" class="hover:text-green-500 uppercase focus:outline-none">Programs</button>
-                <ul id="desktopDropdownMenu" class="hidden absolute bg-white text-black mt-2 w-30 py-2 shadow-lg rounded-lg">
-                    <li><a href="#" class="block px-1 py-2 hover:bg-gray-200">Activity</a></li>
-                    <li><a href="/Research" class="block px-1 py-2 hover:bg-gray-200">Research</a></li>
-                    <li><a href="/Competition" class="block px-1 py-2 hover:bg-gray-200">Competition</a></li>
-                </ul>
-            </li>
-
-        </ul>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 bg-white/70  pt-20 px-4 hidden z-40">
-        <ul class="space-y-6 text-2xl">
-            <li><a href="/Home" class="block py-3 border-b border-gray-200 hover:text-green-500">Home</a></li>
-            <li><a href="/aboutUs" class="block py-3 border-b border-gray-200 hover:text-green-500">About Us</a></li>
-            <li class="relative">
-                <button id="mobileDropdownBtn"
-                    class="block py-3 border-b border-gray-200 w-full text-left hover:text-green-500">Programs <i
-                        class="fas fa-chevron-down float-right mt-1"></i></button>
-                <ul id="mobileDropdown" class="hidden pl-4 space-y-3 mt-2">
-                    <li><a href="#" class="block py-2 hover:text-green-500">Activity</a></li>
-                    <li><a href="/Research" class="block py-2 hover:text-green-500">Research</a></li>
-                    <li><a href="/Competition" class="block py-2 hover:text-green-500">Competition</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
     <!-- Programs Section -->
     <main class="max-w-4xl mx-auto mt-40 px-4 md:px-0">
         <div class="text-center mb-6">
@@ -139,9 +96,9 @@
     <footer class="relative bg-[#104334] text-white pt-[60px] md:pt-[90px] pb-8 md:pb-16 px-8 md:px-16 z-0 overflow-visible mt-48">
         <!-- Trees overflowing upwards -->
         <div class="absolute top-0 left-0 w-full h-[120px] md:h-[180px] -translate-y-[60%] md:-translate-y-[60%] z-10">
-            <img 
-                src="images/trees.png" 
-                alt="Forest Design" 
+            <img
+                src="images/trees.png"
+                alt="Forest Design"
                 class="w-full h-full object-cover"
             >
         </div>
@@ -201,25 +158,6 @@
 
     <script>
 
- // Mobile menu toggle
- const hamburgerBtn = document.getElementById('hamburgerButton');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  if (hamburgerBtn && mobileMenu) {
-    hamburgerBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  }
-
-  // Mobile dropdown toggle
-  const mobileDropdownBtn = document.getElementById('mobileDropdownBtn');
-  const mobileDropdown = document.getElementById('mobileDropdown');
-
-  if (mobileDropdownBtn && mobileDropdown) {
-    mobileDropdownBtn.addEventListener('click', () => {
-      mobileDropdown.classList.toggle('hidden');
-    });
-  }
 
   // Desktop dropdown toggle
   const desktopDropdownBtn = document.getElementById('desktopDropdownButton');
@@ -235,22 +173,6 @@
       desktopDropdownMenu.classList.add('hidden');
     });
   }
-
-  // Close mobile menu when clicking a link
-  const mobileLinks = document.querySelectorAll('#mobileMenu a');
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-    });
-  });
-
-    // Close mobile menu when clicking outside (on overlay)
-    mobileMenu.addEventListener('click', (e) => {
-    // Close only if the user clicks directly on the background (not inside the menu)
-    if (e.target === mobileMenu) {
-        mobileMenu.classList.add('hidden');
-    }
-    });
     </script>
 
 </body>

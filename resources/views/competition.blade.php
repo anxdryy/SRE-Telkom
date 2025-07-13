@@ -13,7 +13,7 @@
 
     {{-- Include shared navbar --}}
      @include('partials.othernavbar');
-     
+
     <!-- Programs Section -->
     <main class="max-w-4xl mx-auto mt-40 px-4 md:px-0">
         <div class="text-center mb-6">
@@ -96,9 +96,9 @@
     <footer class="relative bg-[#104334] text-white pt-[60px] md:pt-[90px] pb-8 md:pb-16 px-8 md:px-16 z-0 overflow-visible mt-48">
         <!-- Trees overflowing upwards -->
         <div class="absolute top-0 left-0 w-full h-[120px] md:h-[180px] -translate-y-[60%] md:-translate-y-[60%] z-10">
-            <img 
-                src="images/trees.png" 
-                alt="Forest Design" 
+            <img
+                src="images/trees.png"
+                alt="Forest Design"
                 class="w-full h-full object-cover"
             >
         </div>
@@ -158,25 +158,6 @@
 
     <script>
 
- // Mobile menu toggle
- const hamburgerBtn = document.getElementById('hamburgerButton');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  if (hamburgerBtn && mobileMenu) {
-    hamburgerBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  }
-
-  // Mobile dropdown toggle
-  const mobileDropdownBtn = document.getElementById('mobileDropdownBtn');
-  const mobileDropdown = document.getElementById('mobileDropdown');
-
-  if (mobileDropdownBtn && mobileDropdown) {
-    mobileDropdownBtn.addEventListener('click', () => {
-      mobileDropdown.classList.toggle('hidden');
-    });
-  }
 
   // Desktop dropdown toggle
   const desktopDropdownBtn = document.getElementById('desktopDropdownButton');
@@ -193,21 +174,7 @@
     });
   }
 
-  // Close mobile menu when clicking a link
-  const mobileLinks = document.querySelectorAll('#mobileMenu a');
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-    });
-  });
-
-  // Close mobile menu when clicking outside (on overlay)
-    mobileMenu.addEventListener('click', (e) => {
-    // Close only if the user clicks directly on the background (not inside the menu)
-    if (e.target === mobileMenu) {
-        mobileMenu.classList.add('hidden');
-    }
-    });
+  
     </script>
 
 </body>
