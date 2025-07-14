@@ -37,7 +37,7 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 px-10">
                 @forelse($department->members as $member)
                     <div class="flex flex-col items-center">
-                        <img src="{{ asset('storage/' . $member->image) }}" alt="{{ $member->name }}" class="w-24 h-24 rounded-full object-cover mb-2">
+                        <img src="{{ asset('storage/' . $member->image) }}" alt="{{ $member->name }}" class="w-48 h-48 rounded-full object-cover mb-2">
                         <p class="text-lg font-medium">{{ $member->name }}</p>
                         <p class="text-sm text-gray-300">{{ $member->division }}</p>
                     </div>
@@ -55,7 +55,7 @@
                     <div class="bg-white shadow rounded overflow-hidden">
                         <img src="{{ asset('storage/' . $work->image) }}" alt="{{ $work->title }}" class="h-48 w-full object-cover">
                         <div class="p-4">
-                            <h3 class="text-xl font-bold mb-2">{{ $work->title }}</h3>
+                            <h3 class="text-xl font-bold mb-2">{{ $work->name }}</h3>
                             <p class="text-sm text-gray-700">{{ $work->description }}</p>
                         </div>
                     </div>
@@ -69,13 +69,16 @@
     {{-- Show Department Grid if $departments is set --}}
     @isset($departments)
         <section class="flex flex-col gap-10 md:flex-row items-center justify-between px-6 my-10 md:px-10 py-10">
-            <div class="w-full ml-10 md:w-1/3 mb-6 md:mb-0">
-                <h2 class="font-redhat text-3xl font-extrabold text-black tracking-widest">Our <span class="text-[#104334] ml-2">Departments</span></h2>
-                <div class="w-16 h-1 bg-gray-500 mt-2 mr-8"></div>
-                <p class="font-redhattext text-black mt-4 max-w-[85%] text-justify text-lg font-semibold">
-                    Each of our departments strives to fulfill our vision and mission toward SRE goals.
-                </p>
-            </div>
+        <div class="w-full ml-10 md:w-1/3 mb-6 md:mb-0">
+            <h2 class="font-redhat text-3xl md:text-3xl font-semibold text-black flex items-center tracking-widest">
+                Our <span class="text-[#104334] ml-2">Departments</span>
+            </h2>
+            <div class="w-16 h-1 bg-gray-500 mt-2 mr-8"></div>
+            <p class="font-redhattext text-black mt-4 max-w-[85%] text-justify text-base md:text-lg font-semibold">
+                Each of our departments strive to fulfill the needs. Achieving the vission and mission towards our SRE
+                Goals.
+            </p>
+        </div>
 
             <div class="w-full md:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                 @foreach ($departments as $dept)
