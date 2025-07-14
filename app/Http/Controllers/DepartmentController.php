@@ -130,6 +130,15 @@ class DepartmentController extends Controller
             abort(404, 'Department not found');
         }
 
-        return view('departement', compact('department'));
+        $departments = Department::where('slug', '!=', $slug)->get();
+
+        return view('departement', compact('department', 'departments'));
     }
+
+    public function fordeptpage(): View
+    {
+        $departments = Department::all();
+        return view('departement', compact('departments'));
+    }
+
 }

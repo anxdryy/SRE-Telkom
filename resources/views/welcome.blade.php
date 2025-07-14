@@ -262,7 +262,7 @@
         <!-- Title -->
         <div class="w-full flex justify-center">
             <div class="w-full md:w-[900px] text-center">
-                <h2 class="text-4xl font-bold mb-2 mt-10 md:mt-20 underline font-redhat">Meet Our Team!</h2>
+                <h2 class="text-4xl font-extrabold mb-2 mt-10 md:mt-20 underline font-redhat">Meet Our Team!</h2>
             </div>
         </div>
 
@@ -328,46 +328,31 @@
 
     <!-- Activities Section -->
     <div class="relative w-full bg-[#144A3A] text-white min-h-screen bottom-[-100px] rounded-t-[50px] md:rounded-t-[40px] p-8 md:p-20 flex flex-col py-10">
-        <h2 class="text-xl md:text-3xl font-bold mb-8 md:mb-12 underline text-left font-redhat">Here's What We Do,</h2>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-8 underline tracking-tight">
+            Here's <span class="text-white">What We Do,</span>
+        </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pb-20 md:pb-40">
-            <!-- Card 1 -->
-            <div class="bg-white text-black border border-gray-300 rounded-2xl overflow-hidden shadow-lg">
-                <div class="relative">
-                    <img src="images/sre1.jpeg" alt="Event 1" class="w-full h-full object-cover aspect-square">
-                    <div class="absolute bottom-0 w-full bg-black bg-opacity-60 text-white p-4 md:p-6 text-center">
-                        <p class="text-xs md:text-sm font-redhat">Presiden of China Entertainment</p>
-                        <h3 class="text-sm md:text-base font-bold font-redhat">Fajar Dwitama</h3>
-                    </div>
-                </div>
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            @foreach ($latestPrograms as $program)
+                <a href="{{ route('programs.show', $program->id) }}"
+                class="relative rounded-xl overflow-hidden border-solid border-8 shadow-3xl transition-transform transform hover:scale-105 duration-300">
 
-            <!-- Card 2 -->
-            <div class="bg-white text-black border border-gray-300 rounded-2xl overflow-hidden shadow-lg">
-                <div class="relative">
-                    <img src="images/sre2.jpeg" alt="Event 2" class="w-full h-full object-cover aspect-square">
-                    <div class="absolute bottom-0 w-full bg-black bg-opacity-60 text-white p-4 md:p-6 text-center">
-                        <p class="text-xs md:text-sm font-redhat">08 October 2024</p>
-                        <h3 class="text-sm md:text-base font-bold font-redhat">Teaching Students : Renewable?</h3>
-                    </div>
-                </div>
-            </div>
+                    {{-- Image --}}
+                    <img src="{{ asset('storage/' . $program->image) }}" 
+                        alt="{{ $program->title }}" 
+                        class="w-full h-80 object-cover">
 
-            <!-- Card 3 -->
-            <div class="bg-white text-black border border-gray-300 rounded-2xl overflow-hidden shadow-lg">
-                <div class="relative">
-                    <img src="images/sre3.jpeg" alt="Event 3" class="w-full h-full object-cover aspect-square">
-                    <div class="absolute bottom-0 w-full bg-black bg-opacity-60 text-white p-4 md:p-6 text-center">
-                        <p class="text-xs md:text-sm font-redhat">28 December 2024</p>
-                        <h3 class="text-sm md:text-base font-bold font-redhat">Sun-Powered Generators with Local Highschool</h3>
+                    {{-- Bottom Overlay --}}
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
+                        <p class="text-sm mb-1">{{ \Carbon\Carbon::parse($program->date)->format('d F Y') }}</p>
+                        <h3 class="text-base sm:text-lg font-bold leading-tight">{{ $program->title }}</h3>
                     </div>
-                </div>
-            </div>
+                </a>
+            @endforeach
         </div>
 
-        <!-- Read More Link -->
-        <div class="-mt-16 pb-10 md:-mt-36 text-xl md:text-3xl text-center md:text-right">
-            <a href="#" class="text-white font-semibold underline inline-block transition-transform duration-500 ease-out transform hover:scale-105 font-redhat">
+        <div class="text-right mt-6">
+            <a href="/Activity" class="text-white underline text-3xl font-semibold hover:text-green-300 transition-colors duration-200">
                 Read More
             </a>
         </div>
@@ -383,7 +368,7 @@
     </div>
 
     <!-- Footer Section -->
-    <footer class="relative bg-[#104334] text-white pt-[60px] md:pt-[90px] pb-8 md:pb-16 px-8 md:px-16 z-0">
+    <footer class="relative bg-[#104334] text-white pt-[40px] md:pt-[90px] pb-8 md:pb-16 px-8 md:px-16 z-0">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
             <!-- Left: Logo and Description -->
             <div class="w-full md:w-1/3 mb-8 md:mb-0">

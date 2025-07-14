@@ -13,16 +13,16 @@
         <img src="{{ asset('images/trees.png') }}" alt="Forest Design" class="absolute bottom-[-130px] left-0 w-full z-10">
     </div>
 
-<footer class="relative bg-[#104334] text-white py-10 md:py-16 px-6 md:px-16 z-10 bottom-[-10px]">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-start relative">
-            <!-- Kiri: Logo dan Deskripsi -->
+<footer class="relative bg-[#104334] text-white md:pt-[90px] pb-8 md:pb-16 px-8 md:px-16 z-0 overflow-visible">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
+            <!-- Left: Logo and Description -->
             <div class="w-full md:w-1/3 mb-8 md:mb-0">
-                <img src="images/logo1.png" alt="SRE Universitas Telkom" class="w-auto h-12 md:h-auto">
-                <p class="mt-2 text-sm text-gray-300">
+                <img src="{{ asset('images/logo1.png') }}" alt="SRE Universitas Telkom" class="w-auto h-16 md:h-auto">
+                <p class="mt-4 text-sm text-gray-300">
                     Society of Renewable Energy is a student organization dedicated to promoting new and renewable
                     energy advancements across Indonesia.
                 </p>
-                <p class="mt-4 md:mt-6 text-gray-400 text-xs">COPYRIGHT © SRE Telkom University 2024</p>
+                <p class="mt-6 text-gray-400 text-xs">COPYRIGHT © SRE Telkom University 2024</p>
             </div>
 
             <!-- Right: Contact & Social Media -->
@@ -42,25 +42,20 @@
                 <div class="w-3/8 flex flex-col items-start">
                     <h3 class="text-lg font-semibold mb-2 ">Follow Us</h3>
                     <div class="flex grid grid-cols-3 gap-3 ">
-                        <a href="https://instagram.com" target="_blank">
-                            <img src="{{ asset('images/instagram.png') }}" alt="Instagram"
-                                class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
+                        <a href="https://www.instagram.com/sre.telu/?hl=en" target="_blank">
+                            <img src="{{ asset('images/instagram.png') }}" alt="Instagram" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                         <a href="https://line.me" target="_blank">
-                            <img src="{{ asset('images/vector.png') }}"alt="Line"
-                                class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
+                            <img src="{{ asset('images/vector.png') }}" alt="Line" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
-                        <a href="https://youtube.com" target="_blank">
-                            <img src="{{ asset('images/youtube.png') }}" alt="YouTube"
-                                class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
+                        <a href="https://www.youtube.com/@societyofrenewableenergyte5336" target="_blank">
+                            <img src="{{ asset('images/youtube.png') }}" alt="YouTube" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
-                        <a href="https://linkedin.com" target="_blank">
-                            <img src="{{ asset('images/linkedin.png') }}" alt="LinkedIn"
-                                class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
+                        <a href="https://www.linkedin.com/company/sre-telu/posts/?feedView=all" target="_blank">
+                            <img src="{{ asset('images/linkedin.png') }}" alt="LinkedIn" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                         <a href="mailto:example@example.com">
-                            <img src="{{ asset('images/envelope.png') }}" alt="Email"
-                                class=" transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
+                            <img src="{{ asset('images/envelope.png') }}" alt="Email" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                     </div>
                 </div>

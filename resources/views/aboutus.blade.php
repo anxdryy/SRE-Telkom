@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title>SRE Telkom University</title>
 
 </head>
@@ -233,122 +234,17 @@
         </div>
     </section>
 
-    <div class="relative w-full bg-[#144A3A] text-white min-h-screen bottom-[-20px] p-6 md:p-20 flex flex-col">
+    <div class="relative w-full bg-[#144A3A] text-white min-h-screen bottom-[-120px] p-6 md:p-20 flex flex-col">
         <h2 class="text-2xl font-redhat md:text-3xl font-bold mb-6 md:mb-12 text-center">Meet Our Alumnis</h2>
+        <!-- Alumni Carousel -->
+            @include('partials.carousel', ['alumnis' => $alumnis])
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pb-20 md:pb-40 relative">
-            <!-- Tombol Navigasi Kiri -->
-            <button id="prev"
-                class="absolute left-0 md:left-5 top-1/2 md:mt-52 bg-white text-black p-2 rounded-full shadow-lg hover:bg-gray-200 transform -translate-y-1/2 md:translate-y-0">
-                <img src="https://img.icons8.com/ios-filled/50/000000/chevron-left.png" alt="Left Arrow"
-                    class="w-6 h-6">
-            </button>
-
-            <!-- Card 1 -->
-            <div class="bg-white text-black border border-gray-300 rounded-2xl overflow-hidden shadow-lg">
-                <div class="relative">
-                    <img src="images/sre1.jpeg" alt="Event 1" class="w-full h-full object-cover aspect-square">
-                    <div class="absolute bottom-0 w-full bg-black bg-opacity-60 text-white p-4 md:p-6 text-center">
-                        <p class="text-xs">Presiden of China Entertainment</p>
-                        <h3 class="text-sm md:text-base font-bold">Fajar Dwitama</h3>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="bg-white text-black border border-gray-300 rounded-2xl overflow-hidden shadow-lg">
-                <div class="relative">
-                    <img src="images/sre2.jpeg" alt="Event 2" class="w-full h-full object-cover aspect-square">
-                    <div class="absolute bottom-0 w-full bg-black bg-opacity-60 text-white p-4 md:p-6 text-center">
-                        <p class="text-xs">08 October 2024</p>
-                        <h3 class="text-sm md:text-base font-bold">Teaching Students : Renewable?</h3>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="bg-white text-black border border-gray-300 rounded-2xl overflow-hidden shadow-lg">
-                <div class="relative">
-                    <img src="images/sre3.jpeg" alt="Event 3" class="w-full h-full object-cover aspect-square">
-                    <div class="absolute bottom-0 w-full bg-black bg-opacity-60 text-white p-4 md:p-6 text-center">
-                        <p class="text-xs">28 December 2024</p>
-                        <h3 class="text-sm md:text-base font-bold">Sun-Powered Generators with Local Highschool</h3>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tombol Navigasi Kanan -->
-            <button id="next"
-                class="absolute right-0 md:right-5 top-1/2 md:mt-52 bg-white text-black p-2 rounded-full shadow-lg hover:bg-gray-200 transform -translate-y-1/2 md:translate-y-0">
-                <img src="https://img.icons8.com/ios-filled/50/000000/chevron-right.png" alt="Right Arrow"
-                    class="w-6 h-6">
-            </button>
-        </div>
     </div>
 
     <!-- Footer Section -->
-    <footer class="relative bg-[#104334] text-white pt-[60px] md:pt-[90px] pb-8 md:pb-16 px-8 md:px-16 z-0 overflow-visible">
-        <!-- Trees overflowing upwards -->
-        <div class="absolute top-0 left-0 w-full h-[120px] md:h-[180px] -translate-y-[50%] md:-translate-y-[60%] z-10">
-            <img
-                src="images/trees.png"
-                alt="Forest Design"
-                class="w-full h-full object-cover"
-            >
-        </div>
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
-            <!-- Left: Logo and Description -->
-            <div class="w-full md:w-1/3 mb-8 md:mb-0">
-                <img src="images/logo1.png" alt="SRE Universitas Telkom" class="w-auto h-16 md:h-auto">
-                <p class="mt-4 text-sm text-gray-300">
-                    Society of Renewable Energy is a student organization dedicated to promoting new and renewable
-                    energy advancements across Indonesia.
-                </p>
-                <p class="mt-6 text-gray-400 text-xs">COPYRIGHT © SRE Telkom University 2024</p>
-            </div>
-
-            <!-- Right: Contact & Social Media -->
-            <div class="w-full md:w-2/6 flex flex-col md:flex-row space-y-8 md:space-y-0">
-                <!-- Contact Us -->
-                <div class="w-full md:w-1/2">
-                    <h3 class="text-lg font-semibold mb-2">Contact Us</h3>
-                    <p class="text-sm text-gray-300 leading-relaxed">
-                        Jl. Telekomunikasi,<br>
-                        Jl. Terusan Buah Batu No.01,<br>
-                        Sukapura, Dayeuhkolot,<br>
-                        Bandung, Jawa Barat 40257
-                    </p>
-                </div>
-
-                <!-- Follow Us -->
-                <div class="w-3/8 flex flex-col items-start">
-                    <h3 class="text-lg font-semibold mb-2 ">Follow Us</h3>
-                    <div class="flex grid grid-cols-3 gap-3 ">
-                        <a href="https://instagram.com" target="_blank">
-                            <img src="images/instagram.png" alt="Instagram" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
-                        </a>
-                        <a href="https://line.me" target="_blank">
-                            <img src="images/vector.png" alt="Line" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
-                        </a>
-                        <a href="https://youtube.com" target="_blank">
-                            <img src="images/youtube.png" alt="YouTube" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
-                        </a>
-                        <a href="https://linkedin.com" target="_blank">
-                            <img src="images/linkedin.png" alt="LinkedIn" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
-                        </a>
-                        <a href="mailto:example@example.com">
-                            <img src="images/envelope.png" alt="Email" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Hashtag -->
-        <div class="text-center md:text-right mt-8 text-2xl md:text-4xl font-semibold text-gray-300">
-            #sipalingrenewableenergy
-        </div>
-    </footer>
+    <div class="mt-4"> {{-- Adjust tree height by pushing footer down --}}
+        @include('partials.footer')
+    </div>
 
 </body>
 </html>

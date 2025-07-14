@@ -9,9 +9,11 @@ use App\Http\Controllers\WorkController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AlumniController;
+use App\Models\Programs;
 
 Route::get('/', function () {
-    return view('welcome');
+    $latestPrograms = Programs::latest()->take(3)->get();
+    return view('welcome', compact('latestPrograms'));
 });
 
 Route::middleware(['guest'])->group(function () {
@@ -30,32 +32,44 @@ Route::middleware(['login.auth'])->group(function () {
     Route::resource('alumni', AlumniController::class)->parameters(['alumni' => 'alumni']);
 });
 
-Route::get('/AboutUs', [DepartmentController::class, 'aboutUs'])->name('aboutUs');
+Route::get('/AboutUs', [AboutUsController::class, 'index'])->name('aboutUs');
 
-Route::get('/Departement', function () {
-    return view('departement');
-});
+// Departments
+Route::get('/Departement', [DepartmentController::class, 'fordeptpage'])->name('departments.index');
+Route::get('/departement/{slug}/detail', [DepartmentController::class, 'showDetail'])->name('departments.showDetail');
 
-use App\Models\Programs;
-
+// Programs by Category (with pagination)
 Route::get('/Activity', function () {
     $programs = Programs::with('category')
         ->whereHas('category', function ($query) {
             $query->where('name', 'Activity');
         })
-        ->get();
+        ->paginate(5);
 
     return view('activity', compact('programs'));
 });
 
 Route::get('/Research', function () {
-    return view('research');
+    $programs = Programs::with('category')
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'Research');
+        })
+        ->paginate(5); // Show 5 items per page
+
+    return view('research', compact('programs'));
 });
 
 Route::get('/Competition', function () {
-    return view('competition');
+    $programs = Programs::with('category')
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'Competition');
+        })
+        ->paginate(5); // Show 5 items per page
+
+    return view('competition', compact('programs'));
 });
 
+// Miscellaneous
 Route::get('/News', function () {
     return view('news');
 });
@@ -64,15 +78,12 @@ Route::get('/admin1', function () {
     return view('admin.crudAdmin');
 });
 
-//Departments
-Route::get('/Departement', [DepartmentController::class, 'detail']);
-
-Route::get('/departement/{slug}/detail', [DepartmentController::class, 'showDetail'])->name('departments.showDetail');
-
 Route::get('/session-check', function () {
     return session()->all();
 });
 
-//News
+// Individual Program Detail
 Route::get('/programs/{program}', [ProgramsController::class, 'show'])->name('programs.show');
 
+// Carousel About Us
+Route::get('/aboutUs', [AboutUsController::class, 'index']);
