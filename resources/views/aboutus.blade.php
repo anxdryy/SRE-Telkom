@@ -242,7 +242,7 @@
     </div>
 
     <!-- Footer Section -->
-    <div class="mt-4"> {{-- Adjust tree height by pushing footer down --}}
+    <div class="mt-12"> {{-- Adjust tree height by pushing footer down --}}
         @include('partials.footer')
     </div>
 

@@ -39,7 +39,7 @@
                     <div class="flex flex-col items-center">
                         <img src="{{ asset('storage/' . $member->image) }}" alt="{{ $member->name }}" class="w-48 h-48 rounded-full object-cover mb-2">
                         <p class="text-lg font-medium">{{ $member->name }}</p>
-                        <p class="text-sm text-gray-300">{{ $member->division }}</p>
+                        <p class="text-sm text-gray-300">{{ $member->role }}</p>
                     </div>
                 @empty
                     <p class="col-span-full text-center text-gray-400">No members available.</p>
