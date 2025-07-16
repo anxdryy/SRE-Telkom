@@ -49,6 +49,14 @@
                 @enderror
             </div>
 
+            <div class="mb-3">
+                <label for="instagram" class="form-label">Instagram Link</label>
+                <input type="text" class="form-control @error('instagram') is-invalid @enderror" id="instagram" name="instagram" value="{{ old('instagram') }}" required>
+                @error('instagram')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
             <div class="d-flex justify-content-between">
                 <a href="{{ route('programs.index') }}" class="btn btn-secondary">
                     <i class="fas fa-arrow-left me-1"></i>Back

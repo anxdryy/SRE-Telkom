@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md-3 text-center mb-3">
                 @if($program->image)
-                    <img src="{{ Storage::url($program->image) }}" alt="{{ $program->title }}" class="img-fluid rounded mb-3" style="max-height: 200px;">
+                    <img src="{{ Storage::url($program->image) }}" alt="{{ $program->name }}" class="img-fluid rounded mb-3" style="max-height: 200px;">
                     <p class="text-muted">Current Image</p>
                 @else
                     <div class="text-muted fst-italic">No image uploaded</div>
@@ -21,7 +21,7 @@
                     @method('PUT')
 
                     <div class="mb-3">
-                        <label for="title" class="form-label">Program Title</label>
+                        <label for="title" class="form-label">Program Name</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $program->title) }}" required>
                         @error('title')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -34,6 +34,15 @@
                         @error('desc')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="instagram" class="form-label">Instagram Link</label>
+                        <input type="text" class="form-control @error('instagram') is-invalid @enderror" id="instagram" name="instagram" value="{{ old('instagram', $program->instagram) }}" required>
+                        @error('instagram')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        <div class="form-text">Example: https://instagram.com/yourpage</div>
                     </div>
 
                     <div class="mb-3">

@@ -21,6 +21,7 @@
                             <th>No</th>
                             <th>Name</th>
                             <th>Category</th>
+                            <th>Instagram</th>
                             <th>Image</th>
                             <th>Created At</th>
                             <th>Updated At</th>
@@ -33,9 +34,18 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $program->title }}</td>
                                 <td>{{ $program->category->name ?? '-' }}</td>
+                                <td style="white-space: normal; word-break: break-all;">
+                                    @if ($program->instagram)
+                                        <a href="{{ $program->instagram }}" target="_blank" class="text-decoration-none">
+                                            {{ $program->instagram }}
+                                        </a>
+                                    @else
+                                        <span class="text-muted">-</span>
+                                    @endif
+                                </td>
                                 <td>
                                     @if ($program->image)
-                                        <img src="{{ Storage::url($program->image) }}" alt="{{ $program->title }}" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
+                                        <img src="{{ Storage::url($program->image) }}" alt="{{ $program->name }}" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
                                     @else
                                         <span class="text-muted">No Image</span>
                                     @endif
@@ -50,7 +60,7 @@
                                         <a href="{{ route('programs.edit', $program->id) }}" class="btn btn-sm btn-warning">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <form action="{{ route('programs.destroy', $program->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this program ?');" class="d-inline">
+                                        <form action="{{ route('programs.destroy', $program->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this program?');" class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">

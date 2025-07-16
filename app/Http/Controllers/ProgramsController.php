@@ -27,6 +27,7 @@ class ProgramsController extends Controller{
             'desc' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|exists:categories,id',
+            'instagram' => 'required|url|max:255',
         ]);
 
         if ($request->hasFile('image')) {
@@ -38,6 +39,7 @@ class ProgramsController extends Controller{
 
         return redirect()->route('programs.index')
             ->with('success', 'Program created successfully.');
+        
     }
 
     public function show(Programs $program): View {
@@ -56,6 +58,7 @@ class ProgramsController extends Controller{
             'desc' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|exists:categories,id',
+            'instagram' => 'required|url|max:255',
         ]);
 
         if ($request->hasFile('image')) {
