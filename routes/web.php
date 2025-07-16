@@ -23,20 +23,22 @@ Route::middleware(['guest'])->group(function () {
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
-Route::middleware(['login.auth'])->group(function () {
-    Route::resource('departments', DepartmentController::class);
-    Route::resource('members', MemberController::class);
-    Route::resource('categories', CategoryController::class);
-    Route::resource('programs', ProgramsController::class);
-    Route::resource('works', WorkController::class);
-    Route::resource('alumni', AlumniController::class)->parameters(['alumni' => 'alumni']);
-});
+Route::middleware(['login.auth'])
+    ->prefix('admin')
+    ->group(function () {
+        Route::resource('departments', DepartmentController::class);
+        Route::resource('members', MemberController::class);
+        Route::resource('categories', CategoryController::class);
+        Route::resource('programs', ProgramsController::class);
+        Route::resource('works', WorkController::class);
+        Route::resource('alumni', AlumniController::class)->parameters(['alumni' => 'alumni']);
+    });
 
 Route::get('/AboutUs', [AboutUsController::class, 'index'])->name('aboutUs');
 
 // Departments
-Route::get('/Departement', [DepartmentController::class, 'fordeptpage'])->name('departments.index');
-Route::get('/departement/{slug}/detail', [DepartmentController::class, 'showDetail'])->name('departments.showDetail');
+Route::get('/Departement', [DepartmentController::class, 'fordeptpage'])->name('departments.list');
+Route::get('/departement/{slug}', [DepartmentController::class, 'showDetail'])->name('departments.showDetail');
 
 // Programs by Category (with pagination)
 Route::get('/Activity', function () {
@@ -83,7 +85,7 @@ Route::get('/session-check', function () {
 });
 
 // Individual Program Detail
-Route::get('/programs/{program}', [ProgramsController::class, 'show'])->name('programs.show');
+Route::get('/programs/{slug}', [ProgramsController::class, 'showDetail'])->name('programs.showDetail');
 
 // Carousel About Us
 Route::get('/aboutUs', [AboutUsController::class, 'index']);

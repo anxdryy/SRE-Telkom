@@ -10,7 +10,7 @@ class Programs extends Model
 {
     use HasUuids;
 
-    protected $fillable = ['title', 'desc', 'image', 'category_id', 'instagram'];
+    protected $fillable = ['title', 'desc', 'image', 'category_id', 'instagram', 'slug'];
 
     public function category(): BelongsTo
     {

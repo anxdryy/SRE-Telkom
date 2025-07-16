@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProgramsController extends Controller{
 
@@ -30,6 +31,8 @@ class ProgramsController extends Controller{
             'instagram' => 'required|url|max:255',
         ]);
 
+        $validated['slug'] = Str::slug($validated['title']);
+
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('programs', 'public');
             $validated['image'] = $path;
@@ -39,12 +42,12 @@ class ProgramsController extends Controller{
 
         return redirect()->route('programs.index')
             ->with('success', 'Program created successfully.');
-        
+
     }
 
     public function show(Programs $program): View {
         $program->load('category');
-        return view('news', compact('program')); // ✅ Use the news template
+        return view('programs.show', compact('program'));
     }
 
     public function edit(Programs $program): View{
@@ -60,6 +63,8 @@ class ProgramsController extends Controller{
             'category_id' => 'required|exists:categories,id',
             'instagram' => 'required|url|max:255',
         ]);
+
+        $validated['slug'] = Str::slug($validated['title']);
 
         if ($request->hasFile('image')) {
             // Delete old image if exists
@@ -101,6 +106,12 @@ class ProgramsController extends Controller{
         return view('activity', compact('programs'));
     }
 
+    public function showDetail(string $slug): View
+    {
+        $program = Programs::with('category')->where('slug', $slug)->firstOrFail();
+
+        return view('news', compact('program'));
+    }
 
 }
 

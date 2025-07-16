@@ -38,7 +38,7 @@
         <div class="space-y-6 mt-8 mb-12 md:mt-14">
             {{-- Loop over program items --}}
            @foreach ($programs as $program)
-                <a href="{{ route('programs.show', $program->id) }}"
+                <a href="{{ route('programs.showDetail', $program->slug) }}"
                 class="block focus:outline-none focus:ring-4 focus:ring-green-300 rounded-lg transition duration-300">
                     <div class="bg-white shadow-md rounded-lg overflow-hidden border-4 border-[#21735B] w-full md:w-[900px] mx-auto flex flex-col md:flex-row">
                         <img src="{{ asset('storage/' . $program->image) }}" alt="{{ $program->title }}"

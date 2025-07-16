@@ -226,7 +226,7 @@
         <!-- Bagian Kanan (Ikon Departemen) -->
         <div class="w-full md:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             @foreach ($departments as $dept)
-                <a href="{{ url('departement/' . $dept->slug . '/detail') }}">
+                <a href="{{ url('departement/' . $dept->slug) }}">
                     <img src="{{ asset('storage/' . $dept->image) }}" alt="{{ $dept['alt'] }}"
                         class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
                 </a>
