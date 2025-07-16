@@ -24,11 +24,18 @@
             </div>
             <div class="col-md-8">
                 <h4 class="card-title">{{ $program->title }}</h4>
+                <p><strong>Category:</strong> {{ $program->category->name ?? '-' }}</p>
+                <p><strong>Description:</strong> {{ $program->desc }}</p>
                 <p>
-                    <strong>Category:</strong>
-                    {{ $program->category->name ?? '-' }}
+                    <strong>Instagram:</strong>
+                    @if ($program->instagram)
+                        <a href="{{ $program->instagram }}" target="_blank" rel="noopener noreferrer">
+                            {{ $program->instagram }}
+                        </a>
+                    @else
+                        <span class="text-muted fst-italic">No Instagram link</span>
+                    @endif
                 </p>
-                <p><strong>Description:</strong><br>{{ $program->desc }}</p>
                 <p><strong>Created at:</strong> {{ $program->created_at->format('Y-m-d H:i') }}</p>
                 <p><strong>Updated at:</strong> {{ $program->updated_at->format('Y-m-d H:i') }}</p>
 
