@@ -54,7 +54,7 @@
             </div>
 
             {{-- Read More Button --}}
-            @if($program->category && $program->category->name === 'Activity')
+            @if($program->category && $program->category->name === 'Activity' || $program->category && $program->category->name === 'Research' || $program->category && $program->category->name === 'Competition')
             <a href="https://instagram.com" target="_blank" class="mt-4 md:mt-0">
                 <button
                     class="flex items-center bg-[#21735B] text-white text-sm px-4 py-2 rounded-full shadow hover:bg-[#1e604c] transition-transform duration-500 ease-in-out hover:scale-110">

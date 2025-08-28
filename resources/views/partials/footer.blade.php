@@ -9,11 +9,16 @@
             font-family: 'Onest', sans-serif;
         }
 </style>
-    <div class="relative w-full">
-        <img src="{{ asset('images/trees.png') }}" alt="Forest Design" class="absolute bottom-[-130px] left-0 w-full z-10">
-    </div>
 
-<footer class="relative bg-[#104334] text-white md:pt-[90px] pb-8 md:pb-16 px-8 md:px-16 z-0 overflow-visible">
+    <!-- Footer Section -->
+    <footer class="relative bg-[#104334] text-white pt-[60px] md:pt-[90px] pb-8 md:pb-16 px-8 md:px-16 z-0 overflow-visible mt-48">
+        <!-- Trees overflowing upwards -->
+        <div class="absolute top-0 left-0 w-full h-[120px] md:h-[180px] -translate-y-[60%] md:-translate-y-[60%] z-10">
+            <img src="{{ asset('images/trees.png') }}"
+                alt="Forest Design"
+                class="w-full h-full object-cover"
+            >
+        </div>
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
             <!-- Left: Logo and Description -->
             <div class="w-full md:w-1/3 mb-8 md:mb-0">
@@ -42,16 +47,16 @@
                 <div class="w-3/8 flex flex-col items-start">
                     <h3 class="text-lg font-semibold mb-2 ">Follow Us</h3>
                     <div class="flex grid grid-cols-3 gap-3 ">
-                        <a href="https://www.instagram.com/sre.telu/?hl=en" target="_blank">
+                        <a href="https://instagram.com" target="_blank">
                             <img src="{{ asset('images/instagram.png') }}" alt="Instagram" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                         <a href="https://line.me" target="_blank">
                             <img src="{{ asset('images/vector.png') }}" alt="Line" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
-                        <a href="https://www.youtube.com/@societyofrenewableenergyte5336" target="_blank">
+                        <a href="https://youtube.com" target="_blank">
                             <img src="{{ asset('images/youtube.png') }}" alt="YouTube" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
-                        <a href="https://www.linkedin.com/company/sre-telu/posts/?feedView=all" target="_blank">
+                        <a href="https://linkedin.com" target="_blank">
                             <img src="{{ asset('images/linkedin.png') }}" alt="LinkedIn" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                         <a href="mailto:example@example.com">

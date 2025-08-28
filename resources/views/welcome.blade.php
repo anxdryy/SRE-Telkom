@@ -220,7 +220,7 @@
 
                 <!-- Text Section -->
                 <div class="w-full md:w-1/2 text-gray-800 space-y-4 pl-8 mt-12">
-                    <p class="text-lg md:text-2xl font-onest text-justify">
+                   <p class="text-lg md:text-2xl font-redhattext text-justify">
                     Founded in 2021, SRE Telkom University is one of the student chapters of the Society of Renewable Energy, based in Bandung. Our focus extends beyond renewable energy, emphasizing community empowerment and environmental sustainability through education, innovation, and collaboration.
                     </p>
 
@@ -229,7 +229,7 @@
                     <!-- Read More Button -->
                     <button
                         onclick="window.location.href='/AboutUs';"
-                        class="bg-[#0F936D] text-white px-3 py-3 mb-12 md:px-4 md:py-3 rounded-2xl hover:bg-green-600 transition w-full max-w-[50%] md:max-w-[45%] text-center">
+                        class="bg-[#0F936D] text-white px-3 py-3 mb-12 md:px-4 md:py-3 rounded-2xl hover:bg-green-600 transition w-full max-w-[50%] md:max-w-[45%] text-center font-redhat">
                         Read More
                     </button>
 
@@ -247,10 +247,10 @@
     </div>
 
     <!-- Quote Section -->
-    <div class="relative bg-center bg-cover py-12 px-2 text-center" style="background-image: url('images/bg3.jpeg'); min-height: 300px;">
+    <div class="relative bg-center bg-cover py-12 px-2 text-center" style="background-image: url('images/bg3.jpeg'); min-height: 340px;">
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div class="relative p-6 inline-block max-w-3xl">
-            <p class="text-white font-semibold text-lg md:text-2xl font-merriweather-sans">
+        <div class="relative p-5 inline-block max-w-4xl">
+            <p class="text-white font-semibold text-lg md:text-3xl font-redhattext">
                 "Our dependence on fossil fuels amounts to global pyromania, and the only fire extinguisher we have at
                 our disposal is renewable energy." - Hermann Scheer.  
             </p>
@@ -328,7 +328,7 @@
 
     <!-- Activities Section -->
     <div class="relative w-full bg-[#144A3A] text-white min-h-screen bottom-[-100px] rounded-t-[50px] md:rounded-t-[40px] p-8 md:p-20 flex flex-col py-10">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-8 underline tracking-tight">
+        <h2 class="text-3xl md:text-4xl font-bold font-redhattext text-white mb-8 underline tracking-tight">
             Here's <span class="text-white">What We Do,</span>
         </h2>
 
@@ -338,8 +338,8 @@
                 class="relative rounded-xl overflow-hidden border-solid border-8 shadow-3xl transition-transform transform hover:scale-105 duration-300">
 
                     {{-- Image --}}
-                    <img src="{{ asset('storage/' . $program->image) }}" 
-                        alt="{{ $program->title }}" 
+                    <img src="{{ asset('storage/' . $program->image) }}"
+                        alt="{{ $program->title }}"
                         class="w-full h-80 object-cover">
 
                     {{-- Bottom Overlay --}}
@@ -352,7 +352,7 @@
         </div>
 
         <div class="text-right mt-6">
-            <a href="/Activity" class="text-white underline text-3xl font-semibold hover:text-green-300 transition-colors duration-200">
+            <a href="/Activity" class="text-white underline text-3xl font-semibold font-redhattext hover:text-green-300 transition-colors duration-200">
                 Read More
             </a>
         </div>
