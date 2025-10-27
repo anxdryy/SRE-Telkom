@@ -39,16 +39,16 @@
     </section>
 
     <section class="relative flex flex-col lg:flex-row justify-center items-center py-10 gap-10">
-    <!-- Elevate -->
+    <!-- Energize -->
     <div class="flex items-center text-center rotate-0 lg:absolute lg:left-[222px] lg:top-[-40px] lg:ml-56 lg:rotate-[5.08deg]">
-        <img src="images/Group 59.png" class="w-[120px] h-[120px] lg:w-[180px] lg:h-[180px]">
-        <p class="font-bold ml-2 text-xl lg:ml-4 lg:text-2xl lg:rotate-[-5.08deg]">Elevate</p>
+        <img src="images/innovate.png" class="w-[120px] h-[120px] lg:w-[180px] lg:h-[180px]">
+        <p class="font-bold ml-2 text-xl lg:ml-4 lg:text-2xl lg:rotate-[-5.08deg]">Innovate</p>
     </div>
 
-    <!-- Innovate -->
+    <!-- Elevate -->
 <div class="flex items-center justify-center text-center lg:scale-100 lg:rotate-[-7.26deg] lg:absolute lg:top-[290px] lg:-mt-48 xl:-ml-[850px] lg:-ml-[550px]">
-    <img src="images/lampu.png" class="w-[150px] h-[180px] lg:w-[380px] lg:h-[350px] object-contain">
-    <p class="font-bold ml-4 text-xl lg:ml-2 lg:mt-28 lg:text-2xl lg:rotate-[7.08deg]">Innovate</p>
+    <img src="images/elevate.png" class="w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] object-contain">
+    <p class="font-bold ml-4 text-xl lg:ml-2 lg:mt-28 lg:text-2xl lg:rotate-[7.08deg]">Elevate</p>
 </div>
 
     <!-- Energize -->
@@ -227,7 +227,7 @@
         <div class="w-full md:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             @foreach ($departments as $dept)
                 <a href="{{ url('departement/' . $dept->slug) }}">
-                    <img src="{{ asset('storage/' . $dept->image) }}" alt="{{ $dept['alt'] }}"
+                    <img src="{{ asset('storage/' . $dept->logo) }}" alt="{{ $dept['alt'] }}"
                         class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
                 </a>
             @endforeach

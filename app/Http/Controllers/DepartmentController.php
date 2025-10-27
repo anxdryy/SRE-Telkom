@@ -28,13 +28,21 @@ class DepartmentController extends Controller
             'name' => 'required|string|max:255|unique:departments,name',
             'description' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $validated['slug'] = Str::slug($validated['name']);
 
+        // Upload background image
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('departments', 'public');
+            $path = $request->file('image')->store('departments/images', 'public');
             $validated['image'] = $path;
+        }
+
+        // Upload logo (optional)
+        if ($request->hasFile('logo')) {
+            $logoPath = $request->file('logo')->store('departments/logos', 'public');
+            $validated['logo'] = $logoPath;
         }
 
         Department::create($validated);
@@ -43,7 +51,7 @@ class DepartmentController extends Controller
             ->with('success', 'Department created successfully.');
     }
 
-    // Show single department by route model binding
+    // Show single department
     public function show(Department $department): View {
         $department->load('members', 'works');
         return view('departments.show', compact('department'));
@@ -59,20 +67,34 @@ class DepartmentController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255|unique:departments,name,' . $department->id,
             'description' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $validated['slug'] = Str::slug($validated['name']);
 
+        // Update image if uploaded
         if ($request->hasFile('image')) {
             if ($department->image && Storage::disk('public')->exists($department->image)) {
                 Storage::disk('public')->delete($department->image);
             }
 
-            $path = $request->file('image')->store('departments', 'public');
+            $path = $request->file('image')->store('departments/images', 'public');
             $validated['image'] = $path;
         } else {
             $validated['image'] = $department->image;
+        }
+
+        // Update logo if uploaded
+        if ($request->hasFile('logo')) {
+            if ($department->logo && Storage::disk('public')->exists($department->logo)) {
+                Storage::disk('public')->delete($department->logo);
+            }
+
+            $logoPath = $request->file('logo')->store('departments/logos', 'public');
+            $validated['logo'] = $logoPath;
+        } else {
+            $validated['logo'] = $department->logo;
         }
 
         $department->update($validated);
@@ -93,8 +115,12 @@ class DepartmentController extends Controller
                 ->with('error', 'Cannot delete department with works.');
         }
 
+        // Delete stored files if exist
         if ($department->image && Storage::disk('public')->exists($department->image)) {
             Storage::disk('public')->delete($department->image);
+        }
+        if ($department->logo && Storage::disk('public')->exists($department->logo)) {
+            Storage::disk('public')->delete($department->logo);
         }
 
         $department->delete();
@@ -103,12 +129,10 @@ class DepartmentController extends Controller
             ->with('success', 'Department deleted successfully.');
     }
 
-    // ✅ NEW METHOD: For front-end department page using ?dept=core
- public function detail(Request $request): \Illuminate\View\View
-    {
+    // Front-end department detail
+    public function detail(Request $request): View {
         $id = $request->query('id');
-
-        $department = \App\Models\Department::with(['members', 'works'])->find($id);
+        $department = Department::with(['members', 'works'])->find($id);
 
         if (!$department) {
             abort(404, 'Department not found');
@@ -122,8 +146,7 @@ class DepartmentController extends Controller
         return view('aboutus', compact('departments'));
     }
 
-    public function showDetail($slug): View
-    {
+    public function showDetail($slug): View {
         $department = Department::with(['members', 'works'])->where('slug', $slug)->first();
 
         if (!$department) {
@@ -135,10 +158,8 @@ class DepartmentController extends Controller
         return view('departement', compact('department', 'departments'));
     }
 
-    public function fordeptpage(): View
-    {
+    public function fordeptpage(): View {
         $departments = Department::all();
         return view('departement', compact('departments'));
     }
-
 }

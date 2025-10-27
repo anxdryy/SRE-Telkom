@@ -19,17 +19,31 @@
 
     {{-- Show Department Detail View --}}
     @isset($department)
-        <section class="font-redhat relative bg-cover bg-center text-white h-[400px] flex items-center justify-center"
-        style="background-image: url('{{ asset('images/corebg.jpg') }}');">
+        @php
+            $backgroundImage = $department->image 
+                ? asset('storage/' . $department->image)
+                : asset('images/corebg.jpg');
+        @endphp
+
+        <section 
+            class="font-redhat relative bg-cover bg-center text-white h-[400px] flex items-center justify-center"
+            style="background-image: url('{{ $backgroundImage }}');">
+            
             <div class="absolute inset-0 bg-black opacity-30"></div>
+
             <div class="relative z-10 text-center px-6 max-w-3xl">
                 <h1 class="text-4xl font-bold mb-4">{{ $department->name }}</h1>
                 <p class="text-lg">{{ $department->description }}</p>
-                @if ($department->image)
-                    <img src="{{ asset('storage/' . $department->image) }}" alt="{{ $department->name }}" class="mx-auto mt-4 w-24 h-24 object-contain">
-                @endif
+
+                @if ($department->logo)
+                    <img 
+                        src="{{ asset('storage/' . $department->logo) }}" 
+                        alt="{{ $department->name }}" 
+                        class="mx-auto mt-4 w-24 h-24 object-contain">
             </div>
         </section>
+    @endisset
+
 
         {{-- Members --}}
         <section class="bg-[#104334] text-white py-10">

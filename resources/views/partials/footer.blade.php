@@ -46,20 +46,20 @@
                 <!-- Follow Us -->
                 <div class="w-3/8 flex flex-col items-start">
                     <h3 class="text-lg font-semibold mb-2 ">Follow Us</h3>
-                    <div class="flex grid grid-cols-3 gap-3 ">
-                        <a href="https://instagram.com" target="_blank">
+                    <div class="grid grid-cols-3 gap-3 ">
+                        <a href="https://www.instagram.com/sre.telu/" target="_blank">
                             <img src="{{ asset('images/instagram.png') }}" alt="Instagram" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
-                        <a href="https://line.me" target="_blank">
-                            <img src="{{ asset('images/vector.png') }}" alt="Line" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
+                        <a href="https://liff.line.me/1645278921-kWRPP32q/?accountId=879sylkk" target="_blank">
+                            <img src="{{ asset('images/line.png') }}" alt="Line" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
-                        <a href="https://youtube.com" target="_blank">
+                        <a href="https://www.youtube.com/@societyofrenewableenergyte5336" target="_blank">
                             <img src="{{ asset('images/youtube.png') }}" alt="YouTube" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
-                        <a href="https://linkedin.com" target="_blank">
+                        <a href="https://www.linkedin.com/company/sre-telu/" target="_blank">
                             <img src="{{ asset('images/linkedin.png') }}" alt="LinkedIn" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
-                        <a href="mailto:example@example.com">
+                        <a href="mailto:telkomuniversity@sre.co.id">
                             <img src="{{ asset('images/envelope.png') }}" alt="Email" class="transition-transform duration-500 ease-out transform hover:scale-110 w-6 h-6">
                         </a>
                     </div>
