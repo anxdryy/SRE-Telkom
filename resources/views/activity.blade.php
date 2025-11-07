@@ -60,7 +60,7 @@
 
     </main>
     <!-- Footer Section -->
-    <div class="mt-32"> {{-- Adjust tree height by pushing footer down --}}
+    <div class="mt-32"> 
         @include('partials.footer')
     </div>
 
