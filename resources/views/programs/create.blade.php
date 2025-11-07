@@ -51,7 +51,7 @@
 
             <div class="mb-3">
                 <label for="instagram" class="form-label">Instagram Link</label>
-                <input type="text" class="form-control @error('instagram') is-invalid @enderror" id="instagram" name="instagram" value="{{ old('instagram') }}" required>
+                <input type="text" class="form-control @error('instagram') is-invalid @enderror" id="instagram" name="instagram" value="{{ old('instagram') }}">
                 @error('instagram')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

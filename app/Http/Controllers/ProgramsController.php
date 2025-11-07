@@ -28,7 +28,7 @@ class ProgramsController extends Controller{
             'desc' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|exists:categories,id',
-            'instagram' => 'required|url|max:255',
+            'instagram' => 'nullable|url|max:255',
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);
@@ -61,7 +61,7 @@ class ProgramsController extends Controller{
             'desc' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|exists:categories,id',
-            'instagram' => 'required|url|max:255',
+            'instagram' => 'nullable|url|max:255',
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);
