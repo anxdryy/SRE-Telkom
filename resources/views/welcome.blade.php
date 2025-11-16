@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,19 +11,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-        <style>
+    <style>
         /* Font Classes */
         .font-redhat {
             font-family: 'Red Hat Display', sans-serif;
         }
+
         .font-onest {
             font-family: 'Onest', sans-serif;
         }
+
         .font-merriweather-sans {
             font-family: "Merriweather Sans", sans-serif;
         }
 
-         body {
+        body {
             font-family: 'Red Hat Display', sans-serif;
         }
 
@@ -33,9 +36,9 @@
         /* Icon Container Styles */
         .icon-container {
             position: relative;
-            width: 200px;
-            height: 200px;
             display: flex;
+            width: 200px; /* <-- KEMBALIKAN INI */
+            height: 200px;
             align-items: center;
             justify-content: center;
             transition: transform 0.3s ease-in-out;
@@ -195,8 +198,10 @@
             <h1 id="typingText" class="font-onest text-[3rem] md:text-[6rem] font-bold leading-tight opacity-0"></h1>
         </div>
 
-        <div id="joinUsContainer" class="absolute bottom-16 left-4 md:left-16 opacity-0 transform -translate-x-20 transition-all duration-1000 ml-0 md:ml-8">
-            <button id="joinUsButton" class="font-onest px-4 py-2 md:px-8 md:py-4 bg-white text-lg md:text-xl text-[#104334] font-semibold rounded-3xl shadow-[0_0_20px_rgba(255,255,255,0.8)] transition duration-300 transform hover:scale-110">
+        <div id="joinUsContainer"
+            class="absolute bottom-16 left-4 md:left-16 opacity-0 transform -translate-x-20 transition-all duration-1000 ml-0 md:ml-8">
+            <button id="joinUsButton"
+                class="font-onest px-4 py-2 md:px-8 md:py-4 bg-white text-lg md:text-xl text-[#104334] font-semibold rounded-3xl shadow-[0_0_20px_rgba(255,255,255,0.8)] transition duration-300 transform hover:scale-110">
                 JOIN US!
             </button>
         </div>
@@ -207,38 +212,45 @@
         <div class="flex items-center justify-center relative max-w-9xl mx-auto px-4 md:px-6">
 
             <!-- Content Container -->
-            <div class="bg-white bg-opacity-90 backdrop-blur-md rounded-xl shadow-lg p-6 md:p-14 w-full flex flex-col md:flex-row justify-center items-center md:space-x-10 space-y-6 md:space-y-0 filter drop-shadow-lg">
+            <div
+                class="bg-white bg-opacity-90 backdrop-blur-md rounded-xl shadow-lg p-6 md:p-14 w-full flex flex-col md:flex-row justify-center items-center md:space-x-10 space-y-6 md:space-y-0 filter drop-shadow-lg">
 
                 <!-- Image Section -->
                 <div class="relative w-full md:w-1/3">
                     <div class="absolute -top-2 -left-2 right-2 bottom-2 bg-[#144A3A] rounded-3xl"></div>
                     <div class="relative p-2 transform translate-x-4 translate-y-4">
-                    <img src="images/sre.jpeg" alt="SRE Tel-U" class="rounded-3xl shadow-md w-full">
-                    <div class="absolute inset-0 m-2 bg-black bg-opacity-10 flex items-center justify-center rounded-md"></div>
+                        <img src="images/sre.jpeg" alt="SRE Tel-U" class="rounded-3xl shadow-md w-full">
+                        <div
+                            class="absolute inset-0 m-2 bg-black bg-opacity-10 flex items-center justify-center rounded-md">
+                        </div>
                     </div>
                 </div>
 
                 <!-- Text Section -->
                 <div class="w-full md:w-1/2 text-gray-800 space-y-4 pl-8 mt-12">
-                   <p class="text-lg md:text-2xl font-redhattext text-justify">
-                    Founded in 2021, SRE Telkom University is one of the student chapters of the Society of Renewable Energy, based in Bandung. Our focus extends beyond renewable energy, emphasizing community empowerment and environmental sustainability through education, innovation, and collaboration.
+                    <p class="text-lg md:text-2xl font-redhattext text-justify">
+                        Founded in 2021, SRE Telkom University is one of the student chapters of the Society of
+                        Renewable Energy, based in Bandung. Our focus extends beyond renewable energy, emphasizing
+                        community empowerment and environmental sustainability through education, innovation, and
+                        collaboration.
                     </p>
 
                     <!-- Buttons -->
                     <div class="flex flex-col items-center mt-4 space-y-4">
-                    <!-- Read More Button -->
-                    <button
-                        onclick="window.location.href='/AboutUs';"
-                        class="bg-[#0F936D] text-white px-3 py-3 mb-12 md:px-4 md:py-3 rounded-2xl hover:bg-green-600 transition w-full max-w-[50%] md:max-w-[45%] text-center font-redhat">
-                        Read More
-                    </button>
+                        <!-- Read More Button -->
+                        <button onclick="window.location.href='/AboutUs';"
+                            class="bg-[#0F936D] text-white px-3 py-3 mb-12 md:px-4 md:py-3 rounded-2xl hover:bg-green-600 transition w-full max-w-[50%] md:max-w-[45%] text-center font-redhat">
+                            Read More
+                        </button>
 
-                    <!-- Scroll Down Icon -->
-                    <button id="scrollDownButton" class="mt-24">
-                        <svg class="w-8 h-8 text-black animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
+                        <!-- Scroll Down Icon -->
+                        <button id="scrollDownButton" class="mt-24">
+                            <svg class="w-8 h-8 text-black animate-bounce" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -247,7 +259,8 @@
     </div>
 
     <!-- Quote Section -->
-    <div class="relative bg-center bg-cover py-12 px-2 text-center" style="background-image: url('images/bg3.jpeg'); min-height: 340px;">
+    <div class="relative bg-center bg-cover py-12 px-2 text-center"
+        style="background-image: url('images/bg3.jpeg'); min-height: 340px;">
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
         <div class="relative p-5 inline-block max-w-4xl">
             <p class="text-white font-semibold text-lg md:text-3xl font-redhattext">
@@ -266,45 +279,37 @@
             </div>
         </div>
 
-        <!-- Team Icons -->
-        <div class="flex flex-col items-center mt-32 space-y-16">
-            <div class="flex gap-28">
-                <div class="icon-container">
-                    <img src="images/RND.png" alt="Research & Development">
-                    <div class="overlay">Research & Development</div>
-                </div>
-                <div class="icon-container">
-                    <img src="images/MULMED.png" alt="Multimedia">
-                    <div class="overlay">Multimedia</div>
-                </div>
-                <div class="icon-container">
-                    <img src="images/ACAD.png" alt="Academics">
-                    <div class="overlay">Academics</div>
-                </div>
-                <div class="icon-container">
-                    <img src="images/IT.png" alt="IT">
-                    <div class="overlay">IT</div>
-                </div>
-            </div>
-            <div class="flex gap-28">
-                <div class="icon-container">
-                    <img src="images/EVENT.png" alt="Event & Competition">
-                    <div class="overlay">Event & Competition</div>
-                </div>
-                <div class="icon-container">
-                    <img src="images/CoreNEW.png" alt="Core">
-                    <div class="overlay">Core</div>
-                </div>
-                <div class="icon-container">
-                    <img src="images/PR.png" alt="Public Relations">
-                    <div class="overlay">Public Relations</div>
-                </div>
-            </div>
-        </div>
+
+        <div class="flex flex-col items-center mt-16 md:mt-32 space-y-4 md:space-y-8 px-4">
+
+    <!-- Baris Atas (4 Logo) -->
+    <div class="flex flex-wrap justify-center gap-4 md:gap-12 lg:gap-28">
+        {{-- Mengambil 4 departemen pertama dari koleksi --}}
+        @foreach ($departments->take(4) as $department)
+            <a href="{{ route('departments.showDetail', ['slug' => $department->slug]) }}" class="icon-container">
+                <img src="{{ asset('storage/' . $department->logo) }}" alt="{{ $department->name }}">
+                <div class="overlay">{{ $department->name }}</div>
+            </a>
+        @endforeach
+    </div>
+
+    <!-- Baris Bawah (Sisa Logo) -->
+    <div class="flex flex-wrap justify-center gap-4 md:gap-12 lg:gap-28">
+        {{-- Melewatkan 4 departemen pertama dan mengambil sisanya --}}
+        @foreach ($departments->skip(4) as $department)
+            <a href="{{ route('departments.showDetail', ['slug' => $department->slug]) }}" class="icon-container">
+                <img src="{{ asset('storage/' . $department->logo) }}" alt="{{ $department->name }}">
+                <div class="overlay">{{ $department->name }}</div>
+            </a>
+        @endforeach
+    </div>
+
+</div>
 
         <!-- Stats & Button -->
         <div class="flex justify-center mt-8 md:mt-16">
-            <div class="border-4 border-[#08332A] rounded-2xl px-4 py-4 md:px-36 md:py-6 flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 lg:space-x-16 shadow-md">
+            <div
+                class="border-4 border-[#08332A] rounded-2xl px-4 py-4 md:px-36 md:py-6 flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 lg:space-x-16 shadow-md">
                 <div class="text-center">
                     <p class="text-2xl md:text-4xl font-extrabold font-redhat">100+</p>
                     <p class="text-md md:text-2xl font-medium font-redhat">Members</p>
@@ -319,7 +324,8 @@
                     <p class="text-2xl md:text-4xl font-extrabold font-redhat">8+</p>
                     <p class="text-md md:text-2xl font-medium font-redhat">Projects</p>
                 </div>
-                <button onclick="window.location.href='/AboutUs';" class="bg-[#1D614D] text-white px-8 py-2 md:px-36 md:py-4 rounded-xl text-lg md:text-2xl font-semibold hover:bg-green-900 transition-transform duration-500 ease-out transform hover:scale-105 font-redhat mt-4 md:mt-0">
+                <button onclick="window.location.href='/AboutUs';"
+                    class="bg-[#1D614D] text-white px-8 py-2 md:px-36 md:py-4 rounded-xl text-lg md:text-2xl font-semibold hover:bg-green-900 transition-transform duration-500 ease-out transform hover:scale-105 font-redhat mt-4 md:mt-0">
                     Read More
                 </button>
             </div>
@@ -327,7 +333,8 @@
     </div>
 
     <!-- Activities Section -->
-    <div class="relative w-full bg-[#144A3A] text-white min-h-screen bottom-[-100px] rounded-t-[50px] md:rounded-t-[40px] p-8 md:p-20 flex flex-col py-10">
+    <div
+        class="relative w-full bg-[#144A3A] text-white min-h-screen bottom-[-100px] rounded-t-[50px] md:rounded-t-[40px] p-8 md:p-20 flex flex-col py-10">
         <h2 class="text-3xl md:text-4xl font-bold font-redhattext text-white mb-8 underline tracking-tight">
             Here's <span class="text-white">What We Do,</span>
         </h2>
@@ -335,11 +342,10 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             @foreach ($latestPrograms as $program)
                 <a href="{{ route('programs.show', $program->id) }}"
-                class="relative rounded-xl overflow-hidden border-solid border-8 shadow-3xl transition-transform transform hover:scale-105 duration-300">
+                    class="relative rounded-xl overflow-hidden border-solid border-8 shadow-3xl transition-transform transform hover:scale-105 duration-300">
 
                     {{-- Image --}}
-                    <img src="{{ asset('storage/' . $program->image) }}"
-                        alt="{{ $program->title }}"
+                    <img src="{{ asset('storage/' . $program->image) }}" alt="{{ $program->title }}"
                         class="w-full h-80 object-cover">
 
                     {{-- Bottom Overlay --}}
@@ -352,14 +358,15 @@
         </div>
 
         <div class="text-right mt-6">
-            <a href="/Activity" class="text-white underline text-3xl font-semibold font-redhattext hover:text-green-300 transition-colors duration-200">
+            <a href="/Activity"
+                class="text-white underline text-3xl font-semibold font-redhattext hover:text-green-300 transition-colors duration-200">
                 Read More
             </a>
         </div>
     </div>
 
     <!-- Footer Section -->
-    <div class="mt-[-100px]"> 
+    <div class="mt-[-100px]">
         @include('partials.footer')
     </div>
 
@@ -417,4 +424,5 @@
         });
     </script>
 </body>
+
 </html>

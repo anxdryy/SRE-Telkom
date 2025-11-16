@@ -10,10 +10,12 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AlumniController;
 use App\Models\Programs;
+use App\Models\Department;
 
 Route::get('/', function () {
     $latestPrograms = Programs::latest()->take(3)->get();
-    return view('welcome', compact('latestPrograms'));
+    $departments = Department::all();
+    return view('welcome', compact('latestPrograms', 'departments'));
 });
 
 Route::middleware(['guest'])->group(function () {
@@ -37,7 +39,7 @@ Route::middleware(['login.auth'])
 Route::get('/AboutUs', [AboutUsController::class, 'index'])->name('aboutUs');
 
 // Departments
-Route::get('/Departement', [DepartmentController::class, 'fordeptpage'])->name('departments.list');
+Route::get('/departement', [DepartmentController::class, 'fordeptpage'])->name('departments.list');
 Route::get('/departement/{slug}', [DepartmentController::class, 'showDetail'])->name('departments.showDetail');
 
 // Programs by Category (with pagination)

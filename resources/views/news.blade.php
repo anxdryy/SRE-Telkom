@@ -74,13 +74,13 @@
         @endif
 
         {{-- Description --}}
-        <div class="font-semibold leading-relaxed text-gray-800 space-y-4 text-justify text-[15px]">
+        <div class="font-normal leading-relaxed text-gray-800 space-y-4 text-justify text-[15px]">
             <p>{!! nl2br(e($program->desc)) !!}</p>
         </div>
     </main>
 
     <!-- Footer Section -->
-    <div class="mt-32"> 
+    <div class="mt-32">
         @include('partials.footer')
     </div>
 
