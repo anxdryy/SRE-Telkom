@@ -65,7 +65,7 @@
                         {{ $program->title }}
                     </h1>
                     <p class="text-gray-500 font-semibold text-sm mt-1">
-                        {{ $program->created_at->translatedFormat('d F Y H:i') }}
+                        {{ $program->created_at->timezone('Asia/Jakarta')->translatedFormat('d F Y H:i') }}
                     </p>
                 </div>
             </div>
