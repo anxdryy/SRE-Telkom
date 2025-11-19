@@ -15,8 +15,8 @@
     </div>
     <div class="card-body">
         <h4 class="card-title">{{ $category->name }}</h4>
-        <p class="text-muted">Created at: {{ $category->created_at->format('Y-m-d H:i') }}</p>
-        <p class="text-muted">Updated at: {{ $category->updated_at->format('Y-m-d H:i') }}</p>
+        <p class="text-muted">Created at: {{ $category->created_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
+        <p class="text-muted">Updated at: {{ $category->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
     </div>
 </div>
 @endsection

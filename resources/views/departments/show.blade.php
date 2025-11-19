@@ -43,8 +43,8 @@
 
         {{-- Timestamps --}}
         <div class="text-muted small mt-3">
-            <p class="mb-1">Created at: {{ $department->created_at->format('Y-m-d H:i') }}</p>
-            <p>Updated at: {{ $department->updated_at->format('Y-m-d H:i') }}</p>
+            <p class="mb-1">Created at: {{ $department->created_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
+            <p>Updated at: {{ $department->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
         </div>
 
         {{-- Members Section --}}

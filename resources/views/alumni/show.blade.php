@@ -21,8 +21,8 @@
             <div class="col-md-8">
                 <h4 class="card-title">{{ $alumni->name }}</h4>
                 <p><strong>Achievement:</strong> {{ $alumni->achievement }}</p>
-                <p><strong>Created at:</strong> {{ $alumni->created_at->format('Y-m-d H:i') }}</p>
-                <p><strong>Updated at:</strong> {{ $alumni->updated_at->format('Y-m-d H:i') }}</p>
+                <p><strong>Created at:</strong> {{ $alumni->created_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
+                <p><strong>Updated at:</strong> {{ $alumni->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
 
                 <form action="{{ route('alumni.destroy', $alumni) }}" method="POST" class="mt-4" onsubmit="return confirm('Are you sure you want to delete this alumni?');">
                     @csrf

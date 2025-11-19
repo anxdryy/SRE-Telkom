@@ -27,8 +27,8 @@
                         {{ $work->department->name }}
                     </a>
                 </p>
-                <p><strong>Created at:</strong> {{ $work->created_at->format('Y-m-d H:i') }}</p>
-                <p><strong>Updated at:</strong> {{ $work->updated_at->format('Y-m-d H:i') }}</p>
+                <p><strong>Created at:</strong> {{ $work->created_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
+                <p><strong>Updated at:</strong> {{ $work->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
 
                 <form action="{{ route('works.destroy', $work) }}" method="POST" class="mt-4" onsubmit="return confirm('Are you sure you want to delete this work?');">
                     @csrf

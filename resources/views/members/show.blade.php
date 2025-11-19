@@ -27,8 +27,8 @@
                         {{ $member->department->name }}
                     </a>
                 </p>
-                <p><strong>Created at:</strong> {{ $member->created_at->format('Y-m-d H:i') }}</p>
-                <p><strong>Updated at:</strong> {{ $member->updated_at->format('Y-m-d H:i') }}</p>
+                <p><strong>Created at:</strong> {{ $member->created_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
+                <p><strong>Updated at:</strong> {{ $member->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
 
                 <form action="{{ route('members.destroy', $member) }}" method="POST" class="mt-4" onsubmit="return confirm('Are you sure you want to delete this member?');">
                     @csrf

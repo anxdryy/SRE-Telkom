@@ -36,8 +36,8 @@
                         <span class="text-muted fst-italic">No Instagram link</span>
                     @endif
                 </p>
-                <p><strong>Created at:</strong> {{ $program->created_at->format('Y-m-d H:i') }}</p>
-                <p><strong>Updated at:</strong> {{ $program->updated_at->format('Y-m-d H:i') }}</p>
+                <p><strong>Created at:</strong> {{ $program->created_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
+                <p><strong>Updated at:</strong> {{ $program->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
 
                 <form action="{{ route('programs.destroy', $program) }}" method="POST" class="mt-4" onsubmit="return confirm('Are you sure you want to delete this program?');">
                     @csrf
