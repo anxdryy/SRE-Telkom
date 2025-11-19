@@ -11,18 +11,20 @@
 </head>
 <style>
     .font-redhat {
-            font-family: 'Red Hat Display', sans-serif;
-        }
-    .font-redhattext {
-            font-family: 'Red Hat Text', sans-serif;
-        }
-    .font-onest {
-            font-family: 'Onest', sans-serif;
-        }
+        font-family: 'Red Hat Display', sans-serif;
+    }
 
-        body {
-            font-family: 'Red Hat Display', sans-serif;
-        }
+    .font-redhattext {
+        font-family: 'Red Hat Text', sans-serif;
+    }
+
+    .font-onest {
+        font-family: 'Onest', sans-serif;
+    }
+
+    body {
+        font-family: 'Red Hat Display', sans-serif;
+    }
 </style>
 
 <body class="min-h-screen font-redhat">
@@ -36,7 +38,22 @@
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
             <div class="flex items-start space-x-3">
                 {{-- Back button --}}
-                <a href="javascript:history.back()">
+                {{-- LOGIKA BARU: Cek Kategori untuk menentukan arah tombol Back --}}
+                @php
+                    $backUrl = '/'; // Default ke Home jika tidak ada kategori
+                    if ($program->category) {
+                        if ($program->category->name == 'Research') {
+                            $backUrl = '/Research';
+                        } elseif ($program->category->name == 'Activity') {
+                            $backUrl = '/Activity';
+                        } elseif ($program->category->name == 'Competition') {
+                            $backUrl = '/Competition';
+                        }
+                    }
+                @endphp
+
+                {{-- Back button dengan Link yang sudah ditentukan di atas --}}
+                <a href="{{ url($backUrl) }}">
                     <svg class="w-8 h-8 text-black animate-bounce cursor-pointer hover:text-green-600 transition duration-300"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -55,22 +72,22 @@
 
             {{-- Read More Button --}}
             @if(($program->category && in_array($program->category->name, ['Activity', 'Research', 'Competition'])) && $program->instagram)
-            <a href="{{ $program->instagram }}" target="_blank" class="mt-4 md:mt-0">
-                <button
-                    class="flex items-center bg-[#21735B] text-white text-sm px-4 py-2 rounded-full shadow hover:bg-[#1e604c] transition-transform duration-500 ease-in-out hover:scale-110">
-                    <img src="{{ asset('images/instagram.png') }}" alt="Instagram" class="w-6 h-6 mr-2">
-                    <span>Read More</span>
-                </button>
-            </a>
+                <a href="{{ $program->instagram }}" target="_blank" class="mt-4 md:mt-0">
+                    <button
+                        class="flex items-center bg-[#21735B] text-white text-sm px-4 py-2 rounded-full shadow hover:bg-[#1e604c] transition-transform duration-500 ease-in-out hover:scale-110">
+                        <img src="{{ asset('images/instagram.png') }}" alt="Instagram" class="w-6 h-6 mr-2">
+                        <span>Read More</span>
+                    </button>
+                </a>
             @endif
         </div>
 
         {{-- Image --}}
         @if ($program->image)
-        <div class="rounded-2xl overflow-hidden mb-6">
-            <img src="{{ asset('storage/' . $program->image) }}" alt="{{ $program->title }}"
-                class="w-full h-auto object-cover">
-        </div>
+            <div class="rounded-2xl overflow-hidden mb-6">
+                <img src="{{ asset('storage/' . $program->image) }}" alt="{{ $program->title }}"
+                    class="w-full h-auto object-cover">
+            </div>
         @endif
 
         {{-- Description --}}

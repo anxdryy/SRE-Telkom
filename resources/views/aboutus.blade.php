@@ -173,7 +173,7 @@
                     <img src="images/coreperson.png"
                         class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
                     <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
-                    <p class="text-lgfont-bold text-green-900">President SRE</p>
+                    <p class="text-lg font-bold text-green-900">President SRE</p>
                 </div>
                 <div class="flex flex-col items-center">
                     <img src="images/coreperson.png"
@@ -242,7 +242,7 @@
     </div>
 
         <!-- Footer Section -->
-    <div class="mt-[-75px]"> 
+    <div class="mt-[-75px]">
         @include('partials.footer')
     </div>
 

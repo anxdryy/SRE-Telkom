@@ -37,7 +37,8 @@
         .icon-container {
             position: relative;
             display: flex;
-            width: 200px; /* <-- KEMBALIKAN INI */
+            width: 200px;
+            /* <-- KEMBALIKAN INI */
             height: 200px;
             align-items: center;
             justify-content: center;
@@ -280,48 +281,48 @@
         </div>
 
 
-        <div class="flex flex-col items-center mt-16 md:mt-32 space-y-4 md:space-y-8 px-4">
+        <div class="flex flex-col items-center mt-16 md:mt-20 space-y-4 md:space-y-8 px-4">
 
-    <!-- Baris Atas (4 Logo) -->
-    <div class="flex flex-wrap justify-center gap-4 md:gap-12 lg:gap-28">
-        {{-- Mengambil 4 departemen pertama dari koleksi --}}
-        @foreach ($departments->take(4) as $department)
-            <a href="{{ route('departments.showDetail', ['slug' => $department->slug]) }}" class="icon-container">
-                <img src="{{ asset('storage/' . $department->logo) }}" alt="{{ $department->name }}">
-                <div class="overlay">{{ $department->name }}</div>
-            </a>
-        @endforeach
-    </div>
+            <!-- Baris Atas (4 Logo) -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-12 lg:gap-28">
+                {{-- Mengambil 4 departemen pertama dari koleksi --}}
+                @foreach ($departments->take(4) as $department)
+                    <a href="{{ route('departments.showDetail', ['slug' => $department->slug]) }}" class="icon-container">
+                        <img src="{{ asset('storage/' . $department->logo) }}" alt="{{ $department->name }}">
+                        <div class="overlay">{{ $department->name }}</div>
+                    </a>
+                @endforeach
+            </div>
 
-    <!-- Baris Bawah (Sisa Logo) -->
-    <div class="flex flex-wrap justify-center gap-4 md:gap-12 lg:gap-28">
-        {{-- Melewatkan 4 departemen pertama dan mengambil sisanya --}}
-        @foreach ($departments->skip(4) as $department)
-            <a href="{{ route('departments.showDetail', ['slug' => $department->slug]) }}" class="icon-container">
-                <img src="{{ asset('storage/' . $department->logo) }}" alt="{{ $department->name }}">
-                <div class="overlay">{{ $department->name }}</div>
-            </a>
-        @endforeach
-    </div>
+            <!-- Baris Bawah (Sisa Logo) -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-12 lg:gap-28">
+                {{-- Melewatkan 4 departemen pertama dan mengambil sisanya --}}
+                @foreach ($departments->skip(4) as $department)
+                    <a href="{{ route('departments.showDetail', ['slug' => $department->slug]) }}" class="icon-container">
+                        <img src="{{ asset('storage/' . $department->logo) }}" alt="{{ $department->name }}">
+                        <div class="overlay">{{ $department->name }}</div>
+                    </a>
+                @endforeach
+            </div>
 
-</div>
+        </div>
 
         <!-- Stats & Button -->
         <div class="flex justify-center mt-8 md:mt-16">
             <div
                 class="border-4 border-[#08332A] rounded-2xl px-4 py-4 md:px-36 md:py-6 flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 lg:space-x-16 shadow-md">
                 <div class="text-center">
-                    <p class="text-2xl md:text-4xl font-extrabold font-redhat">100+</p>
+                    <p class="text-2xl md:text-4xl font-extrabold font-redhat">500+</p>
                     <p class="text-md md:text-2xl font-medium font-redhat">Members</p>
                 </div>
                 <span class="hidden md:inline ml-2 text-4xl flex items-center">|</span>
                 <div class="text-center">
-                    <p class="text-2xl md:text-4xl font-extrabold font-redhat">10+</p>
+                    <p class="text-2xl md:text-4xl font-extrabold font-redhat">7</p>
                     <p class="text-md md:text-2xl font-medium font-redhat">Divisions</p>
                 </div>
                 <span class="hidden md:inline ml-2 text-4xl flex items-center">|</span>
                 <div class="text-center">
-                    <p class="text-2xl md:text-4xl font-extrabold font-redhat">8+</p>
+                    <p class="text-2xl md:text-4xl font-extrabold font-redhat">10+</p>
                     <p class="text-md md:text-2xl font-medium font-redhat">Projects</p>
                 </div>
                 <button onclick="window.location.href='/AboutUs';"
@@ -333,42 +334,80 @@
     </div>
 
     <!-- Activities Section -->
-    <div
-        class="relative w-full bg-[#144A3A] text-white min-h-screen bottom-[-100px] rounded-t-[50px] md:rounded-t-[40px] p-8 md:p-20 flex flex-col py-10">
-        <h2 class="text-3xl md:text-4xl font-bold font-redhattext text-white mb-8 underline tracking-tight">
-            Here's <span class="text-white">What We Do,</span>
-        </h2>
+   <div
+    class="relative w-full bg-[#144A3A] text-white min-h-screen bottom-[-100px] rounded-t-[50px] md:rounded-t-[40px] p-8 md:p-20 flex flex-col py-10">
+    <h2 class="text-3xl md:text-4xl font-bold font-redhattext text-white mb-8 underline tracking-tight">
+        Here's <span class="text-white">What We Do,</span>
+    </h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            @foreach ($latestPrograms as $program)
-                <a href="{{ route('programs.show', $program->id) }}"
-                    class="relative rounded-xl overflow-hidden border-solid border-8 shadow-3xl transition-transform transform hover:scale-105 duration-300">
+    <div class="relative w-full">
 
-                    {{-- Image --}}
-                    <img src="{{ asset('storage/' . $program->image) }}" alt="{{ $program->title }}"
-                        class="w-full h-80 object-cover">
+        @if ($latestPrograms->count() > 3)
+            <div id="programs-scroller"
+                class="flex overflow-x-auto gap-6 pb-4 scroll-smooth"
+                style="-ms-overflow-style: none; scrollbar-width: none;">
 
-                    {{-- Bottom Overlay --}}
-                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
-                        <p class="text-sm mb-1">{{ \Carbon\Carbon::parse($program->date)->format('d F Y') }}</p>
-                        <h3 class="text-base sm:text-lg font-bold leading-tight">{{ $program->title }}</h3>
-                    </div>
-                </a>
-            @endforeach
-        </div>
+                @foreach ($latestPrograms as $program)
+                    <a href="{{ route('programs.showDetail', $program->slug) }}"
+                        class="relative rounded-xl overflow-hidden border-solid border-8 shadow-3xl transition-transform transform hover:scale-105 duration-300
+                            flex-shrink-0 w-11/12 sm:w-1/2 md:w-1/3">
 
-        <div class="text-right mt-6">
-            <a href="/Activity"
-                class="text-white underline text-3xl font-semibold font-redhattext hover:text-green-300 transition-colors duration-200">
-                Read More
-            </a>
-        </div>
+                        <img src="{{ asset('storage/'. $program->image) }}" alt="{{ $program->title }}"
+                            class="w-full h-80 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
+                            <p class="text-sm mb-1">{{ $program->created_at->format('d F Y') }}</p>
+                            <h3 class="text-base sm:text-lg font-bold leading-tight">{{ $program->title }}</h3>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+
+            <button id="scroll-left"
+                class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4
+                        bg-black bg-opacity-30 text-white rounded-full p-3
+                        hover:bg-opacity-50 transition-all z-10 hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <button id="scroll-right"
+                class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4
+                        bg-black bg-opacity-30 text-white rounded-full p-3
+                        hover:bg-opacity-50 transition-all z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </button>
+
+        @else
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+                @foreach ($latestPrograms as $program)
+                    <a href="{{ route('programs.showDetail', $program->slug) }}"
+                        class="relative rounded-xl overflow-hidden border-solid border-8 shadow-3xl transition-transform transform hover:scale-105 duration-300">
+
+                        <img src="{{ asset('storage/'. $program->image) }}" alt="{{ $program->title }}"
+                            class="w-full h-80 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
+                            <p class="text-sm mb-1">{{ \Carbon\Carbon::parse($program->date)->format('d F Y') }}</p>
+                            <h3 class="text-base sm:text-lg font-bold leading-tight">{{ $program->title }}</h3>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+        @endif
+
+    </div> <div class="text-right mt-6">
+        <a href="/Activity"
+            class="text-white underline text-3xl font-semibold font-redhattext hover:text-green-300 transition-colors duration-200">
+            Read More
+        </a>
     </div>
+</div>
 
     <!-- Footer Section -->
     <div class="mt-[-100px]">
         @include('partials.footer')
     </div>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -421,6 +460,59 @@
             document.getElementById('teamSection').scrollIntoView({
                 behavior: 'smooth'
             });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // ... (Script Anda yang sudah ada, JANGAN DIHAPUS) ...
+            // document.getElementById('joinUsButton')...
+            // document.getElementById('scrollDownButton')...
+
+            // --- SCRIPT BARU UNTUK SCROLLER ---
+            const scroller = document.getElementById('programs-scroller');
+            const scrollLeftBtn = document.getElementById('scroll-left');
+            const scrollRightBtn = document.getElementById('scroll-right');
+
+            // Cek apakah elemen-elemennya ada (karena jika program <= 3, tombolnya tidak ada)
+            if (scroller && scrollLeftBtn && scrollRightBtn) {
+
+                // Fungsi untuk cek posisi scroll dan menyembunyikan/menampilkan panah
+                const checkScroll = () => {
+                    // Sembunyikan panah kiri jika mentok kiri
+                    if (scroller.scrollLeft <= 0) {
+                        scrollLeftBtn.classList.add('hidden');
+                    } else {
+                        scrollLeftBtn.classList.remove('hidden');
+                    }
+
+                    // Sembunyikan panah kanan jika mentok kanan
+                    // (scrollWidth = total lebar konten, clientWidth = lebar yang terlihat)
+                    if (scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 10) { // -10px buffer
+                        scrollRightBtn.classList.add('hidden');
+                    } else {
+                        scrollRightBtn.classList.remove('hidden');
+                    }
+                };
+
+                // Klik Panah Kanan
+                scrollRightBtn.addEventListener('click', () => {
+                    // Scroll ke kanan sebesar 80% lebar kontainer
+                    scroller.scrollLeft += scroller.clientWidth * 0.8;
+                    checkScroll(); // Cek ulang setelah scroll
+                });
+
+                // Klik Panah Kiri
+                scrollLeftBtn.addEventListener('click', () => {
+                    // Scroll ke kiri sebesar 80% lebar kontainer
+                    scroller.scrollLeft -= scroller.clientWidth * 0.8;
+                    checkScroll(); // Cek ulang setelah scroll
+                });
+
+                // Cek saat di-scroll manual oleh user
+                scroller.addEventListener('scroll', checkScroll);
+
+                // Cek saat halaman pertama kali dimuat
+                checkScroll();
+            }
         });
     </script>
 </body>

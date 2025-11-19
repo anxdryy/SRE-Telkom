@@ -13,7 +13,7 @@ use App\Models\Programs;
 use App\Models\Department;
 
 Route::get('/', function () {
-    $latestPrograms = Programs::latest()->take(3)->get();
+    $latestPrograms = Programs::with('category')->latest()->get();
     $departments = Department::all();
     return view('welcome', compact('latestPrograms', 'departments'));
 });
