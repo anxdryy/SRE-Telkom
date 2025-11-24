@@ -59,7 +59,7 @@ class ProgramsController extends Controller{
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'desc' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|exists:categories,id',
             'instagram' => 'nullable|url|max:255',
         ]);
