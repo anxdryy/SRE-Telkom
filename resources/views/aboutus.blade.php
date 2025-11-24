@@ -188,6 +188,21 @@
                     <p class="text-lg font-bold text-green-900">President SRE</p>
                 </div>
             </div>
+            <!-- Row 1 (2 orang) -->
+            <div class="flex flex-col gap-10 md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
+                <div class="flex flex-col items-center">
+                    <img src="images/coreperson.png"
+                        class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
+                    <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
+                    <p class="text-lg font-bold text-green-900">President SRE</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="images/coreperson.png"
+                        class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
+                    <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
+                    <p class="text-lg font-bold text-green-900">President SRE</p>
+                </div>
+            </div>
         </div>
     </section>
 
