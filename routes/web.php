@@ -80,10 +80,6 @@ Route::get('/News', function () {
     return view('news');
 });
 
-Route::get('/admin1', function () {
-    return view('admin.crudAdmin');
-});
-
 Route::get('/session-check', function () {
     return session()->all();
 });

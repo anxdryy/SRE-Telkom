@@ -1,123 +1,56 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRE Data Management</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
+    <title>SRE Admin | SRE Telkom University</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            padding-top: 20px;
-            background-color: #f8f9fa;
-        }
-        .card {
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .member-image {
-            object-fit: cover;
-            width: 100px;
-            height: 100px;
-        }
-        .btn-action {
-            margin-right: 5px;
-        }
-        .alert {
-            margin-bottom: 20px;
-        }
+        body { font-family: 'Onest', sans-serif; }
+        .font-redhat { font-family: 'Red Hat Display', sans-serif; }
     </style>
 </head>
-<body>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 rounded">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route('departments.index') }}">
-                    <i class="fas me-2"></i>SRE Data Management
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('departments.*') ? 'active' : '' }}"
-                               href="{{ route('departments.index') }}">
-                                <i class="fas fa-building me-1"></i>Departments
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('members.*') ? 'active' : '' }}"
-                               href="{{ route('members.index') }}">
-                                <i class="fas fa-users me-1"></i>Members
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}"
-                               href="{{ route('categories.index') }}">
-                                <i class="fas fa-tags me-1"></i>Categories
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('programs.*') ? 'active' : '' }}"
-                               href="{{ route('programs.index') }}">
-                                <i class="fas fa-folder-open me-1"></i>Programs
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('works.*') ? 'active' : '' }}"
-                               href="{{ route('works.index') }}">
-                                <i class="fas fa-suitcase me-1"></i>Works
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('alumni.*') ? 'active' : '' }}"
-                               href="{{ route('alumni.index') }}">
-                                <i class="fa-solid fa-users"></i> Alumni
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                                <i class="fas fa-user me-1"></i>{{ session('username', 'User') }}
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <form method="POST" action="{{ route('auth.logout') }}" class="d-inline">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item">
-                                            <i class="fas fa-sign-out-alt me-2"></i>Logout
-                                        </button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<body class="min-h-screen bg-gray-100 flex">
+    @include('partials.admin.sidebar')
 
-        @if(session('success'))
-            <div class="alert alert-success alert-dismissible fade show">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <div class="flex-1 flex flex-col min-h-screen md:ml-64">
+        <header class="sticky top-0 z-20 flex items-center justify-between bg-white border-b border-gray-200 px-4 md:px-8 py-3">
+            <button id="admin-sidebar-toggle" type="button" class="md:hidden text-gray-700 text-xl">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="hidden md:block"></div>
+            <div class="flex items-center gap-4 text-sm text-gray-700">
+                <span class="flex items-center gap-2">
+                    <i class="fas fa-user-circle text-lg"></i>
+                    {{ auth()->user()->name ?? 'Admin' }}
+                </span>
+                <form method="POST" action="{{ route('auth.logout') }}">
+                    @csrf
+                    <button type="submit" class="text-red-600 hover:underline">Logout</button>
+                </form>
             </div>
-        @endif
+        </header>
 
-        @if(session('error'))
-            <div class="alert alert-danger alert-dismissible fade show">
-                {{ session('error') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-        @endif
-
-        @yield('content')
+        <main class="flex-1 p-4 md:p-8">
+            @include('partials.admin.flash')
+            @yield('content')
+        </main>
     </div>
 
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const toggle = document.getElementById('admin-sidebar-toggle');
+        const sidebar = document.getElementById('admin-sidebar');
+        const overlay = document.getElementById('admin-sidebar-overlay');
+        toggle?.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+        overlay?.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+    </script>
 </body>
 </html>
