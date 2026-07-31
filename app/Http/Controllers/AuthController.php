@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -15,31 +16,27 @@ class AuthController extends Controller
 
     public function login(Request $request): RedirectResponse
     {
-        $request->validate([
-            'username' => 'required|string',
+        $credentials = $request->validate([
+            'email' => 'required|email',
             'password' => 'required|string',
         ]);
 
-        // hardcoded credentials
-        $validUsers = [
-            'sreadmin' => 'adminsremautambahdata',
-        ];
-
-        $username = $request->input('username');
-        $password = $request->input('password');
-
-        if (isset($validUsers[$username]) && $validUsers[$username] === $password) {
-            session(['authenticated' => true, 'username' => $username]);
-            return redirect()->route('departments.index')
-                ->with('success', 'Welcome back, ' . $username . '!');
+        if (! Auth::attempt($credentials)) {
+            return back()->withErrors(['login' => 'Invalid credentials'])->onlyInput('email');
         }
 
-        return back()->withErrors(['login' => 'Invalid credentials']);
+        $request->session()->regenerate();
+
+        return redirect()->route('departments.index')
+            ->with('success', 'Welcome back, ' . Auth::user()->name . '!');
     }
 
-    public function logout(): RedirectResponse
+    public function logout(Request $request): RedirectResponse
     {
-        session()->forget(['authenticated', 'username']);
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return redirect()->route('auth.showLogin')
             ->with('success', 'You have been logged out successfully.');
     }

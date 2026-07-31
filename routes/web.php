@@ -20,7 +20,9 @@ Route::get('/', function () {
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/admin', [AuthController::class, 'showLogin'])->name('auth.showLogin');
-    Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+    Route::post('/login', [AuthController::class, 'login'])
+        ->name('auth.login')
+        ->middleware('throttle:5,1');
 });
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
