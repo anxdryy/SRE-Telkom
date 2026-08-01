@@ -1,71 +1,18 @@
 @extends('layouts')
 
 @section('content')
-<div class="card">
-    <div class="card-header">
-        <h3><i class="fas fa-plus me-2"></i>Create Program</h3>
+    <div class="rounded-xl bg-white shadow-sm">
+        <x-admin.page-header title="Create Program" icon="fa-plus" />
+        <div class="px-6 py-6">
+            <form action="{{ route('programs.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <x-admin.input name="title" label="Program Title" :required="true" />
+                <x-admin.textarea name="desc" label="Description" :required="true" />
+                <x-admin.file-input name="image" label="Program Image" :required="true" hint="Accepted formats: JPEG, PNG, JPG, GIF (max 2MB)" />
+                <x-admin.select name="category_id" label="Category" :options="$categories->pluck('name', 'id')" :required="true" placeholder="Select Category" />
+                <x-admin.input name="instagram" label="Instagram Link" />
+                <x-admin.form-actions :back-route="route('programs.index')" submit-label="Create Program" />
+            </form>
+        </div>
     </div>
-    <div class="card-body">
-        <form action="{{ route('programs.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-
-            <div class="mb-3">
-                <label for="title" class="form-label">Program Title</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}" required>
-                @error('title')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="desc" class="form-label">Description</label>
-                <textarea class="form-control @error('desc') is-invalid @enderror" id="desc" name="desc" rows="4" required>{{ old('desc') }}</textarea>
-                @error('desc')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="image" class="form-label">Program Image</label>
-                <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" required>
-                @error('image')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-                <div class="form-text">Accepted formats: JPEG, PNG, JPG, GIF (max: 2MB)</div>
-            </div>
-
-            <div class="mb-3">
-                <label for="category_id" class="form-label">Category</label>
-                <select class="form-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id" required>
-                    <option value="">Select Category</option>
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
-                            {{ $category->name }}
-                        </option>
-                    @endforeach
-                </select>
-                @error('category_id')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="instagram" class="form-label">Instagram Link</label>
-                <input type="text" class="form-control @error('instagram') is-invalid @enderror" id="instagram" name="instagram" value="{{ old('instagram') }}">
-                @error('instagram')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="d-flex justify-content-between">
-                <a href="{{ route('programs.index') }}" class="btn btn-secondary">
-                    <i class="fas fa-arrow-left me-1"></i>Back
-                </a>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-save me-1"></i>Create Program
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
 @endsection
