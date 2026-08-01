@@ -49,6 +49,22 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - **[byte5](https://byte5.de)**
 - **[OP.GG](https://op.gg)**
 
+## Admin Panel
+
+The admin panel at `/admin` uses a single seeded admin account. Before running the seeder, set these in your `.env`:
+
+```
+ADMIN_NAME="Your Name"
+ADMIN_EMAIL=you@example.com
+ADMIN_PASSWORD=a-strong-password
+```
+
+Then run:
+
+```
+php artisan db:seed --class=AdminUserSeeder
+```
+
 ## Contributing
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
