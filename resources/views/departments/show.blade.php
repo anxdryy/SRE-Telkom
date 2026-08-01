@@ -1,103 +1,67 @@
 @extends('layouts')
 
 @section('content')
-<div class="card">
-    <div class="card-header d-flex justify-content-between align-items-center">
-        <h3><i class="fas fa-building me-2"></i>Department Details</h3>
-        <div>
-            <a href="{{ route('departments.edit', $department) }}" class="btn btn-warning me-2">
-                <i class="fas fa-edit me-1"></i>Edit
+    <div class="rounded-xl bg-white shadow-sm">
+        <x-admin.page-header title="Department Details" icon="fa-building">
+            <x-admin.icon-link :href="route('departments.edit', $department)" icon="fa-edit" variant="warning" />
+            <a href="{{ route('departments.index') }}" class="inline-flex items-center gap-1 rounded-lg px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100">
+                <i class="fas fa-arrow-left"></i> Back
             </a>
-            <a href="{{ route('departments.index') }}" class="btn btn-secondary">
-                <i class="fas fa-arrow-left me-1"></i>Back
-            </a>
+        </x-admin.page-header>
+
+        <div class="px-6 py-6">
+            <div class="mb-6 text-center">
+                <h2 class="font-redhat text-xl font-semibold text-gray-800">{{ $department->name }}</h2>
+                <p class="mt-1 text-sm text-gray-500">{{ $department->description }}</p>
+            </div>
+
+            <div class="mb-6 flex justify-center gap-6">
+                @if($department->logo)
+                    <img src="{{ Storage::url($department->logo) }}" class="h-32 w-32 rounded object-contain bg-gray-50 p-2" alt="Logo of {{ $department->name }}">
+                @endif
+                @if($department->image)
+                    <img src="{{ Storage::url($department->image) }}" class="h-48 w-64 rounded object-cover" alt="Image of {{ $department->name }}">
+                @endif
+            </div>
+
+            <p class="mb-6 text-xs text-gray-400">
+                Created {{ $department->created_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }} ·
+                Updated {{ $department->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}
+            </p>
+
+            <h3 class="mb-3 font-redhat text-sm font-semibold text-gray-700">Members ({{ $department->members->count() }})</h3>
+            @if($department->members->isEmpty())
+                <p class="mb-6 text-sm text-gray-500">No members in this department yet.</p>
+            @else
+                <div class="mb-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+                    @foreach($department->members as $member)
+                        <div class="rounded-lg border border-gray-200 p-3">
+                            <img src="{{ Storage::url($member->image) }}" class="mb-2 h-32 w-full rounded object-cover" alt="{{ $member->name }}">
+                            <p class="font-medium text-gray-800">{{ $member->name }}</p>
+                            <p class="text-xs text-gray-500">{{ $member->role }}</p>
+                            <a href="{{ route('members.show', $member) }}" class="mt-2 inline-block text-xs font-medium text-blue-600 hover:underline">View</a>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+
+            <h3 class="mb-3 font-redhat text-sm font-semibold text-gray-700">Works ({{ $department->works->count() }})</h3>
+            @if($department->works->isEmpty())
+                <p class="mb-2 text-sm text-gray-500">No works in this department yet.</p>
+            @else
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+                    @foreach($department->works as $work)
+                        <div class="rounded-lg border border-gray-200 p-3">
+                            <img src="{{ Storage::url($work->image) }}" class="mb-2 h-32 w-full rounded object-cover" alt="{{ $work->name }}">
+                            <p class="font-medium text-gray-800">{{ $work->name }}</p>
+                            <p class="text-xs text-gray-500">{{ $work->description }}</p>
+                            <a href="{{ route('works.show', $work) }}" class="mt-2 inline-block text-xs font-medium text-blue-600 hover:underline">View</a>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+
+            <x-admin.delete-form :action="route('departments.destroy', $department)" confirm="Are you sure you want to delete this department?" class="mt-6" />
         </div>
     </div>
-
-    <div class="card-body">
-        {{-- Department Info --}}
-        <div class="mb-3 text-center">
-            <h4 class="card-title fw-bold mb-1">{{ $department->name }}</h4>
-            <p class="card-subtitle text-muted">{{ $department->description }}</p>
-        </div>
-
-        {{-- Department Logo --}}
-        @if ($department->logo)
-            <div class="card mb-3 shadow-sm border-0 mx-auto" style="width: auto; display: inline-block;">
-                <img src="{{ Storage::url($department->logo) }}"
-                    class="img-fluid p-2"
-                    style="max-height: 150px; max-width: 150px; object-fit: contain;"
-                    alt="Logo of {{ $department->name }}">
-            </div>
-        @endif
-
-        {{-- Department Image --}}
-        @if ($department->image)
-            <div class="card mb-3 shadow-sm border-0 mx-auto" style="width: auto; display: inline-block;">
-                <img src="{{ Storage::url($department->image) }}"
-                    class="img-fluid"
-                    style="max-height: 400px; max-width: 300px; object-fit: cover;"
-                    alt="Image of {{ $department->name }}">
-            </div>
-        @endif
-
-        {{-- Timestamps --}}
-        <div class="text-muted small mt-3">
-            <p class="mb-1">Created at: {{ $department->created_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
-            <p>Updated at: {{ $department->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
-        </div>
-
-        {{-- Members Section --}}
-        <h5 class="mt-4 mb-3">Members ({{ $department->members->count() }})</h5>
-
-        @if($department->members->isEmpty())
-            <div class="alert alert-info">
-                No members in this department yet.
-            </div>
-        @else
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                @foreach($department->members as $member)
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="{{ Storage::url($member->image) }}" class="card-img-top" alt="{{ $member->name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $member->name }}</h5>
-                                <p class="card-text"><strong>Role:</strong> {{ $member->role }}</p>
-                                <a href="{{ route('members.show', $member) }}" class="btn btn-sm btn-info">
-                                    <i class="fas fa-eye me-1"></i>View
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        @endif
-
-        {{-- Works Section --}}
-        <h5 class="mt-4 mb-3">Works ({{ $department->works->count() }})</h5>
-
-        @if($department->works->isEmpty())
-            <div class="alert alert-info">
-                No works in this department yet.
-            </div>
-        @else
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                @foreach($department->works as $work)
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="{{ Storage::url($work->image) }}" class="card-img-top" alt="{{ $work->name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $work->name }}</h5>
-                                <p class="card-text"><strong>Description:</strong> {{ $work->description }}</p>
-                                <a href="{{ route('works.show', $work) }}" class="btn btn-sm btn-info">
-                                    <i class="fas fa-eye me-1"></i>View
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        @endif
-    </div>
-</div>
 @endsection
