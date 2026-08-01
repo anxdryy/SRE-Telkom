@@ -1,38 +1,29 @@
 @extends('layouts')
 
 @section('content')
-<div class="card">
-    <div class="card-header d-flex justify-content-between align-items-center">
-        <h3><i class="fas fa-user-graduate me-2"></i>Alumni Details</h3>
-        <div>
-            <a href="{{ route('alumni.edit', $alumni) }}" class="btn btn-warning me-2">
-                <i class="fas fa-edit me-1"></i>Edit
+    <div class="rounded-xl bg-white shadow-sm">
+        <x-admin.page-header title="Alumni Details" icon="fa-user-graduate">
+            <x-admin.icon-link :href="route('alumni.edit', $alumni)" icon="fa-edit" variant="warning" />
+            <a href="{{ route('alumni.index') }}" class="inline-flex items-center gap-1 rounded-lg px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100">
+                <i class="fas fa-arrow-left"></i> Back
             </a>
-            <a href="{{ route('alumni.index') }}" class="btn btn-secondary">
-                <i class="fas fa-arrow-left me-1"></i>Back
-            </a>
-        </div>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <img src="{{ Storage::url($alumni->image) }}" alt="{{ $alumni->name }}" class="img-fluid rounded mb-3" style="max-height: 300px;">
-            </div>
-            <div class="col-md-8">
-                <h4 class="card-title">{{ $alumni->name }}</h4>
-                <p><strong>Achievement:</strong> {{ $alumni->achievement }}</p>
-                <p><strong>Created at:</strong> {{ $alumni->created_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
-                <p><strong>Updated at:</strong> {{ $alumni->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
+        </x-admin.page-header>
 
-                <form action="{{ route('alumni.destroy', $alumni) }}" method="POST" class="mt-4" onsubmit="return confirm('Are you sure you want to delete this alumni?');">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">
-                        <i class="fas fa-trash me-1"></i>Delete Alumni
-                    </button>
-                </form>
+        <div class="px-6 py-6">
+            <div class="flex gap-6">
+                <img src="{{ Storage::url($alumni->image) }}" alt="{{ $alumni->name }}" class="h-48 w-48 rounded object-cover">
+                <div>
+                    <h2 class="font-redhat text-xl font-semibold text-gray-800">{{ $alumni->name }}</h2>
+                    <p class="mt-1 text-sm text-gray-700">{{ $alumni->achievement }}</p>
+                    <p class="mt-3 text-xs text-gray-400">
+                        Created {{ $alumni->created_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }} ·
+                        Updated {{ $alumni->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}
+                    </p>
+                    <div class="mt-4">
+                        <x-admin.delete-form :action="route('alumni.destroy', $alumni)" confirm="Are you sure you want to delete this alumni?" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

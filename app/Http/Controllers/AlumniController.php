@@ -11,7 +11,7 @@ class AlumniController extends Controller
 {
     public function index(): View
     {
-        $alumnis = Alumni::all();
+        $alumnis = Alumni::oldest()->paginate(10);
         return view('alumni.index', compact('alumnis'));
     }
 

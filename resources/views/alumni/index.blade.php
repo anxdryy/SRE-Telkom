@@ -1,58 +1,44 @@
 @extends('layouts')
 
 @section('content')
-    <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h3><i class="fas fa-users me-2"></i>Alumni</h3>
-            <a href="{{ route('alumni.create') }}" class="btn btn-primary">
-                <i class="fas fa-plus me-1"></i>Create New Alumni
+    <div class="rounded-xl bg-white shadow-sm">
+        <x-admin.page-header title="Alumni" icon="fa-user-graduate">
+            <a href="{{ route('alumni.create') }}" class="inline-flex items-center gap-1 rounded-lg bg-[#104334] px-4 py-2 text-sm font-medium text-white hover:bg-[#0c3327]">
+                <i class="fas fa-plus"></i> Create New Alumni
             </a>
-        </div>
-        <div class="card-body">
+        </x-admin.page-header>
+
+        <div class="px-6 py-4">
             @if($alumnis->isEmpty())
-                <div class="alert alert-info">No Alumni found. Click the "Create New Alumni" button to add one.</div>
+                <p class="text-sm text-gray-500">No alumni found. Click "Create New Alumni" to add one.</p>
             @else
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
-                        <thead class="table-light">
+                <div class="overflow-x-auto rounded-lg border border-gray-200">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-gray-50 text-xs uppercase text-gray-500">
                             <tr>
-                                <th>No</th>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Achievement</th>
-                                <th>Created At</th>
-                                <th>Updated At</th>
-                                <th>Actions</th>
+                                <th class="px-4 py-3">No</th>
+                                <th class="px-4 py-3">Image</th>
+                                <th class="px-4 py-3">Name</th>
+                                <th class="px-4 py-3">Achievement</th>
+                                <th class="px-4 py-3">Updated</th>
+                                <th class="px-4 py-3">Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="divide-y divide-gray-100">
                             @foreach($alumnis as $alumni)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>
-                                        <img src="{{ Storage::url($alumni->image) }}" alt="{{ $alumni->name }}" class="rounded"
-                                            style="max-height: 60px;">
+                                    <td class="px-4 py-3">{{ $loop->iteration }}</td>
+                                    <td class="px-4 py-3">
+                                        <img src="{{ Storage::url($alumni->image) }}" alt="{{ $alumni->name }}" class="h-14 w-14 rounded object-cover">
                                     </td>
-                                    <td>{{ $alumni->name }}</td>
-                                    <td>{{ $alumni->achievement }}</td>
-                                    <td>{{ $alumni->created_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</td>
-                                    <td>{{ $alumni->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <a href="{{ route('alumni.show', $alumni) }}" class="btn btn-sm btn-info btn-action">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
-                                            <a href="{{ route('alumni.edit', $alumni) }}" class="btn btn-sm btn-warning btn-action">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <form action="{{ route('alumni.destroy', $alumni) }}" method="POST" class="d-inline"
-                                                onsubmit="return confirm('Are you sure you want to delete this member?');">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger btn-action">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
+                                    <td class="px-4 py-3 font-medium text-gray-800">{{ $alumni->name }}</td>
+                                    <td class="px-4 py-3 max-w-xs truncate">{{ $alumni->achievement }}</td>
+                                    <td class="px-4 py-3 text-gray-500">{{ $alumni->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</td>
+                                    <td class="px-4 py-3">
+                                        <div class="flex items-center gap-1">
+                                            <x-admin.icon-link :href="route('alumni.show', $alumni)" icon="fa-eye" variant="info" />
+                                            <x-admin.icon-link :href="route('alumni.edit', $alumni)" icon="fa-edit" variant="warning" />
+                                            <x-admin.delete-form :action="route('alumni.destroy', $alumni)" confirm="Are you sure you want to delete this alumni?" />
                                         </div>
                                     </td>
                                 </tr>
@@ -60,7 +46,8 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="mt-3 d-flex justify-content-center">
+                <div class="mt-4 flex justify-center">
+                    {{ $alumnis->links() }}
                 </div>
             @endif
         </div>
