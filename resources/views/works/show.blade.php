@@ -1,44 +1,33 @@
 @extends('layouts')
 
 @section('content')
-<div class="card">
-    <div class="card-header d-flex justify-content-between align-items-center">
-        <h3><i class="fas fa-suitcase me-2"></i>Work Details</h3>
-        <div>
-            <a href="{{ route('works.edit', $work) }}" class="btn btn-warning me-2">
-                <i class="fas fa-edit me-1"></i>Edit
+    <div class="rounded-xl bg-white shadow-sm">
+        <x-admin.page-header title="Work Details" icon="fa-suitcase">
+            <x-admin.icon-link :href="route('works.edit', $work)" icon="fa-edit" variant="warning" />
+            <a href="{{ route('works.index') }}" class="inline-flex items-center gap-1 rounded-lg px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100">
+                <i class="fas fa-arrow-left"></i> Back
             </a>
-            <a href="{{ route('works.index') }}" class="btn btn-secondary">
-                <i class="fas fa-arrow-left me-1"></i>Back
-            </a>
-        </div>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <img src="{{ Storage::url($work->image) }}" alt="{{ $work->name }}" class="img-fluid rounded mb-3" style="max-height: 300px;">
-            </div>
-            <div class="col-md-8">
-                <h4 class="card-title">{{ $work->name }}</h4>
-                <p><strong>Description:</strong> {{ $work->description }}</p>
-                <p>
-                    <strong>Department:</strong>
-                    <a href="{{ route('departments.show', $work->department) }}">
-                        {{ $work->department->name }}
-                    </a>
-                </p>
-                <p><strong>Created at:</strong> {{ $work->created_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
-                <p><strong>Updated at:</strong> {{ $work->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</p>
+        </x-admin.page-header>
 
-                <form action="{{ route('works.destroy', $work) }}" method="POST" class="mt-4" onsubmit="return confirm('Are you sure you want to delete this work?');">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">
-                        <i class="fas fa-trash me-1"></i>Delete Work
-                    </button>
-                </form>
+        <div class="px-6 py-6">
+            <div class="flex gap-6">
+                <img src="{{ Storage::url($work->image) }}" alt="{{ $work->name }}" class="h-48 w-48 rounded object-cover">
+                <div>
+                    <h2 class="font-redhat text-xl font-semibold text-gray-800">{{ $work->name }}</h2>
+                    <p class="mt-1 text-sm text-gray-700">{{ $work->description }}</p>
+                    <p class="mt-1 text-sm text-gray-600">
+                        Department:
+                        <a href="{{ route('departments.show', $work->department) }}" class="text-blue-600 hover:underline">{{ $work->department->name }}</a>
+                    </p>
+                    <p class="mt-3 text-xs text-gray-400">
+                        Created {{ $work->created_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }} ·
+                        Updated {{ $work->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}
+                    </p>
+                    <div class="mt-4">
+                        <x-admin.delete-form :action="route('works.destroy', $work)" confirm="Are you sure you want to delete this work?" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
