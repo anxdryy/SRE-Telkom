@@ -35,6 +35,29 @@ class AlumniAdminTest extends TestCase
         $response->assertStatus(200)->assertSee('Alex Wong');
     }
 
+    public function test_index_paginates_alumni(): void
+    {
+        for ($i = 1; $i <= 11; $i++) {
+            $alumni = Alumni::create([
+                'name' => "Alumni {$i}",
+                'achievement' => 'An achievement',
+                'image' => 'alumni/placeholder.jpg',
+            ]);
+            $alumni->forceFill([
+                'created_at' => now()->addSeconds($i),
+                'updated_at' => now()->addSeconds($i),
+            ])->save();
+        }
+
+        $response = $this->actingAs($this->admin)->get(route('alumni.index'));
+
+        $response->assertStatus(200)
+            ->assertSee('Alumni 1')
+            ->assertSee('Alumni 10')
+            ->assertDontSee('Alumni 11')
+            ->assertSee('page=2', false);
+    }
+
     public function test_create_form_renders_required_fields(): void
     {
         $response = $this->actingAs($this->admin)->get(route('alumni.create'));

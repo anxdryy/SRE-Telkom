@@ -25,7 +25,7 @@ class ProgramsAdminTest extends TestCase
         $this->category = Category::create(['name' => 'Activity']);
     }
 
-    public function test_index_lists_programs_with_pagination_links(): void
+    public function test_index_lists_programs(): void
     {
         Programs::create([
             'title' => 'Coding Bootcamp',
@@ -38,6 +38,31 @@ class ProgramsAdminTest extends TestCase
         $response = $this->actingAs($this->admin)->get(route('programs.index'));
 
         $response->assertStatus(200)->assertSee('Coding Bootcamp');
+    }
+
+    public function test_index_paginates_programs(): void
+    {
+        for ($i = 1; $i <= 11; $i++) {
+            $program = Programs::create([
+                'title' => "Program {$i}",
+                'slug' => "program-{$i}",
+                'desc' => 'A program description',
+                'image' => 'programs/placeholder.jpg',
+                'category_id' => $this->category->id,
+            ]);
+            $program->forceFill([
+                'created_at' => now()->addSeconds($i),
+                'updated_at' => now()->addSeconds($i),
+            ])->save();
+        }
+
+        $response = $this->actingAs($this->admin)->get(route('programs.index'));
+
+        $response->assertStatus(200)
+            ->assertSee('Program 1')
+            ->assertSee('Program 10')
+            ->assertDontSee('Program 11')
+            ->assertSee('page=2', false);
     }
 
     public function test_create_form_renders_required_fields(): void

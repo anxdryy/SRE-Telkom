@@ -45,6 +45,30 @@ class WorksAdminTest extends TestCase
         $response->assertStatus(200)->assertSee('Portfolio Site');
     }
 
+    public function test_index_paginates_works(): void
+    {
+        for ($i = 1; $i <= 11; $i++) {
+            $work = Work::create([
+                'name' => "Work {$i}",
+                'description' => 'A work description',
+                'image' => 'works/placeholder.jpg',
+                'department_id' => $this->department->id,
+            ]);
+            $work->forceFill([
+                'created_at' => now()->addSeconds($i),
+                'updated_at' => now()->addSeconds($i),
+            ])->save();
+        }
+
+        $response = $this->actingAs($this->admin)->get(route('works.index'));
+
+        $response->assertStatus(200)
+            ->assertSee('Work 1')
+            ->assertSee('Work 10')
+            ->assertDontSee('Work 11')
+            ->assertSee('page=2', false);
+    }
+
     public function test_create_form_renders_required_fields(): void
     {
         $response = $this->actingAs($this->admin)->get(route('works.create'));
