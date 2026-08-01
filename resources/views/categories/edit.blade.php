@@ -1,31 +1,15 @@
 @extends('layouts')
 
 @section('content')
-<div class="card">
-    <div class="card-header">
-        <h3><i class="fas fa-edit me-2"></i>Edit Category</h3>
+    <div class="rounded-xl bg-white shadow-sm">
+        <x-admin.page-header title="Edit Category" icon="fa-edit" />
+        <div class="px-6 py-6">
+            <form action="{{ route('categories.update', $category) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <x-admin.input name="name" label="Category Name" :value="$category->name" :required="true" />
+                <x-admin.form-actions :back-route="route('categories.index')" submit-label="Update Category" />
+            </form>
+        </div>
     </div>
-    <div class="card-body">
-        <form action="{{ route('categories.update', $category) }}" method="POST">
-            @csrf
-            @method('PUT')
-            <div class="mb-3">
-                <label for="name" class="form-label">Category Name</label>
-                <input type="text" class="form-control @error('name') is-invalid @enderror"
-                       id="name" name="name" value="{{ old('name', $category->name) }}" required>
-                @error('name')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="d-flex justify-content-between">
-                <a href="{{ route('categories.index') }}" class="btn btn-secondary">
-                    <i class="fas fa-arrow-left me-1"></i>Back
-                </a>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-save me-1"></i>Update Category
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
 @endsection
