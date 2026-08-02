@@ -60,11 +60,21 @@ uploading the root `.htaccess` — either approach works, don't do both.
 `node_modules/` does **not** need to be uploaded — only the built
 `public/build/` output from step 2.
 
+After upload, make sure `storage/` (and everything inside it) is writable by
+the web server — in hPanel File Manager or your FTP client, set permissions
+to `755` recursively on `storage/`, and try `775` if logs, sessions, or
+uploads still fail with permission errors afterward. `bootstrap/cache/`
+needs the same treatment if `config:cache`/`route:cache` fail.
+
 ## 5. Run the one-time setup
 
-Hostinger's shared plans don't give you a persistent shell, but hPanel has a
-**Advanced → SSH Access** or **Terminal** feature on most plans — use that
-to `cd` into your project root and run:
+**Fill in `.env` completely first (step 3) before doing anything below** —
+`config:cache` snapshots whatever is in `.env` at the moment it runs; if you
+cache placeholder values and then edit `.env` afterward, the edits won't
+take effect until you clear the cache and re-cache.
+
+**If you have terminal access** (hPanel → **Advanced → SSH Access** or
+**Terminal**, available on most plans): `cd` into your project root and run:
 
 ```bash
 php artisan migrate --force
@@ -75,21 +85,31 @@ php artisan route:cache
 php artisan view:cache
 ```
 
-If you don't have terminal access on your plan, `migrate`/`storage:link` can
-be triggered via a one-off script or by temporarily adding a protected route
-that calls `Artisan::call(...)` — ask before doing this, since a route that
-runs migrations is something you want to remove immediately after use.
-
-`storage:link` creates `public/storage → storage/app/public`, which is what
-makes uploaded department/member/program/work/alumni images actually
-resolve — without it, every `Storage::url()` call in the admin views 404s.
+**If you don't have terminal access**, skip `migrate`/`db:seed` entirely and
+import the schema + admin account via phpMyAdmin instead (see
+`sretelu-database-seed.sql` and `QUICKSTART.txt` if you have them from a
+pre-built `deploy/` folder). You still need `storage:link` to run somehow —
+without it, every `Storage::url()` call in the admin views 404s, since
+`public/storage` never gets created as a symlink to `storage/app/public`.
+The `deploy/` folder ships a `public/one-time-setup.php` script for exactly
+this: visit it once with its token as a query parameter, confirm it reports
+success, then **delete the file from the server immediately** — it's gated
+by a token, but a script that runs artisan commands over plain HTTP
+shouldn't be left in place longer than it takes to use it once.
 
 ## 6. Verify
 
-Visit `https://your-domain.com/admin`, log in with the `ADMIN_EMAIL` /
-`ADMIN_PASSWORD` you set in step 3, and confirm the six resources
-(Departments, Members, Categories, Programs, Works, Alumni) all load and
-that creating a record with an image upload works end-to-end.
+Give Hostinger's free SSL a few minutes to finish provisioning after you
+point the domain here (hPanel → **SSL** should show "Active") before
+testing login. `.env` sets `SESSION_SECURE_COOKIE=true`, so the login
+session cookie is only sent over HTTPS — logging in while the site is still
+serving plain `http://` will silently redirect you back to the login form
+instead of an error, which looks like a bug but isn't.
+
+Once SSL is active, visit `https://your-domain.com/admin`, log in with the
+`ADMIN_EMAIL` / `ADMIN_PASSWORD` you set in step 3, and confirm the six
+resources (Departments, Members, Categories, Programs, Works, Alumni) all
+load and that creating a record with an image upload works end-to-end.
 
 ## Notes
 
@@ -101,4 +121,6 @@ that creating a record with an image upload works end-to-end.
   and want live `.env` reads instead of the cached config).
 - Session/cache/queue all use the `database` driver in
   `.env.production.example`, which just needs the `sessions`, `cache`, and
-  `jobs` tables — already covered by `php artisan migrate`.
+  `jobs` tables — already covered by `php artisan migrate`, and already
+  present in `sretelu-database-seed.sql` if you used the phpMyAdmin import
+  path instead.
