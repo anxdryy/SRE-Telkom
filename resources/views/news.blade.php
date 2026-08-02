@@ -6,26 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>SRE Telkom University</title>
+    <title>{{ $program->title }} | SRE Telkom University</title>
 
+    <style>
+        .font-redhat {
+            font-family: 'Red Hat Display', sans-serif;
+        }
+
+        .font-redhattext {
+            font-family: 'Red Hat Text', sans-serif;
+        }
+
+        .font-onest {
+            font-family: 'Onest', sans-serif;
+        }
+
+        body {
+            font-family: 'Red Hat Display', sans-serif;
+        }
+    </style>
 </head>
-<style>
-    .font-redhat {
-        font-family: 'Red Hat Display', sans-serif;
-    }
-
-    .font-redhattext {
-        font-family: 'Red Hat Text', sans-serif;
-    }
-
-    .font-onest {
-        font-family: 'Onest', sans-serif;
-    }
-
-    body {
-        font-family: 'Red Hat Display', sans-serif;
-    }
-</style>
 
 <body class="min-h-screen font-redhat">
     {{-- Navbar --}}
@@ -53,8 +53,9 @@
                 @endphp
 
                 {{-- Back button dengan Link yang sudah ditentukan di atas --}}
-                <a href="{{ url($backUrl) }}">
-                    <svg class="w-8 h-8 text-black animate-bounce cursor-pointer hover:text-green-600 transition duration-300"
+                <a href="{{ url($backUrl) }}" aria-label="Back to {{ $program->category->name ?? 'Home' }}"
+                    class="flex items-center justify-center w-11 h-11 -m-1 rounded-full text-black hover:text-green-600 hover:bg-gray-100 transition duration-300">
+                    <svg class="w-8 h-8" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>

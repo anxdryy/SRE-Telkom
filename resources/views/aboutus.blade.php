@@ -10,51 +10,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <title>SRE Telkom University</title>
+    <title>About Us | SRE Telkom University</title>
 
+    <style>
+        .font-redhat {
+                font-family: 'Red Hat Display', sans-serif;
+            }
+        .font-redhattext {
+                font-family: 'Red Hat Text', sans-serif;
+            }
+        .font-onest {
+                font-family: 'Onest', sans-serif;
+            }
+             body {
+                font-family: 'Red Hat Display', sans-serif;
+            }
+    </style>
 </head>
-
-<style>
-    .font-redhat {
-            font-family: 'Red Hat Display', sans-serif;
-        }
-    .font-redhattext {
-            font-family: 'Red Hat Text', sans-serif;
-        }
-    .font-onest {
-            font-family: 'Onest', sans-serif;
-        }
-         body {
-            font-family: 'Red Hat Display', sans-serif;
-        }
-</style>
 
 <body class="min-h-screen">
 
         @include('partials.othernavbar')
 
          <section class="text-center mt-32 md:mt-28 py-10">
-        <h2 class="text-gray-600 text-2xl">About Us</h2>
+        <p class="text-gray-600 text-2xl">About Us</p>
         <h1 class="text-3xl md:text-4xl font-semibold">SRE Telkom University</h1>
     </section>
 
     <section class="relative flex flex-col lg:flex-row justify-center items-center py-10 gap-10">
     <!-- Energize -->
     <div class="flex items-center text-center rotate-0 lg:absolute lg:left-[222px] lg:top-[-40px] lg:ml-56 lg:rotate-[5.08deg]">
-        <img src="images/innovate.png" class="w-[120px] h-[120px] lg:w-[180px] lg:h-[180px]">
+        <img src="images/innovate.png" alt="" class="w-[120px] h-[120px] lg:w-[180px] lg:h-[180px]">
         <p class="font-bold ml-2 text-xl lg:ml-4 lg:text-2xl lg:rotate-[-5.08deg]">Innovate</p>
     </div>
 
     <!-- Elevate -->
 <div class="flex items-center justify-center text-center lg:scale-100 lg:rotate-[-7.26deg] lg:absolute lg:top-[290px] lg:-mt-48 xl:-ml-[850px] lg:-ml-[550px]">
-    <img src="images/elevate.png" class="w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] object-contain">
+    <img src="images/elevate.png" alt="" class="w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] object-contain">
     <p class="font-bold ml-4 text-xl lg:ml-2 lg:mt-28 lg:text-2xl lg:rotate-[7.08deg]">Elevate</p>
 </div>
 
     <!-- Energize -->
     <div class="flex items-center text-center rotate-0 lg:absolute md:right-[10px] xl:right-[340px] right-0 md:-top-[90px] lg:mt-36">
         <p class="font-bold mr-2 text-xl lg:mr-4 lg:text-2xl">Energize</p>
-        <img src="images/Group 45.png" class="w-[140px] h-[130px] lg:w-[240px] lg:h-[220px]">
+        <img src="images/Group 45.png" alt="" class="w-[140px] h-[130px] lg:w-[240px] lg:h-[220px]">
     </div>
 </section>
 
@@ -154,13 +153,13 @@
             <!-- Row 1 (2 orang) -->
             <div class="flex flex-col gap-10 md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
                 <div class="flex flex-col items-center">
-                    <img src="images/coreperson.png"
+                    <img src="images/coreperson.png" alt="Fajar Dwitama, President SRE"
                         class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
                     <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
                     <p class="text-lg font-bold text-green-900">President SRE</p>
                 </div>
                 <div class="flex flex-col items-center">
-                    <img src="images/coreperson.png"
+                    <img src="images/coreperson.png" alt="Fajar Dwitama, President SRE"
                         class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
                     <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
                     <p class="text-lg font-bold text-green-900">President SRE</p>
@@ -170,19 +169,19 @@
             <!-- Row 2 (3 orang) -->
             <div class="flex flex-col font-redhat gap-10 md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
                 <div class="flex flex-col items-center">
-                    <img src="images/coreperson.png"
+                    <img src="images/coreperson.png" alt="Fajar Dwitama, President SRE"
                         class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
                     <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
                     <p class="text-lg font-bold text-green-900">President SRE</p>
                 </div>
                 <div class="flex flex-col items-center">
-                    <img src="images/coreperson.png"
+                    <img src="images/coreperson.png" alt="Fajar Dwitama, President SRE"
                         class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
                     <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
                     <p class="text-lg font-bold text-green-900">President SRE</p>
                 </div>
                 <div class="flex flex-col items-center">
-                    <img src="images/coreperson.png"
+                    <img src="images/coreperson.png" alt="Fajar Dwitama, President SRE"
                         class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
                     <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
                     <p class="text-lg font-bold text-green-900">President SRE</p>
@@ -191,13 +190,13 @@
             <!-- Row 1 (2 orang) -->
             <div class="flex flex-col gap-10 md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
                 <div class="flex flex-col items-center">
-                    <img src="images/coreperson.png"
+                    <img src="images/coreperson.png" alt="Fajar Dwitama, President SRE"
                         class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
                     <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
                     <p class="text-lg font-bold text-green-900">President SRE</p>
                 </div>
                 <div class="flex flex-col items-center">
-                    <img src="images/coreperson.png"
+                    <img src="images/coreperson.png" alt="Fajar Dwitama, President SRE"
                         class="w-48 md:w-60 h-60 md:h-72 rounded-3xl shadow-lg object-cover border-4 border-[#21735B]">
                     <p class="text-lg font-semibold mt-2">Fajar Dwitama</p>
                     <p class="text-lg font-bold text-green-900">President SRE</p>
@@ -242,7 +241,7 @@
         <div class="w-full md:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             @foreach ($departments as $dept)
                 <a href="{{ url('departement/' . $dept->slug) }}">
-                    <img src="{{ asset('storage/' . $dept->logo) }}" alt="{{ $dept['alt'] }}"
+                    <img src="{{ asset('storage/' . $dept->logo) }}" alt="{{ $dept->name }}"
                         class="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0px_4px_10px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out hover:scale-110">
                 </a>
             @endforeach

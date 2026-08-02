@@ -17,8 +17,8 @@
         <img src="{{ asset('images/logo2.png') }}" alt="SRE Logo" class="h-20 md:h-20 mr-2">
     </div>
 
-    <!-- Hamburger Menu Button -->  
-    <button id="hamburgerButton" type="button" class="md:hidden text-3xl text-[#104334] focus:outline-none z-50">
+    <!-- Hamburger Menu Button -->
+    <button id="hamburgerButton" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu" class="md:hidden text-3xl text-[#104334] focus:outline-none z-50">
         <i class="fas fa-bars"></i>
     </button>
 
@@ -32,7 +32,7 @@
         <li><a href="/AboutUs" class="hover:text-green-500">About Us</a></li>
         <span class="hidden md:inline">|</span>
         <li class="relative">
-            <button id="dropdownButton" type="button" class="hover:text-green-500 uppercase focus:outline-none">Programs</button>
+            <button id="dropdownButton" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="dropdownMenu" class="hover:text-green-500 uppercase focus:outline-none">Programs</button>
             <ul id="dropdownMenu" class="font-onest hidden md:absolute bg-white text-[#104334] mt-2 w-30 py-2 shadow-lg rounded-lg z-50">
                 <li><a href="/Activity" class="block px-4 py-2 hover:bg-gray-200">Activity</a></li>
                 <li><a href="/Research" class="block px-4 py-2 hover:bg-gray-200">Research</a></li>
@@ -48,9 +48,12 @@
         <li><a href="/" class="block py-3 border-b border-gray-200 hover:text-green-500">Home</a></li>
         <li><a href="/AboutUs" class="block py-3 border-b border-gray-200 hover:text-green-500">About Us</a></li>
         <li class="relative">
-            <button 
-                id="mobileDropdownBtn" 
+            <button
+                id="mobileDropdownBtn"
                 type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="mobileDropdown"
                 class="uppercase py-3 w-full border-b border-gray-200 text-left hover:text-green-500 flex justify-between items-center"
             >
                 Programs 
@@ -88,11 +91,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Desktop dropdown toggle
     dropdownButton?.addEventListener('click', function (e) {
         e.stopPropagation();
-        dropdownMenu.classList.toggle('hidden');
+        const isOpen = dropdownMenu.classList.toggle('hidden') === false;
+        dropdownButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
     document.addEventListener('click', function () {
         dropdownMenu.classList.add('hidden');
+        dropdownButton?.setAttribute('aria-expanded', 'false');
     });
 
     dropdownMenu?.addEventListener('click', function (e) {
@@ -101,14 +106,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Hamburger opens mobileMenu
     hamburgerButton?.addEventListener('click', function () {
-        mobileMenu.classList.toggle('hidden');
+        const isOpen = mobileMenu.classList.toggle('hidden') === false;
         mobileOverlay.classList.toggle('hidden');
+        hamburgerButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
     // Overlay click closes mobile menu
     mobileOverlay?.addEventListener('click', function () {
         mobileMenu.classList.add('hidden');
         mobileOverlay.classList.add('hidden');
+        hamburgerButton?.setAttribute('aria-expanded', 'false');
     });
 
     // Mobile dropdown toggle with icon rotation
@@ -117,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const isOpen = !mobileDropdown.classList.contains('hidden');
             mobileDropdown.classList.toggle('hidden');
             mobileDropdownIcon.classList.toggle('rotate-180', !isOpen);
+            mobileDropdownBtn.setAttribute('aria-expanded', (!isOpen) ? 'true' : 'false');
         });
     }
 
@@ -126,6 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
             mobileOverlay.classList.add('hidden');
+            hamburgerButton?.setAttribute('aria-expanded', 'false');
         });
     });
 
@@ -135,6 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (event.target === mobileMenu) {
         mobileMenu.classList.add('hidden');
         mobileOverlay.classList.add('hidden');
+        hamburgerButton?.setAttribute('aria-expanded', 'false');
     }
     });
 

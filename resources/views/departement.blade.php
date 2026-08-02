@@ -6,27 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>SRE Telkom University</title>
+    <title>{{ isset($department) ? $department->name . ' | SRE Telkom University' : 'Departments | SRE Telkom University' }}</title>
+    <style>
+        .font-redhat {
+            font-family: 'Red Hat Display', sans-serif;
+        }
+
+        .font-redhattext {
+            font-family: 'Red Hat Text', sans-serif;
+        }
+
+        .font-onest {
+            font-family: 'Onest', sans-serif;
+        }
+    </style>
 </head>
-
-<style>
-    .font-redhat {
-        font-family: 'Red Hat Display', sans-serif;
-    }
-
-    .font-redhattext {
-        font-family: 'Red Hat Text', sans-serif;
-    }
-
-    .font-onest {
-        font-family: 'Onest', sans-serif;
-    }
-
-    
-</style>
 
 <body class="min-h-screen">
     @include('partials.navbar')
+
+    {{-- The department detail section below already provides an <h1> with the
+         department name. When only the list route is used ($department is not
+         set), add a visually-hidden <h1> so the page still has exactly one
+         top-level heading for screen readers and document outline tools. --}}
+    @empty($department)
+        <h1 class="sr-only">Our Departments</h1>
+    @endempty
 
     {{-- Show Department Detail View --}}
     @isset($department)

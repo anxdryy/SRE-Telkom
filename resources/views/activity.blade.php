@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>SRE Telkom University</title>
+    <title>Activity Programs | SRE Telkom University</title>
     <style>
         body {
             font-family: 'Red Hat Display', sans-serif;
@@ -22,22 +22,23 @@
 
     <!-- Programs Section -->
     <main class="max-w-4xl mx-auto mt-40 px-4 md:px-0 mb-12">
+        <h1 class="sr-only">Activity Programs</h1>
         <div class="text-center mb-6">
-            <h2 class="text-xl md:text-2xl font-semibold text-gray-400">Programs</h2>
+            <h2 class="text-xl md:text-2xl font-semibold text-gray-500">Programs</h2>
             <div class="mt-2 flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-4">
                 <span class="text-black font-black text-2xl md:text-4xl">Activity</span>
-                <a href="/Competition">
-                    <span class="text-gray-400 text-2xl md:text-4xl">Competition</span>
+                <a href="/Competition" class="rounded transition-colors">
+                    <span class="text-gray-500 text-2xl md:text-4xl hover:text-[#104334]">Competition</span>
                 </a>
-                <a href="/Research">
-                    <span class="text-gray-400 text-2xl md:text-4xl">Research</span>
+                <a href="/Research" class="rounded transition-colors">
+                    <span class="text-gray-500 text-2xl md:text-4xl hover:text-[#104334]">Research</span>
                 </a>
             </div>
         </div>
 
         <div class="space-y-6 mt-8 mb-12 md:mt-14">
             {{-- Loop over program items --}}
-           @foreach ($programs as $program)
+           @forelse ($programs as $program)
                 <a href="{{ route('programs.showDetail', $program->slug) }}"
                 class="block focus:outline-none focus:ring-4 focus:ring-green-300 rounded-lg transition duration-300">
                     <div class="bg-white shadow-md rounded-lg overflow-hidden border-4 border-[#21735B] w-full md:w-[900px] mx-auto flex flex-col md:flex-row">
@@ -53,14 +54,20 @@
                         </div>
                     </div>
                 </a>
-            @endforeach
+            @empty
+                <div class="text-center py-16 px-4">
+                    <i class="fas fa-leaf text-4xl text-gray-300 mb-4" aria-hidden="true"></i>
+                    <p class="text-gray-600 text-lg font-semibold">No activity programs yet.</p>
+                    <p class="text-gray-400 mt-1">Check back soon — new activities are added regularly.</p>
+                </div>
+            @endforelse
             <div class="mt-12 flex justify-center">
                 {{ $programs->links('vendor.pagination.tailwind') }}
             </div>
 
     </main>
     <!-- Footer Section -->
-    <div class="mt-32"> 
+    <div class="mt-32">
         @include('partials.footer')
     </div>
 

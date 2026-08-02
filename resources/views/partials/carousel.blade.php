@@ -56,15 +56,15 @@
     <!-- Navigation Arrows -->
     <!-- Tombol panah sekarang tersembunyi di mobile dan muncul di layar lebih besar -->
     <div class="absolute left-0 sm:left-4 top-1/2 transform -translate-y-1/2 z-10 hidden sm:block">
-        <button @click="prev()"
+        <button @click="prev()" aria-label="Previous alumni"
             class="bg-gray-200 bg-opacity-50 text-2xl text-black w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-75 transition-opacity">
-            &larr;
+            <span aria-hidden="true">&larr;</span>
         </button>
     </div>
     <div class="absolute right-0 sm:right-4 top-1/2 transform -translate-y-1/2 z-10 hidden sm:block">
-        <button @click="next()"
+        <button @click="next()" aria-label="Next alumni"
             class="bg-gray-200 bg-opacity-50 text-2xl text-black w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-75 transition-opacity">
-            &rarr;
+            <span aria-hidden="true">&rarr;</span>
         </button>
     </div>
 </div>

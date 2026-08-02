@@ -11,3 +11,34 @@
 .font-onest {
     font-family: 'Onest', sans-serif;
 }
+
+/* Site-wide keyboard focus visibility (Accessibility / Affordances & Signifiers).
+   Applies to every link, button and interactive element across the public site
+   so keyboard users can always see where focus is, without adding a visible
+   ring for mouse/touch users. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid #21735B;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Respect the user's OS-level reduced-motion preference (Flexibility &
+   Efficiency / Perceptibility). Site keeps its fade-ins, bounces and
+   carousel autoplay by default, but users who need reduced motion get
+   near-instant, non-animated transitions instead. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
