@@ -3,7 +3,7 @@
 @section('content')
     <div class="rounded-xl bg-white shadow-sm">
         <x-admin.page-header title="Department Details" icon="fa-building">
-            <x-admin.icon-link :href="route('departments.edit', $department)" icon="fa-edit" variant="warning" />
+            <x-admin.icon-link :href="route('departments.edit', $department)" icon="fa-edit" variant="warning" label="Edit" />
             <a href="{{ route('departments.index') }}" class="inline-flex items-center gap-1 rounded-lg px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100">
                 <i class="fas fa-arrow-left"></i> Back
             </a>
@@ -61,7 +61,12 @@
                 </div>
             @endif
 
-            <x-admin.delete-form :action="route('departments.destroy', $department)" confirm="Are you sure you want to delete this department?" class="mt-6" />
+            <x-admin.delete-form
+                :action="route('departments.destroy', $department)"
+                confirm="Are you sure you want to delete this department?"
+                :disabled="$department->members->isNotEmpty() || $department->works->isNotEmpty()"
+                class="mt-6"
+            />
         </div>
     </div>
 @endsection

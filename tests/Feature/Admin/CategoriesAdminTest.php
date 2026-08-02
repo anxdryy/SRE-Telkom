@@ -3,6 +3,7 @@
 namespace Tests\Feature\Admin;
 
 use App\Models\Category;
+use App\Models\Programs;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -71,5 +72,23 @@ class CategoriesAdminTest extends TestCase
 
         $response->assertRedirect(route('categories.index'));
         $this->assertDatabaseMissing('categories', ['id' => $category->id]);
+    }
+
+    public function test_destroy_blocks_deletion_when_category_has_programs(): void
+    {
+        $category = Category::create(['name' => 'Has Programs']);
+        Programs::create([
+            'title' => 'Attached Program',
+            'slug' => 'attached-program',
+            'desc' => 'A program blocking category deletion',
+            'image' => 'programs/placeholder.jpg',
+            'category_id' => $category->id,
+        ]);
+
+        $response = $this->actingAs($this->admin)->delete(route('categories.destroy', $category));
+
+        $response->assertRedirect(route('categories.index'));
+        $response->assertSessionHas('error');
+        $this->assertDatabaseHas('categories', ['id' => $category->id]);
     }
 }

@@ -28,7 +28,7 @@
                         <tbody class="divide-y divide-gray-100">
                             @foreach($departments as $department)
                                 <tr>
-                                    <td class="px-4 py-3">{{ $loop->iteration }}</td>
+                                    <td class="px-4 py-3">{{ $departments->firstItem() + $loop->index }}</td>
                                     <td class="px-4 py-3">
                                         <img src="{{ Storage::url($department->image) }}" alt="{{ $department->name }}" class="h-14 w-14 rounded object-cover">
                                     </td>
@@ -44,7 +44,11 @@
                                         <div class="flex items-center gap-1">
                                             <x-admin.icon-link :href="route('departments.show', $department)" icon="fa-eye" variant="info" />
                                             <x-admin.icon-link :href="route('departments.edit', $department)" icon="fa-edit" variant="warning" />
-                                            <x-admin.delete-form :action="route('departments.destroy', $department)" confirm="Are you sure you want to delete this department?" />
+                                            <x-admin.delete-form
+                                                :action="route('departments.destroy', $department)"
+                                                confirm="Are you sure you want to delete this department?"
+                                                :disabled="$department->members_count > 0 || $department->works_count > 0"
+                                            />
                                         </div>
                                     </td>
                                 </tr>

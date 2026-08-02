@@ -63,7 +63,7 @@ class AlumniController extends Controller
                 Storage::disk('public')->delete($alumni->image);
             }
 
-            $path = $request->file('image')->store('members', 'public');
+            $path = $request->file('image')->store('alumni', 'public');
             $validated['image'] = $path;
         } else {
             // Keep existing image if no new one is provided
@@ -86,12 +86,4 @@ class AlumniController extends Controller
 
         return redirect()->route('alumni.index')->with('success', 'Alumni deleted successfully.');
     }
-
-    //Carousel di About US
-    public function showCarousel(): View
-    {
-        $alumnis = Alumni::all(); // Make sure you have this model
-        return view('carousel', compact('alumnis'));
-    }
-
 }

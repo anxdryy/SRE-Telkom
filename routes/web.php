@@ -75,17 +75,5 @@ Route::get('/Competition', function () {
     return view('competition', compact('programs'));
 });
 
-// Miscellaneous
-Route::get('/News', function () {
-    return view('news');
-});
-
-Route::get('/session-check', function () {
-    return session()->all();
-});
-
 // Individual Program Detail
 Route::get('/programs/{slug}', [ProgramsController::class, 'showDetail'])->name('programs.showDetail');
-
-// Carousel About Us
-Route::get('/aboutUs', [AboutUsController::class, 'index']);

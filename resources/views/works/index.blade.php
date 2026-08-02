@@ -28,7 +28,7 @@
                         <tbody class="divide-y divide-gray-100">
                             @foreach($works as $work)
                                 <tr>
-                                    <td class="px-4 py-3">{{ $loop->iteration }}</td>
+                                    <td class="px-4 py-3">{{ $works->firstItem() + $loop->index }}</td>
                                     <td class="px-4 py-3">
                                         <img src="{{ Storage::url($work->image) }}" alt="{{ $work->name }}" class="h-14 w-14 rounded object-cover">
                                     </td>
@@ -40,8 +40,8 @@
                                     <td class="px-4 py-3 text-gray-500">{{ $work->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</td>
                                     <td class="px-4 py-3">
                                         <div class="flex items-center gap-1">
-                                            <x-admin.icon-link :href="route('works.show', $work)" icon="fa-eye" variant="info" />
-                                            <x-admin.icon-link :href="route('works.edit', $work)" icon="fa-edit" variant="warning" />
+                                            <x-admin.icon-link :href="route('works.show', $work)" icon="fa-eye" variant="info" label="View" />
+                                            <x-admin.icon-link :href="route('works.edit', $work)" icon="fa-edit" variant="warning" label="Edit" />
                                             <x-admin.delete-form :action="route('works.destroy', $work)" confirm="Are you sure you want to delete this work?" />
                                         </div>
                                     </td>

@@ -28,7 +28,7 @@
                         <tbody class="divide-y divide-gray-100">
                             @foreach($members as $member)
                                 <tr>
-                                    <td class="px-4 py-3">{{ $loop->iteration }}</td>
+                                    <td class="px-4 py-3">{{ $members->firstItem() + $loop->index }}</td>
                                     <td class="px-4 py-3">
                                         <img src="{{ Storage::url($member->image) }}" alt="{{ $member->name }}" class="h-14 w-14 rounded object-cover">
                                     </td>
@@ -42,8 +42,8 @@
                                     <td class="px-4 py-3 text-gray-500">{{ $member->updated_at->timezone('Asia/Jakarta')->format('Y-m-d H:i') }}</td>
                                     <td class="px-4 py-3">
                                         <div class="flex items-center gap-1">
-                                            <x-admin.icon-link :href="route('members.show', $member)" icon="fa-eye" variant="info" />
-                                            <x-admin.icon-link :href="route('members.edit', $member)" icon="fa-edit" variant="warning" />
+                                            <x-admin.icon-link :href="route('members.show', $member)" icon="fa-eye" variant="info" label="View" />
+                                            <x-admin.icon-link :href="route('members.edit', $member)" icon="fa-edit" variant="warning" label="Edit" />
                                             <x-admin.delete-form :action="route('members.destroy', $member)" confirm="Are you sure you want to delete this member?" />
                                         </div>
                                     </td>

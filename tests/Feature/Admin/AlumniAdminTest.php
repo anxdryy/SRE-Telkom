@@ -106,6 +106,25 @@ class AlumniAdminTest extends TestCase
         $response->assertStatus(200)->assertSee('Dina Marlina');
     }
 
+    public function test_update_stores_new_image_under_alumni_disk_path(): void
+    {
+        $alumni = Alumni::create([
+            'name' => 'Erin Halim',
+            'achievement' => 'Debate champion',
+            'image' => 'alumni/placeholder.jpg',
+        ]);
+
+        $this->actingAs($this->admin)->put(route('alumni.update', $alumni), [
+            'name' => 'Erin Halim',
+            'achievement' => 'Debate champion',
+            'image' => UploadedFile::fake()->image('new-photo.jpg'),
+        ]);
+
+        $alumni->refresh();
+        $this->assertStringStartsWith('alumni/', $alumni->image);
+        Storage::disk('public')->assertExists($alumni->image);
+    }
+
     public function test_destroy_deletes_alumni(): void
     {
         $alumni = Alumni::create([

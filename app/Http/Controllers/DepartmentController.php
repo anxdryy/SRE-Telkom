@@ -129,23 +129,6 @@ class DepartmentController extends Controller
             ->with('success', 'Department deleted successfully.');
     }
 
-    // Front-end department detail
-    public function detail(Request $request): View {
-        $id = $request->query('id');
-        $department = Department::with(['members', 'works'])->find($id);
-
-        if (!$department) {
-            abort(404, 'Department not found');
-        }
-
-        return view('departement', compact('department'));
-    }
-
-    public function aboutUs(): View {
-        $departments = Department::all();
-        return view('aboutus', compact('departments'));
-    }
-
     public function showDetail($slug): View {
         $department = Department::with(['members', 'works'])->where('slug', $slug)->first();
 

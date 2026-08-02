@@ -10,7 +10,7 @@ use Illuminate\Http\RedirectResponse;
 class CategoryController extends Controller
 {
     public function index(): View {
-        $categories = Category::orderBy('created_at', 'desc')->paginate(10);
+        $categories = Category::withCount('programs')->orderBy('created_at', 'desc')->paginate(10);
         return view('categories.index', compact('categories'));
     }
 
@@ -43,6 +43,11 @@ class CategoryController extends Controller
     }
 
     public function destroy(Category $category): RedirectResponse {
+        if ($category->programs()->count() > 0) {
+            return redirect()->route('categories.index')
+                ->with('error', 'Cannot delete category with programs.');
+        }
+
         $category->delete();
         return redirect()->route('categories.index')->with('success', 'Category deleted.');
     }

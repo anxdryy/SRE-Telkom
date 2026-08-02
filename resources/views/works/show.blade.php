@@ -3,7 +3,7 @@
 @section('content')
     <div class="rounded-xl bg-white shadow-sm">
         <x-admin.page-header title="Work Details" icon="fa-suitcase">
-            <x-admin.icon-link :href="route('works.edit', $work)" icon="fa-edit" variant="warning" />
+            <x-admin.icon-link :href="route('works.edit', $work)" icon="fa-edit" variant="warning" label="Edit" />
             <a href="{{ route('works.index') }}" class="inline-flex items-center gap-1 rounded-lg px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100">
                 <i class="fas fa-arrow-left"></i> Back
             </a>
